@@ -151,6 +151,23 @@ export async function seedDatabase() {
       featured: true,
     });
 
+    await storage.createPackage({
+      name: "Holi Celebration at Varanasi",
+      category: "popular_event",
+      duration: "2 Days",
+      shortDescription: "Celebrate the festival of colors with authentic Holi traditions, bonfires, and community festivities in the spiritual heart of India.",
+      highlights: [
+        "Traditional Holi bonfire (Holika Dahan)",
+        "Color play ceremonies with locals",
+        "Ghat-side celebrations and prayers",
+        "Traditional sweets and cultural performances",
+      ],
+      imageUrl: package3,
+      detailedDescription: "Experience the vibrant festival of Holi like never before in the sacred city of Varanasi. Join in the traditional Holika Dahan celebration where bonfires light up the nights, followed by the joyous color play that brings communities together. Immerse yourself in the spiritual and cultural essence of this ancient festival with expert guidance, traditional rituals, and authentic local experiences that celebrate the triumph of good over evil.",
+      price: 5500,
+      featured: false,
+    });
+
     // Seed Packages - Touristic
     await storage.createPackage({
       name: "1-Day Kashi Darshan",
