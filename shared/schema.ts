@@ -1,5 +1,5 @@
 import { sql } from "drizzle-orm";
-import { pgTable, text, varchar, integer, boolean } from "drizzle-orm/pg-core";
+import { pgTable, text, varchar, integer, boolean, date } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -77,3 +77,36 @@ export type BlogPost = typeof blogPosts.$inferSelect;
 
 export type InsertPackage = z.infer<typeof insertPackageSchema>;
 export type Package = typeof packages.$inferSelect;
+
+export const panchangEvents = pgTable("panchang_events", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  date: date("date").notNull(),
+  name: text("name").notNull(),
+  description: text("description").notNull(),
+  type: text("type").notNull(),
+  significance: text("significance"),
+});
+
+export const videoTestimonials = pgTable("video_testimonials", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  platform: text("platform").notNull(),
+  videoUrl: text("video_url").notNull(),
+  embedCode: text("embed_code"),
+  caption: text("caption"),
+  author: text("author"),
+  featured: boolean("featured").notNull().default(false),
+});
+
+export const insertPanchangEventSchema = createInsertSchema(panchangEvents).omit({
+  id: true,
+});
+
+export const insertVideoTestimonialSchema = createInsertSchema(videoTestimonials).omit({
+  id: true,
+});
+
+export type InsertPanchangEvent = z.infer<typeof insertPanchangEventSchema>;
+export type PanchangEvent = typeof panchangEvents.$inferSelect;
+
+export type InsertVideoTestimonial = z.infer<typeof insertVideoTestimonialSchema>;
+export type VideoTestimonial = typeof videoTestimonials.$inferSelect;
