@@ -17,6 +17,7 @@ import BookingDialog from "@/components/BookingDialog";
 import Footer from "@/components/Footer";
 import Navigation from "@/components/Navigation";
 import BottomNav from "@/components/BottomNav";
+import PanchangCalendar from "@/components/PanchangCalendar";
 
 import heroImage1 from "@assets/generated_images/Calm_Ganga_morning_sunrise_cb8f5772.png";
 import heroImage2 from "@assets/generated_images/Evening_aarti_ceremony_Varanasi_fdd358a3.png";
@@ -363,6 +364,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <PanchangCalendar onWhatsAppClick={() => handleWhatsApp()} />
 
       <section id="destinations" className="py-16 md:py-24 px-4 bg-accent/30">
         <div className="max-w-7xl mx-auto">

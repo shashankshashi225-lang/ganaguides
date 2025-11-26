@@ -74,12 +74,12 @@ export default function Destinations() {
               >
                 All Regions
               </Badge>
-              {regions.map(region => (
+              {regions.map(region => region && (
                 <Badge
                   key={region}
                   className={`cursor-pointer ${regionFilter === region ? "bg-primary" : "bg-muted hover-elevate"}`}
                   onClick={() => setRegionFilter(region)}
-                  data-testid={`filter-region-${region?.toLowerCase()}`}
+                  data-testid={`filter-region-${region.toLowerCase()}`}
                 >
                   {region}
                 </Badge>

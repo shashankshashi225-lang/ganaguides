@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertDestinationSchema, insertBlogPostSchema, insertPackageSchema } from "@shared/schema";
+import { insertDestinationSchema, insertBlogPostSchema, insertPackageSchema, insertPanchangEventSchema, insertVideoTestimonialSchema } from "@shared/schema";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Destination routes
@@ -131,6 +131,126 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(404).json({ message: "Package not found" });
       }
       res.json(pkg);
+    } catch (error: any) {
+      res.status(500).json({ message: error.message });
+    }
+  });
+
+  // Panchang events routes
+  app.get("/api/panchang-events", async (req, res) => {
+    try {
+      const { year, month } = req.query;
+      if (year && month) {
+        const events = await storage.getPanchangEventsByMonth(
+          parseInt(year as string),
+          parseInt(month as string)
+        );
+        return res.json(events);
+      }
+      const events = await storage.getAllPanchangEvents();
+      res.json(events);
+    } catch (error: any) {
+      res.status(500).json({ message: error.message });
+    }
+  });
+
+  app.get("/api/panchang-events/:id", async (req, res) => {
+    try {
+      const event = await storage.getPanchangEvent(req.params.id);
+      if (!event) {
+        return res.status(404).json({ message: "Panchang event not found" });
+      }
+      res.json(event);
+    } catch (error: any) {
+      res.status(500).json({ message: error.message });
+    }
+  });
+
+  app.post("/api/panchang-events", async (req, res) => {
+    try {
+      const validatedData = insertPanchangEventSchema.parse(req.body);
+      const event = await storage.createPanchangEvent(validatedData);
+      res.status(201).json(event);
+    } catch (error: any) {
+      res.status(400).json({ message: error.message });
+    }
+  });
+
+  app.patch("/api/panchang-events/:id", async (req, res) => {
+    try {
+      const event = await storage.updatePanchangEvent(req.params.id, req.body);
+      if (!event) {
+        return res.status(404).json({ message: "Panchang event not found" });
+      }
+      res.json(event);
+    } catch (error: any) {
+      res.status(500).json({ message: error.message });
+    }
+  });
+
+  app.delete("/api/panchang-events/:id", async (req, res) => {
+    try {
+      const success = await storage.deletePanchangEvent(req.params.id);
+      if (!success) {
+        return res.status(404).json({ message: "Panchang event not found" });
+      }
+      res.status(204).send();
+    } catch (error: any) {
+      res.status(500).json({ message: error.message });
+    }
+  });
+
+  // Video testimonials routes
+  app.get("/api/video-testimonials", async (req, res) => {
+    try {
+      const testimonials = await storage.getAllVideoTestimonials();
+      res.json(testimonials);
+    } catch (error: any) {
+      res.status(500).json({ message: error.message });
+    }
+  });
+
+  app.get("/api/video-testimonials/:id", async (req, res) => {
+    try {
+      const testimonial = await storage.getVideoTestimonial(req.params.id);
+      if (!testimonial) {
+        return res.status(404).json({ message: "Video testimonial not found" });
+      }
+      res.json(testimonial);
+    } catch (error: any) {
+      res.status(500).json({ message: error.message });
+    }
+  });
+
+  app.post("/api/video-testimonials", async (req, res) => {
+    try {
+      const validatedData = insertVideoTestimonialSchema.parse(req.body);
+      const testimonial = await storage.createVideoTestimonial(validatedData);
+      res.status(201).json(testimonial);
+    } catch (error: any) {
+      res.status(400).json({ message: error.message });
+    }
+  });
+
+  app.patch("/api/video-testimonials/:id", async (req, res) => {
+    try {
+      const testimonial = await storage.updateVideoTestimonial(req.params.id, req.body);
+      if (!testimonial) {
+        return res.status(404).json({ message: "Video testimonial not found" });
+      }
+      res.json(testimonial);
+    } catch (error: any) {
+      res.status(500).json({ message: error.message });
+    }
+  });
+
+  app.delete("/api/video-testimonials/:id", async (req, res) => {
+    try {
+      const success = await storage.deleteVideoTestimonial(req.params.id);
+      if (!success) {
+        return res.status(404).json({ message: "Video testimonial not found" });
+      }
+      res.status(204).send();
     } catch (error: any) {
       res.status(500).json({ message: error.message });
     }

@@ -14,13 +14,12 @@ export default function WhatsAppFloat({
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
     window.open(whatsappUrl, "_blank");
-    console.log("WhatsApp clicked");
   };
 
   return (
     <button
       onClick={handleClick}
-      className="fixed bottom-24 right-4 z-40 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center text-white shadow-xl hover:scale-110 active:scale-95 transition-transform animate-pulse md:bottom-6 md:right-6"
+      className="fixed bottom-28 right-4 z-[100] w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center text-white shadow-xl hover:scale-110 active:scale-95 transition-transform animate-pulse md:bottom-6 md:right-6"
       aria-label="Chat on WhatsApp"
       data-testid="button-whatsapp-float"
     >
