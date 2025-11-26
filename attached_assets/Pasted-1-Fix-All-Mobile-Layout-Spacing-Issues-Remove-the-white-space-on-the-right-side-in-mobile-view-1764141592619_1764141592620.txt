@@ -1,0 +1,94 @@
+1. Fix All Mobile Layout & Spacing Issues
+•	Remove the white space on the right side in mobile view
+•	Ensure the page auto-aligns correctly for all screen sizes
+•	Fix the WhatsApp floating icon which is getting hidden behind the bottom menu
+•	Everything should be fully responsive and aligned properly
+________________________________________
+2. Add a New "Panchang" Section (Important Feature)
+I need a functional Panchang (Hindu calendar) section on the homepage:
+Panchang Requirements:
+•	A mini monthly calendar card
+•	Highlight significant days:
+o	Amavasya
+o	Purnima
+o	Festivals
+•	When user clicks a highlighted date, show a popup with:
+o	Event name
+o	Date
+o	Description
+o	Relevance for travel/puja
+•	This section updates every month
+•	I will add/edit events directly in Neon PostgreSQL, not through an admin panel
+Database table for events:
+events
+•	id
+•	date
+•	event_name
+•	description
+•	type (Amavasya/Purnima/Festival/etc.)
+________________________________________
+3. Neon PostgreSQL Database Setup
+Create & connect following tables:
+destinations
+•	main_image
+•	optional_image1
+•	optional_image2
+•	optional_image3
+•	title
+•	description
+blogs
+•	main_image
+•	optional_images (3)
+•	title
+•	content
+packages
+•	main_image
+•	optional_images (3)
+•	title
+•	details
+events (for Panchang)
+•	date
+•	event
+•	description
+•	type
+All optional images must hide automatically if empty.
+________________________________________
+4. Video Testimonials Section
+•	Add real Instagram videos (embed actual video, not links)
+•	Apply gentle fade-in animation (you choose best style)
+________________________________________
+5. Create Detail Pages (with Routing)
+For:
+•	Destinations
+•	Blogs
+•	Packages
+Each detail page should include:
+•	Main image + optional gallery images
+•	Full content/description
+•	Social sharing buttons:
+o	WhatsApp
+o	Instagram Share
+o	Copy Link
+________________________________________
+6. WhatsApp Integration Everywhere
+Add a working WhatsApp button on:
+•	Every page
+•	Detail pages
+•	Homepage
+•	Packages/blogs/destinations list pages
+________________________________________
+7. Fix App Crashes & Missing Secrets
+•	Debug and fix the issue causing:
+“The app failed to run, please debug and fix it”
+•	Ensure server starts without port conflicts
+•	Ensure .env secrets are recognized
+________________________________________
+8. All Buttons Should Work
+•	Proper routing (wouter)
+•	Smooth navigation
+•	Everything clickable must function
+________________________________________
+9. Build All This in ONE ITERATION
+Because I don’t have memory, build everything now without asking again.
+________________________________________
+
