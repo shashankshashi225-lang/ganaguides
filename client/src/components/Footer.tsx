@@ -82,7 +82,7 @@ export default function Footer() {
             <img 
               src={logoImage} 
               alt="Ganga Guides" 
-              className="h-10 w-auto object-contain bg-white/90 rounded-md px-2 py-1"
+              className="h-14 md:h-16 w-auto object-contain"
             />
           </Link>
           <p className="text-sm text-primary-foreground/80">

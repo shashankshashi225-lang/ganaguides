@@ -40,7 +40,7 @@ export default function Navigation({ onBookNowClick }: NavigationProps) {
               <img 
                 src={logoImage} 
                 alt="Ganga Guides - Spiritual Essence, Guided by Heritage" 
-                className="h-12 md:h-14 w-auto object-contain"
+                className="h-16 md:h-20 w-auto object-contain"
               />
             </button>
           </Link>
