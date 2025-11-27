@@ -1,4 +1,6 @@
-import { FaWhatsapp, FaInstagram, FaFacebook } from "react-icons/fa";
+import { FaWhatsapp, FaFacebook, FaLinkedin } from "react-icons/fa";
+import { Link } from "wouter";
+import logoImage from "@assets/WhatsApp Image 2025-11-27 at 18.51.46_31b22891_1764249725582.jpg";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -17,21 +19,21 @@ export default function Footer() {
           <div>
             <h3 className="font-display text-xl font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              <li><a href="#home" className="hover:underline hover-elevate transition-all" data-testid="link-footer-home">Home</a></li>
-              <li><a href="#packages" className="hover:underline hover-elevate transition-all" data-testid="link-footer-tours">Tours</a></li>
-              <li><a href="#destinations" className="hover:underline hover-elevate transition-all" data-testid="link-footer-destinations">Destinations</a></li>
-              <li><a href="#blog" className="hover:underline hover-elevate transition-all" data-testid="link-footer-blog">Blog</a></li>
-              <li><a href="#about" className="hover:underline hover-elevate transition-all" data-testid="link-footer-about">About</a></li>
+              <li><Link href="/" className="hover:underline hover-elevate transition-all" data-testid="link-footer-home">Home</Link></li>
+              <li><Link href="/packages" className="hover:underline hover-elevate transition-all" data-testid="link-footer-tours">Tours</Link></li>
+              <li><Link href="/destinations" className="hover:underline hover-elevate transition-all" data-testid="link-footer-destinations">Destinations</Link></li>
+              <li><Link href="/blog" className="hover:underline hover-elevate transition-all" data-testid="link-footer-blog">Blog</Link></li>
+              <li><Link href="/about" className="hover:underline hover-elevate transition-all" data-testid="link-footer-about">About</Link></li>
             </ul>
           </div>
 
           <div>
             <h3 className="font-display text-xl font-bold mb-4">Destinations</h3>
             <ul className="space-y-2">
-              <li><a href="#varanasi" className="hover:underline hover-elevate transition-all">Varanasi</a></li>
-              <li><a href="#ayodhya" className="hover:underline hover-elevate transition-all">Ayodhya</a></li>
-              <li><a href="#sarnath" className="hover:underline hover-elevate transition-all">Sarnath</a></li>
-              <li><a href="#prayagraj" className="hover:underline hover-elevate transition-all">Prayagraj</a></li>
+              <li><Link href="/destination/varanasi" className="hover:underline hover-elevate transition-all">Varanasi</Link></li>
+              <li><Link href="/destination/ayodhya" className="hover:underline hover-elevate transition-all">Ayodhya</Link></li>
+              <li><Link href="/destination/sarnath" className="hover:underline hover-elevate transition-all">Sarnath</Link></li>
+              <li><Link href="/destination/prayagraj" className="hover:underline hover-elevate transition-all">Prayagraj</Link></li>
             </ul>
           </div>
 
@@ -49,17 +51,7 @@ export default function Footer() {
                 <FaWhatsapp className="w-5 h-5" />
               </a>
               <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 flex items-center justify-center hover-elevate active-elevate-2 transition-all"
-                aria-label="Instagram"
-                data-testid="link-footer-instagram"
-              >
-                <FaInstagram className="w-5 h-5" />
-              </a>
-              <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/share/1C4XntevBn/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 flex items-center justify-center hover-elevate active-elevate-2 transition-all"
@@ -68,6 +60,16 @@ export default function Footer() {
               >
                 <FaFacebook className="w-5 h-5" />
               </a>
+              <a
+                href="https://www.linkedin.com/company/ganga-guides-network/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 flex items-center justify-center hover-elevate active-elevate-2 transition-all"
+                aria-label="LinkedIn"
+                data-testid="link-footer-linkedin"
+              >
+                <FaLinkedin className="w-5 h-5" />
+              </a>
             </div>
             <p className="text-sm text-primary-foreground/80 leading-relaxed">
               Experience authentic spiritual journeys with local guides who live the stories of Kashi.
@@ -75,9 +77,16 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-primary-foreground/20 pt-8 text-center">
+        <div className="border-t border-primary-foreground/20 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+          <Link href="/">
+            <img 
+              src={logoImage} 
+              alt="Ganga Guides" 
+              className="h-10 w-auto object-contain bg-white/90 rounded-md px-2 py-1"
+            />
+          </Link>
           <p className="text-sm text-primary-foreground/80">
-            © {currentYear} GangaGuides. All rights reserved.
+            © {currentYear} Ganga Guides. All rights reserved.
           </p>
         </div>
       </div>
