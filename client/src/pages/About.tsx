@@ -3,10 +3,6 @@ import BottomNav from "@/components/BottomNav";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import FadeInSection from "@/components/FadeInSection";
-import TeamMember from "@/components/TeamMember";
-
-import guide1 from "@assets/generated_images/Local_tour_guide_portrait_a60f1ce8.png";
-import guide2 from "@assets/generated_images/Female_guide_portrait_professional_c50981da.png";
 
 export default function About() {
   const handleWhatsApp = () => {
@@ -21,21 +17,6 @@ export default function About() {
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: "smooth" });
   };
-
-  const teamMembers = [
-    {
-      name: "Rajesh Kumar",
-      role: "Senior Guide",
-      quote: "Sharing the soul of Kashi with travelers is my life's passion",
-      photoUrl: guide1,
-    },
-    {
-      name: "Priya Sharma",
-      role: "Cultural Expert",
-      quote: "Every ghat has a story, and I love bringing them alive",
-      photoUrl: guide2,
-    },
-  ];
 
   return (
     <div className="min-h-screen pb-20">
@@ -101,20 +82,6 @@ export default function About() {
                 </ul>
               </div>
             </FadeInSection>
-          </div>
-
-          <FadeInSection delay={0.4}>
-            <h2 className="font-display text-2xl md:text-3xl font-bold text-center mb-8">
-              Meet Our Team
-            </h2>
-          </FadeInSection>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
-            {teamMembers.map((member, index) => (
-              <FadeInSection key={member.name} delay={0.5 + index * 0.1}>
-                <TeamMember {...member} />
-              </FadeInSection>
-            ))}
           </div>
         </div>
       </section>
