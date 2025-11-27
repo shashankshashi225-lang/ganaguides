@@ -23,14 +23,10 @@ export default function Navigation({ onBookNowClick }: NavigationProps) {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        isScrolled
-          ? "bg-background/95 backdrop-blur-lg shadow-lg border-b border-border"
-          : "bg-transparent text-white"
-      }`}
+      className="fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-white shadow-lg border-b border-border"
       data-testid="navigation"
     >
-      <div className="max-w-7xl mx-auto px-4 py-4">
+      <div className="max-w-7xl mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           <Link href="/">
             <button 
@@ -40,7 +36,7 @@ export default function Navigation({ onBookNowClick }: NavigationProps) {
               <img 
                 src={logoImage} 
                 alt="Ganga Guides - Spiritual Essence, Guided by Heritage" 
-                className="h-12 md:h-16 w-auto object-contain max-w-xs"
+                className="h-14 md:h-24 w-auto object-contain max-w-sm md:max-w-lg"
               />
             </button>
           </Link>
@@ -52,7 +48,7 @@ export default function Navigation({ onBookNowClick }: NavigationProps) {
                   className={`text-sm font-medium transition-colors hover-elevate px-3 py-2 rounded-md ${
                     isActive("/")
                       ? "text-primary"
-                      : isScrolled ? "text-foreground hover:text-primary" : "text-white/90 hover:text-white"
+                      : "text-foreground hover:text-primary"
                   }`}
                   data-testid="nav-home"
                 >
@@ -64,7 +60,7 @@ export default function Navigation({ onBookNowClick }: NavigationProps) {
                   className={`text-sm font-medium transition-colors hover-elevate px-3 py-2 rounded-md ${
                     isActive("/packages")
                       ? "text-primary"
-                      : isScrolled ? "text-foreground hover:text-primary" : "text-white/90 hover:text-white"
+                      : "text-foreground hover:text-primary"
                   }`}
                   data-testid="nav-packages"
                 >
@@ -76,7 +72,7 @@ export default function Navigation({ onBookNowClick }: NavigationProps) {
                   className={`text-sm font-medium transition-colors hover-elevate px-3 py-2 rounded-md ${
                     isActive("/destinations")
                       ? "text-primary"
-                      : isScrolled ? "text-foreground hover:text-primary" : "text-white/90 hover:text-white"
+                      : "text-foreground hover:text-primary"
                   }`}
                   data-testid="nav-destinations"
                 >
@@ -88,7 +84,7 @@ export default function Navigation({ onBookNowClick }: NavigationProps) {
                   className={`text-sm font-medium transition-colors hover-elevate px-3 py-2 rounded-md ${
                     isActive("/blog")
                       ? "text-primary"
-                      : isScrolled ? "text-foreground hover:text-primary" : "text-white/90 hover:text-white"
+                      : "text-foreground hover:text-primary"
                   }`}
                   data-testid="nav-blog"
                 >
@@ -100,7 +96,7 @@ export default function Navigation({ onBookNowClick }: NavigationProps) {
                   className={`text-sm font-medium transition-colors hover-elevate px-3 py-2 rounded-md ${
                     isActive("/about")
                       ? "text-primary"
-                      : isScrolled ? "text-foreground hover:text-primary" : "text-white/90 hover:text-white"
+                      : "text-foreground hover:text-primary"
                   }`}
                   data-testid="nav-about"
                 >
