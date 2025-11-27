@@ -1,6 +1,6 @@
 import { FaWhatsapp, FaFacebook, FaLinkedin } from "react-icons/fa";
 import { Link } from "wouter";
-import logoImage from "@assets/WhatsApp Image 2025-11-27 at 18.51.46_31b22891_1764249725582.jpg";
+import logoImage from "@assets/Untitled design_1764250647974.png";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -82,7 +82,7 @@ export default function Footer() {
             <img 
               src={logoImage} 
               alt="Ganga Guides" 
-              className="h-14 md:h-16 w-auto object-contain"
+              className="h-16 md:h-20 w-auto object-contain max-w-md"
             />
           </Link>
           <p className="text-sm text-primary-foreground/80">
