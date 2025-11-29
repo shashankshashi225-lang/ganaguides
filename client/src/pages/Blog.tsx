@@ -54,7 +54,7 @@ export default function Blog() {
     <div className="min-h-screen pb-20">
       <Navigation onBookNowClick={() => scrollToSection("contact")} />
       
-      <section className="py-16 md:py-24 px-4 bg-background">
+      <section className="pt-24 md:pt-32 pb-16 md:pb-24 px-4 bg-background">
         <div className="max-w-7xl mx-auto">
           <FadeInSection>
             <div className="text-center mb-12">
