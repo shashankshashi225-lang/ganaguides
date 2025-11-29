@@ -323,7 +323,7 @@ const mockPackages: Package[] = [
   {
     id: "1day-kashi",
     name: "1-Day Kashi Darshan",
-    category: "Day Tours",
+    category: "touristic",
     duration: "1 Day",
     shortDescription: "Experience the essence of Varanasi in a single day with our expertly curated tour through sacred ghats and ancient temples.",
     highlights: [
@@ -340,7 +340,7 @@ const mockPackages: Package[] = [
   {
     id: "2day-kashi-sarnath",
     name: "2 Days Varanasi Tour Package – Kashi Darshan with Sarnath",
-    category: "Multi-Day Tours",
+    category: "touristic",
     duration: "2 Days",
     shortDescription: "Experience the divine aura of Kashi – the Spiritual Capital of India. Seek blessings at sacred temples, witness the famous Ganga Aarti at Dashashwamedh Ghat, and explore the peaceful Buddhist site of Sarnath.",
     highlights: [
@@ -360,7 +360,7 @@ const mockPackages: Package[] = [
   {
     id: "3day-kashi-spiritual",
     name: "3 Days / 2 Nights Varanasi Spiritual Tour Package – Kashi Darshan with Sarnath",
-    category: "Pilgrimage Tours",
+    category: "touristic",
     duration: "3 Days",
     shortDescription: "Discover the divine charm of Kashi (Varanasi) – the city where spirituality meets eternity. Cover the most sacred temples of Kashi, the holy ghats, and the peaceful Buddhist sites of Sarnath.",
     highlights: [
@@ -381,7 +381,7 @@ const mockPackages: Package[] = [
   {
     id: "3day-ayodhya",
     name: "3-Day Ayodhya + Kashi Spiritual Trail",
-    category: "Pilgrimage Tours",
+    category: "touristic",
     duration: "3 Days",
     shortDescription: "A comprehensive spiritual journey connecting the sacred cities of Ayodhya and Varanasi with expert local guidance.",
     highlights: [
