@@ -46,7 +46,10 @@ Preferred communication style: Simple, everyday language.
 - Packages Landing: Category selection (Popular Events, Tourist, Pooja)
 - Package Category: Filtered package listings by category
 - Package Detail: Individual package information with booking CTA
-- Destinations: Grid of destination guides
+- Destinations: Comprehensive destination guides with search and regional filters
+  - Search functionality: Filter by destination name or description
+  - Region filters: All Regions / Varanasi/Ayodhya (13 total destinations)
+  - All destinations include detailed historical and spiritual information
 - Destination Detail: Full destination information with images
 - Blog: Categorized blog posts with filtering
 - Blog Detail: Full blog post content
@@ -70,8 +73,19 @@ Preferred communication style: Simple, everyday language.
 - Error handling with appropriate HTTP status codes
 
 **Data Models**:
-- **Destinations**: name, descriptions (short/full), multiple images, region, featured flag
-- **Packages**: name, category, duration, descriptions, highlights array, price, featured flag
+- **Destinations** (13 total):
+  - Varanasi (6): Durga Temple, Sankat Mochan Hanuman Temple, Annapurna Temple, Kaal Bhairav Temple, Kashi Vishwanath Temple, Kardameshwar Mahadev Temple, Vishalakshi Devi Temple
+  - Ayodhya (4): Nageshwar Nath Temple, Hanuman Garhi, Treta Ke Thakur Temple, Kanak Bhawan
+  - Historical sites (3): Dashrath Bhavan, Ram Katha Sangrahalay, Tulsi Smarak Bhawan
+  - Regional category (4): Varanasi, Ayodhya, Sarnath, Prayagraj
+  - Fields: name, descriptions (short/full), multiple images, region, featured flag, search-optimized
+- **Packages** (4):
+  - 1-Day Kashi Darshan (Day Tours)
+  - 2 Days Varanasi Tour Package – Kashi Darshan with Sarnath (Multi-Day Tours)
+  - 3 Days/2 Nights Varanasi Spiritual Tour Package – Kashi Darshan with Sarnath (Pilgrimage Tours)
+  - 3-Day Ayodhya + Kashi Spiritual Trail (Pilgrimage Tours)
+  - Note: ALL prices set to null (user must contact via WhatsApp/phone for rates)
+  - Fields: name, category, duration, descriptions, highlights array, price (null), featured flag
 - **Blog Posts**: title, excerpt, content, category, publish date, read time, multiple images, featured flag
 - **Users**: username, password (for potential admin access)
 
@@ -130,7 +144,11 @@ Preferred communication style: Simple, everyday language.
 - "View All" buttons redirect to dedicated category pages
 - "Read More" on destinations redirects to detail pages
 - Hover interactions reveal package details (flip cards)
-- Filter badges for category/duration/region selection
+- **Destination Discovery**: 
+  - Search bar for real-time destination filtering by name or description
+  - Region filter badges: All Regions / Varanasi/Ayodhya
+  - 13 comprehensive destination guides with deep historical and spiritual context
+  - Each destination includes short summary and full detailed description
 
 ## External Dependencies
 
