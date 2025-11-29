@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useLocation } from "wouter";
 import { useQuery } from "@tanstack/react-query";
 import type { Destination } from "@shared/schema";
@@ -9,11 +9,13 @@ import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import FadeInSection from "@/components/FadeInSection";
 import { Badge } from "@/components/ui/badge";
-import { Filter } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Filter, Search } from "lucide-react";
 
 export default function Destinations() {
   const [, setLocation] = useLocation();
   const [regionFilter, setRegionFilter] = useState<string>("all");
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
   const { data: apiDestinations, isLoading } = useQuery<Destination[]>({
     queryKey: ['/api/destinations'],
@@ -29,9 +31,15 @@ export default function Destinations() {
 
   const destinations = apiDestinations || [];
 
-  const filteredDestinations = destinations.filter(dest =>
-    regionFilter === "all" || dest.region === regionFilter
-  );
+  const filteredDestinations = useMemo(() => {
+    return destinations.filter(dest => {
+      const matchesRegion = regionFilter === "all" || dest.region === regionFilter;
+      const matchesSearch = searchQuery === "" || 
+        dest.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        dest.shortDescription.toLowerCase().includes(searchQuery.toLowerCase());
+      return matchesRegion && matchesSearch;
+    });
+  }, [destinations, regionFilter, searchQuery]);
 
   const regions = Array.from(new Set(destinations.map(dest => dest.region).filter(Boolean)));
 
@@ -60,13 +68,28 @@ export default function Destinations() {
             </div>
           </FadeInSection>
 
+          {/* Search Bar */}
+          <div className="mb-8">
+            <div className="relative max-w-2xl mx-auto">
+              <Search className="absolute left-3 top-3 w-4 h-4 text-muted-foreground" />
+              <Input
+                placeholder="Search destinations by name or description..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-10 py-2"
+                data-testid="input-search-destinations"
+              />
+            </div>
+          </div>
+
+          {/* Filter Section */}
           <div className="flex flex-wrap gap-4 mb-12 justify-center">
             <div className="flex items-center gap-2">
               <Filter className="w-4 h-4 text-muted-foreground" />
               <span className="text-sm font-medium">Region:</span>
             </div>
             
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2 justify-center">
               <Badge
                 className={`cursor-pointer ${regionFilter === "all" ? "bg-primary" : "bg-muted hover-elevate"}`}
                 onClick={() => setRegionFilter("all")}
@@ -74,16 +97,21 @@ export default function Destinations() {
               >
                 All Regions
               </Badge>
-              {regions.map(region => region && (
-                <Badge
-                  key={region}
-                  className={`cursor-pointer ${regionFilter === region ? "bg-primary" : "bg-muted hover-elevate"}`}
-                  onClick={() => setRegionFilter(region)}
-                  data-testid={`filter-region-${region.toLowerCase()}`}
-                >
-                  {region}
-                </Badge>
-              ))}
+              {regions.map(region => {
+                if (!region) return null;
+                // Extract city name from region for better display
+                const cityName = region === "Uttar Pradesh" ? "Varanasi/Ayodhya" : region;
+                return (
+                  <Badge
+                    key={region}
+                    className={`cursor-pointer ${regionFilter === region ? "bg-primary" : "bg-muted hover-elevate"}`}
+                    onClick={() => setRegionFilter(region)}
+                    data-testid={`filter-region-${region.toLowerCase().replace(/\s+/g, '-')}`}
+                  >
+                    {cityName}
+                  </Badge>
+                );
+              })}
             </div>
           </div>
 

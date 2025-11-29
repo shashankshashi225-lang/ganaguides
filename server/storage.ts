@@ -187,6 +187,90 @@ const mockDestinations: Destination[] = [
     image4: null,
     region: "Uttar Pradesh",
     featured: false
+  },
+  {
+    id: "kaal-bhairav-temple",
+    name: "Kaal Bhairav Temple",
+    shortDescription: "The fierce guardian and kotwal (protector) of Kashi, the sacred guardian of Varanasi.",
+    description: "The Kaal Bhairav Temple in Varanasi is dedicated to Kaal Bhairav, the fierce manifestation of Lord Shiva who serves as the kotwal (guardian/protector) of Kashi. According to legend, Kaal Bhairav was created to protect the holy city and enforce divine law. The temple stands as a symbol of cosmic justice and divine protection over Varanasi. Kaal Bhairav represents the destructive aspect of creation - the power that removes ignorance and illusion. Devotees believe that visiting this temple brings protection from negative energies and ensures spiritual growth. The temple is particularly powerful during Mahashivratri, when thousands of devotees gather for rituals. Kaal Bhairav is often depicted in a fierce yet protective form, and his worship is believed to grant courage, strength, and liberation from fear. The temple has rich iconography and ancient spiritual significance in Varanasi's sacred geography.",
+    mainImage: "/assets/generated_images/kaal_bhairav_temple_varanasi.png",
+    image2: null,
+    image3: null,
+    image4: null,
+    region: "Uttar Pradesh",
+    featured: false
+  },
+  {
+    id: "kashi-vishwanath-temple",
+    name: "Shri Kashi Vishwanath Temple",
+    shortDescription: "The most sacred Jyotirlinga of Shiva, one of the 12 holiest shrines in Hindu pilgrimage.",
+    description: "The Shri Kashi Vishwanath Temple in Varanasi is one of the twelve Jyotirlingas, the holiest shrines dedicated to Lord Shiva. Known as 'Vishwanath' - the Lord of the Universe - this temple represents the cosmic form of Shiva himself. The temple stands on the western bank of the Ganges River and has been a major pilgrimage site for thousands of years. According to scripture, among all Jyotirlingas, Kashi Vishwanath is considered the most significant for attaining liberation (moksha). The temple reflects architectural splendor with its golden spire visible from across the Ganga. Inside the sanctum lies the Jyotirlinga, symbolizing the infinite cosmic energy of Shiva. The temple is always filled with devotees performing rituals, offerings, and circumambulations. The evening prayers and aarti here are particularly profound. The temple's spiritual power is believed to be unmatched, and devotees from across the world seek blessings for spiritual enlightenment and liberation from the cycle of birth and death.",
+    mainImage: "/assets/generated_images/kashi_vishwanath_temple_golden.png",
+    image2: null,
+    image3: null,
+    image4: null,
+    region: "Uttar Pradesh",
+    featured: false
+  },
+  {
+    id: "kardameshwar-temple",
+    name: "Shri Kardameshwar Mahadev Temple",
+    shortDescription: "The ancient survivor temple of Varanasi with deep-rooted spiritual significance.",
+    description: "The Shri Kardameshwar Mahadev Temple is one of the most ancient surviving temples in Varanasi with profound spiritual significance. Dedicated to Lord Shiva, this temple has witnessed centuries of devotion and remains a testament to the enduring spirituality of Kashi. The name 'Kardameshwar' carries deep meaning - associated with the cosmic creation and primal existence. This temple stands as an ancient pillar of Hindu spiritual tradition, having survived centuries of historical changes and transformations. The temple's architecture reflects the ancient Nagara style, showcasing the craftsmanship of bygone eras. Local tradition holds that this temple has been a continuous place of worship for millennia. Devotees believe visiting this temple connects them to the primal cosmic energy and ancient wisdom preserved in Varanasi. The sacred atmosphere and spiritual vibrations make it a favored destination for serious spiritual seekers. The temple represents continuity of faith and the unbroken spiritual lineage of Varanasi throughout history.",
+    mainImage: "/assets/generated_images/kardameshwar_temple_varanasi.png",
+    image2: null,
+    image3: null,
+    image4: null,
+    region: "Uttar Pradesh",
+    featured: false
+  },
+  {
+    id: "vishalakshi-devi-temple",
+    name: "Vishalakshi Devi Temple",
+    shortDescription: "The Shakti form of Varanasi, the divine cosmic feminine energy protecting the sacred city.",
+    description: "The Vishalakshi Devi Temple in Varanasi is dedicated to Goddess Vishalakshi, one of the Shakti forms residing in the eternal city. 'Vishalakshi' literally means 'the one with large, beautiful eyes,' and represents the divine cosmic feminine energy. According to sacred texts, Goddess Vishalakshi is the Shakti consort of Lord Shiva in Kashi and stands as a protector of the city's spiritual sanctity. The temple is believed to be one of the Shakti Peeths, where the divine feminine energy manifests in its most powerful form. Devotees worship here seeking blessings of prosperity, protection, and spiritual enlightenment. The goddess is depicted in her compassionate yet powerful form, embodying the creative and nurturing aspects of divine energy. The temple attracts especially female devotees seeking blessings for family welfare and spiritual growth. The spiritual power of Vishalakshi Devi is considered particularly potent for women's empowerment and divine grace. Located in sacred Varanasi, this temple represents the balance of masculine and feminine divine principles.",
+    mainImage: "/assets/generated_images/vishalakshi_devi_temple_varanasi.png",
+    image2: null,
+    image3: null,
+    image4: null,
+    region: "Uttar Pradesh",
+    featured: false
+  },
+  {
+    id: "dashrath-bhavan",
+    name: "Dashrath Bhavan",
+    shortDescription: "The legendary palace of King Dasharatha, father of Lord Rama, in sacred Ayodhya.",
+    description: "Dashrath Bhavan in Ayodhya is a significant historical site associated with King Dasharatha, the father of Lord Rama. This palace holds immense cultural and spiritual importance as the seat of power in ancient Ayodhya during the Ramayana era. According to tradition, this was the royal residence where the great king ruled and where significant events of Rama's early life unfolded. The palace architecture reflects the grandeur and magnificence of ancient Ayodhyan kingdoms. Historical accounts describe Dashrath Bhavan as a symbol of righteous rule and divine governance. The site carries the spiritual essence of the Ramayana, connecting pilgrims to the legendary kingdom of Rama. Visitors to this site feel the presence of ancient Ayodhya's glory and the spiritual legacy of one of Hinduism's greatest kings. The palace represents the ideals of dharma and righteous governance that King Dasharatha exemplified. Today, Dashrath Bhavan stands as a link between ancient history and spiritual tradition, attracting devotees and history enthusiasts alike.",
+    mainImage: "/assets/generated_images/dashrath_bhavan_ayodhya.png",
+    image2: null,
+    image3: null,
+    image4: null,
+    region: "Uttar Pradesh",
+    featured: false
+  },
+  {
+    id: "ram-katha-sangrahalay",
+    name: "Ram Katha Sangrahalay",
+    shortDescription: "A museum and repository of Rama's stories, preserving the sacred narrative of the Ramayana.",
+    description: "Ram Katha Sangrahalay is a comprehensive museum and cultural center in Ayodhya dedicated to preserving and presenting the sacred stories of Lord Rama through various art forms and displays. The museum serves as a spiritual and educational center showcasing the Ramayana's narratives through paintings, sculptures, manuscripts, and interactive exhibits. It beautifully chronicles the life and teachings of Lord Rama, making the epic accessible to modern pilgrims and scholars. The Ram Katha Sangrahalay features diverse artistic representations of Rama's life - from his birth to his coronation and exile. Traditional art forms, contemporary interpretations, and ancient manuscripts are thoughtfully displayed to tell the complete story of the beloved deity. The museum celebrates the cultural and spiritual significance of Rama in Hindu civilization. Visitors can gain deep insights into the philosophical teachings and moral lessons embedded in the Ramayana. The center creates an immersive experience that connects devotees to the spiritual essence of Rama's divine incarnation. It serves as a bridge between ancient wisdom and contemporary understanding of the epic's eternal truths.",
+    mainImage: "/assets/generated_images/ram_katha_sangrahalay_ayodhya.png",
+    image2: null,
+    image3: null,
+    image4: null,
+    region: "Uttar Pradesh",
+    featured: false
+  },
+  {
+    id: "tulsi-smarak",
+    name: "Tulsi Smarak Bhawan",
+    shortDescription: "A memorial dedicated to the great saint-poet Tulsidas and his immortal works.",
+    description: "Tulsi Smarak Bhawan in Ayodhya is a memorial dedicated to the legendary saint-poet Goswami Tulsidas, author of the Ramcharitamanas - one of the most revered Hindu scriptures. This sacred site honors Tulsidas's immense contribution to spiritual literature and Rama devotion. Tulsidas transformed the epic Ramayana into vernacular Hindi, making the sacred stories accessible to common people. His profound devotion and literary genius created a spiritual movement that shaped Hindu religious practice for centuries. The memorial showcases Tulsidas's life, his spiritual journey, and his immortal compositions. It celebrates the saint's role in popularizing Rama bhakti (devotion to Rama) across India. The Tulsi Smarak preserves manuscripts, displays depicting his life, and spaces for studying his teachings. Devotees visit to seek inspiration from his devotional path and to understand the spiritual depth of his works. The memorial stands as a testament to the power of devotion and the transformative impact of spiritual literature. For those interested in Hindu spirituality and the Ramayana, Tulsi Smarak Bhawan is an essential pilgrimage site.",
+    mainImage: "/assets/generated_images/tulsi_smarak_ayodhya.png",
+    image2: null,
+    image3: null,
+    image4: null,
+    region: "Uttar Pradesh",
+    featured: false
   }
 ];
 
