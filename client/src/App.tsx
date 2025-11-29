@@ -4,6 +4,7 @@ import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import WhatsAppWidget from "@/components/WhatsAppWidget";
 import Home from "@/pages/Home";
 import PackagesLanding from "@/pages/PackagesLanding";
 import PackageCategory from "@/pages/PackageCategory";
@@ -53,6 +54,7 @@ function App() {
       <TooltipProvider>
         <Toaster />
         <Router />
+        <WhatsAppWidget />
       </TooltipProvider>
     </QueryClientProvider>
   );
