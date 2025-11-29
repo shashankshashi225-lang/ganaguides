@@ -61,14 +61,14 @@ export default function PackageCardFlip({
                 </h3>
               </div>
             </div>
-            <div className="flex-1 p-6 flex flex-col justify-between bg-gradient-to-br from-card to-card/80">
-              <p className="text-muted-foreground leading-relaxed mb-6">
+            <div className="flex-1 p-4 sm:p-6 flex flex-col justify-between bg-gradient-to-br from-card to-card/80">
+              <p className="text-muted-foreground leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
                 {shortDescription}
               </p>
               
-              <div className="flex gap-3">
+              <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 w-full">
                 <Button
-                  className="flex-1 bg-primary text-primary-foreground font-semibold"
+                  className="w-full sm:flex-1 bg-primary text-primary-foreground font-semibold text-sm sm:text-base py-2 sm:py-auto"
                   onClick={onBookNow}
                   data-testid="button-book-now"
                 >
@@ -76,12 +76,12 @@ export default function PackageCardFlip({
                 </Button>
                 <Button
                   variant="outline"
-                  size="icon"
-                  className="border-[#25D366] text-[#25D366] hover:bg-[#25D366]/10"
+                  className="w-full sm:w-auto border-[#25D366] text-[#25D366] hover:bg-[#25D366]/10 font-semibold text-sm sm:text-base py-2 sm:py-auto gap-2"
                   onClick={onEnquireNow}
                   data-testid="button-whatsapp-icon"
                 >
-                  <FaWhatsapp className="w-5 h-5" />
+                  <FaWhatsapp className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span className="sm:hidden">WhatsApp</span>
                 </Button>
               </div>
             </div>
