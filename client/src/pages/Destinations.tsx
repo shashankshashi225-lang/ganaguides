@@ -8,40 +8,39 @@ import BottomNav from "@/components/BottomNav";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import FadeInSection from "@/components/FadeInSection";
-import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
-import { Filter, Search } from "lucide-react";
+import { Search } from "lucide-react";
 
 export default function Destinations() {
   const [, setLocation] = useLocation();
-  const [regionFilter, setRegionFilter] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState<string>("");
 
   const { data: apiDestinations, isLoading } = useQuery<Destination[]>({
     queryKey: ['/api/destinations'],
   });
 
-  const handleWhatsApp = () => {
-    const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || "918468003094";
-    const message = "Hi, I'm interested in booking a GangaGuides tour. Can you share details?";
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-    window.open(whatsappUrl, "_blank");
-  };
-
   const destinations = apiDestinations || [];
 
-  const filteredDestinations = useMemo(() => {
-    return destinations.filter(dest => {
-      const matchesRegion = regionFilter === "all" || dest.region === regionFilter;
-      const matchesSearch = searchQuery === "" || 
+  // Separate destinations by city
+  const varanasi = useMemo(() => {
+    return destinations
+      .filter(dest => dest.region === "Varanasi")
+      .filter(dest => 
+        searchQuery === "" || 
         dest.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        dest.shortDescription.toLowerCase().includes(searchQuery.toLowerCase());
-      return matchesRegion && matchesSearch;
-    });
-  }, [destinations, regionFilter, searchQuery]);
+        dest.shortDescription.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+  }, [destinations, searchQuery]);
 
-  const regions = Array.from(new Set(destinations.map(dest => dest.region).filter(Boolean)));
+  const ayodhya = useMemo(() => {
+    return destinations
+      .filter(dest => dest.region === "Ayodhya")
+      .filter(dest => 
+        searchQuery === "" || 
+        dest.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        dest.shortDescription.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+  }, [destinations, searchQuery]);
 
   if (isLoading) {
     return (
@@ -63,13 +62,13 @@ export default function Destinations() {
                 Discover Sacred Destinations
               </h1>
               <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
-                Explore Varanasi, Sarnath, Ayodhya, and other spiritual gems through our curated guides
+                Explore temples and sacred sites in Varanasi and Ayodhya through our curated guides
               </p>
             </div>
           </FadeInSection>
 
           {/* Search Bar */}
-          <div className="mb-8">
+          <div className="mb-12">
             <div className="relative max-w-2xl mx-auto">
               <Search className="absolute left-3 top-3 w-4 h-4 text-muted-foreground" />
               <Input
@@ -82,65 +81,75 @@ export default function Destinations() {
             </div>
           </div>
 
-          {/* Filter Section */}
-          <div className="flex flex-wrap gap-4 mb-12 justify-center">
-            <div className="flex items-center gap-2">
-              <Filter className="w-4 h-4 text-muted-foreground" />
-              <span className="text-sm font-medium">Region:</span>
+          {/* Varanasi Destinations Section */}
+          <div className="mb-20">
+            <FadeInSection>
+              <div className="mb-8">
+                <h2 className="font-display text-2xl md:text-3xl font-bold mb-2">
+                  Varanasi
+                </h2>
+                <p className="text-muted-foreground">
+                  Explore the sacred temples and spiritual sites of Varanasi along the holy Ganges
+                </p>
+              </div>
+            </FadeInSection>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {varanasi.map((destination, index) => (
+                <FadeInSection key={destination.id} delay={index * 0.1}>
+                  <DestinationGuideCard
+                    name={destination.name}
+                    shortDescription={destination.shortDescription}
+                    imageUrl={destination.mainImage}
+                    onClick={() => setLocation(`/destination/${destination.id}`)}
+                    data-testid={`card-destination-${destination.id}`}
+                  />
+                </FadeInSection>
+              ))}
             </div>
-            
-            <div className="flex flex-wrap gap-2 justify-center">
-              <Badge
-                className={`cursor-pointer ${regionFilter === "all" ? "bg-primary" : "bg-muted hover-elevate"}`}
-                onClick={() => setRegionFilter("all")}
-                data-testid="filter-region-all"
-              >
-                All Regions
-              </Badge>
-              {regions.map(region => {
-                if (!region) return null;
-                // Extract city name from region for better display
-                const cityName = region === "Uttar Pradesh" ? "Varanasi/Ayodhya" : region;
-                return (
-                  <Badge
-                    key={region}
-                    className={`cursor-pointer ${regionFilter === region ? "bg-primary" : "bg-muted hover-elevate"}`}
-                    onClick={() => setRegionFilter(region)}
-                    data-testid={`filter-region-${region.toLowerCase().replace(/\s+/g, '-')}`}
-                  >
-                    {cityName}
-                  </Badge>
-                );
-              })}
-            </div>
+            {varanasi.length === 0 && (
+              <div className="text-center py-8">
+                <p className="text-muted-foreground">No destinations found in Varanasi</p>
+              </div>
+            )}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {filteredDestinations.map((destination, index) => (
-              <FadeInSection key={destination.id} delay={index * 0.1}>
-                <DestinationGuideCard
-                  name={destination.name}
-                  shortDescription={destination.shortDescription}
-                  imageUrl={destination.mainImage}
-                  onClick={() => setLocation(`/destination/${destination.id}`)}
-                />
-              </FadeInSection>
-            ))}
-          </div>
-
-          {filteredDestinations.length === 0 && (
-            <div className="text-center py-16">
-              <p className="text-lg text-muted-foreground">
-                No destinations found in this region.
-              </p>
+          {/* Ayodhya Destinations Section */}
+          <div className="mb-20">
+            <FadeInSection>
+              <div className="mb-8">
+                <h2 className="font-display text-2xl md:text-3xl font-bold mb-2">
+                  Ayodhya
+                </h2>
+                <p className="text-muted-foreground">
+                  Discover the sacred temples and pilgrimage sites connected to Lord Rama in Ayodhya
+                </p>
+              </div>
+            </FadeInSection>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {ayodhya.map((destination, index) => (
+                <FadeInSection key={destination.id} delay={index * 0.1}>
+                  <DestinationGuideCard
+                    name={destination.name}
+                    shortDescription={destination.shortDescription}
+                    imageUrl={destination.mainImage}
+                    onClick={() => setLocation(`/destination/${destination.id}`)}
+                    data-testid={`card-destination-${destination.id}`}
+                  />
+                </FadeInSection>
+              ))}
             </div>
-          )}
+            {ayodhya.length === 0 && (
+              <div className="text-center py-8">
+                <p className="text-muted-foreground">No destinations found in Ayodhya</p>
+              </div>
+            )}
+          </div>
         </div>
       </section>
 
-      <Footer />
+      <Footer onBookNowClick={() => setLocation("/booking")} />
+      <BottomNav onBookNowClick={() => setLocation("/booking")} />
       <WhatsAppFloat />
-      <BottomNav onWhatsAppClick={handleWhatsApp} />
     </div>
   );
 }
