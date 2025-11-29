@@ -173,24 +173,24 @@ export default function Home() {
       platform: "instagram" as const,
       url: "https://www.instagram.com/gangaguide/p/DPiuY01E1EE/",
       embedUrl: "https://www.instagram.com/p/DPiuY01E1EE/embed",
-      caption: "Amazing experience with GangaGuides! Highly recommend their tours.",
-      author: "Travel Enthusiast"
+      caption: "Experiencing the sacred Ganga Aarti with Ganga Guides was transformative. The guides' deep knowledge and authentic connection to these spiritual spaces is unmatched!",
+      author: "Spiritual Traveler"
     },
     {
       id: 2,
       platform: "youtube" as const,
       url: "https://www.youtube.com/watch?v=example2",
       embedUrl: "https://www.youtube.com/embed/example2",
-      caption: "Absolutely magical experience! The sunrise boat tour was breathtaking.",
-      author: "Sarah Johnson"
+      caption: "Our sunrise boat ride on the Ganges in Varanasi with Ganga Guides was absolutely magical. Every moment felt sacred and meaningful.",
+      author: "Anjali Verma"
     },
     {
       id: 3,
       platform: "instagram" as const,
       url: "https://www.instagram.com/p/example3/",
       embedUrl: "https://www.instagram.com/p/example3/embed",
-      caption: "Spiritual journey of a lifetime! The guides were incredibly knowledgeable.",
-      author: "Priya Sharma"
+      caption: "Walking through the hidden temples of Varanasi with our local guide felt like stepping into a spiritual journey of a lifetime. Ganga Guides truly understands these sacred spaces!",
+      author: "Ravi Sharma"
     },
   ];
 
@@ -199,23 +199,23 @@ export default function Home() {
       id: 1,
       name: "Sarah Johnson",
       platform: "google_maps" as const,
-      text: "Absolutely magical experience! The sunrise boat tour was breathtaking. The traditional breakfast on the boat was delicious and the hospitality was outstanding.",
+      text: "Absolutely transformative experience! The sunrise boat tour on the Ganges in Varanasi was spiritually awakening. Our guide Rajesh provided profound insights into the ancient rituals and the guide's passion was contagious.",
       rating: 5,
       date: "2 weeks ago"
     },
     {
       id: 2,
-      name: "Rajesh Kumar",
+      name: "Michael Rodriguez",
       platform: "tripadvisor" as const,
-      text: "Best boating experience in Kerala! The family adventure package was perfect for our group. Kids loved the fishing experience and the traditional lunch was amazing.",
+      text: "The 3-day Ayodhya and Kashi spiritual trail exceeded all expectations. Visiting Ram Janmabhoomi followed by the sacred temples of Varanasi was an unforgettable pilgrimage. Highly recommend Ganga Guides!",
       rating: 5,
       date: "1 month ago"
     },
     {
       id: 3,
-      name: "Emily Chen",
+      name: "Priya Sharma",
       platform: "google" as const,
-      text: "The romantic sunset cruise exceeded all expectations! The candlelight dinner on the boat was incredibly romantic. Perfect for our anniversary celebration.",
+      text: "As a spiritual seeker, I was searching for authentic local guides and Ganga Guides delivered perfectly. The evening Ganga Aarti experience was divine and deeply moving. The knowledge shared was exceptional.",
       rating: 5,
       date: "3 weeks ago"
     },
@@ -223,23 +223,23 @@ export default function Home() {
       id: 4,
       name: "David Wilson",
       platform: "tripadvisor" as const,
-      text: "Authentic Kerala experience! The homestay was comfortable and the hosts were incredibly welcoming. The canal boating through the backwaters was serene.",
+      text: "Our visit to Sarnath with Ganga Guides was enlightening. Walking where Buddha gave his first sermon felt sacred. The guide's expertise about Buddhist heritage and the peaceful environment created a truly spiritual journey.",
       rating: 5,
       date: "2 months ago"
     },
     {
       id: 5,
-      name: "Priya Sharma",
+      name: "Emma Thompson",
       platform: "google_maps" as const,
-      text: "Heaven of Munroe truly lives up to its name! The full-day explorer package was incredible. Every moment was well-planned and the guide was knowledgeable.",
+      text: "Incredible spiritual journey through Prayagraj! The sacred Triveni Sangam experience was breathtaking. Our local guide shared fascinating stories about the spiritual significance and ancient traditions. A lifetime memory!",
       rating: 5,
       date: "1 week ago"
     },
     {
       id: 6,
-      name: "Michael Brown",
+      name: "Vikram Patel",
       platform: "tripadvisor" as const,
-      text: "Outstanding service and unforgettable memories! The canal boating through the backwaters was peaceful and the bird watching opportunities were fantastic.",
+      text: "Ganga Guides truly understands the soul of these sacred cities. The 2-day Kashi and Sarnath package beautifully blended Hinduism and Buddhism. Expert guides, authentic experiences, and genuine hospitality throughout.",
       rating: 5,
       date: "3 months ago"
     },
