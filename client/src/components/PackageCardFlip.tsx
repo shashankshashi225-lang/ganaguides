@@ -117,25 +117,26 @@ export default function PackageCardFlip({
               </ul>
             </div>
 
-            <div className="flex flex-col gap-3 mt-6 pt-6 border-t border-border">
+            <div className="flex flex-col gap-2 mt-6 pt-6 border-t border-border min-w-0">
               <Button
-                className="w-full bg-[#FF6B35] hover:bg-[#FF5722] text-white font-semibold shadow-lg"
+                className="w-full bg-[#FF6B35] hover:bg-[#FF5722] text-white font-semibold shadow-lg text-sm h-auto py-2"
                 onClick={onViewDetails}
                 data-testid="button-view-details"
               >
                 View Full Details
               </Button>
-              <div className="flex gap-3">
+              <div className="flex flex-col sm:flex-row gap-2 w-full">
                 <Button
-                  className="flex-1 bg-[#D4EDDA] hover:bg-[#C3E6CB] text-[#155724] border border-[#C3E6CB] font-semibold gap-2"
+                  className="flex-1 bg-[#D4EDDA] hover:bg-[#C3E6CB] text-[#155724] border border-[#C3E6CB] font-semibold text-xs sm:text-sm py-2 h-auto gap-1"
                   onClick={onEnquireNow}
                   data-testid="button-enquire-whatsapp"
                 >
-                  <FaWhatsapp className="w-4 h-4" />
-                  Enquire on WhatsApp
+                  <FaWhatsapp className="w-3 h-3 flex-shrink-0" />
+                  <span className="hidden xs:inline">Enquire</span>
+                  <span className="xs:hidden">WhatsApp</span>
                 </Button>
                 <Button
-                  className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+                  className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-sm h-auto py-2"
                   onClick={onBookNow}
                   data-testid="button-book-now"
                 >
