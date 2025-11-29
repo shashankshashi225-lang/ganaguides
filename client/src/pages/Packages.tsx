@@ -9,7 +9,6 @@ import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import BookingDialog from "@/components/BookingDialog";
 import FadeInSection from "@/components/FadeInSection";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Filter } from "lucide-react";
 
@@ -19,6 +18,7 @@ export default function Packages() {
   const [selectedPackage, setSelectedPackage] = useState("");
   const [categoryFilter, setCategoryFilter] = useState<string>("all");
   const [durationFilter, setDurationFilter] = useState<string>("all");
+  const [destinationFilter, setDestinationFilter] = useState<string>("all");
 
   const { data: apiPackages, isLoading } = useQuery<Package[]>({
     queryKey: ['/api/packages'],
@@ -46,15 +46,15 @@ export default function Packages() {
 
   const packages = apiPackages || [];
 
-  // Filter packages
   const filteredPackages = packages.filter(pkg => {
     const categoryMatch = categoryFilter === "all" || 
       ('category' in pkg && pkg.category === categoryFilter);
     const durationMatch = durationFilter === "all" || pkg.duration.includes(durationFilter);
-    return categoryMatch && durationMatch;
+    const destinationMatch = destinationFilter === "all" || 
+      ('destination' in pkg && pkg.destination === destinationFilter);
+    return categoryMatch && durationMatch && destinationMatch;
   });
 
-  // Group by category
   const popularEvents = filteredPackages.filter(pkg => 
     'category' in pkg && pkg.category === 'popular_event'
   );
@@ -91,12 +91,13 @@ export default function Packages() {
           </FadeInSection>
 
           {/* Filters */}
-          <div className="flex flex-wrap gap-4 mb-12 justify-center">
+          <div className="flex flex-wrap gap-6 mb-12 justify-center">
             <div className="flex items-center gap-2">
               <Filter className="w-4 h-4 text-muted-foreground" />
               <span className="text-sm font-medium">Filters:</span>
             </div>
             
+            {/* Category Filters */}
             <div className="flex flex-wrap gap-2">
               <Badge
                 className={`cursor-pointer ${categoryFilter === "all" ? "bg-primary" : "bg-muted hover-elevate"}`}
@@ -128,6 +129,7 @@ export default function Packages() {
               </Badge>
             </div>
 
+            {/* Duration Filters */}
             <div className="flex flex-wrap gap-2">
               <Badge
                 className={`cursor-pointer ${durationFilter === "all" ? "bg-primary" : "bg-muted hover-elevate"}`}
@@ -158,6 +160,31 @@ export default function Packages() {
                 3 Days
               </Badge>
             </div>
+
+            {/* Destination Filters */}
+            <div className="flex flex-wrap gap-2">
+              <Badge
+                className={`cursor-pointer ${destinationFilter === "all" ? "bg-primary" : "bg-muted hover-elevate"}`}
+                onClick={() => setDestinationFilter("all")}
+                data-testid="filter-destination-all"
+              >
+                All Destinations
+              </Badge>
+              <Badge
+                className={`cursor-pointer ${destinationFilter === "Varanasi" ? "bg-primary" : "bg-muted hover-elevate"}`}
+                onClick={() => setDestinationFilter("Varanasi")}
+                data-testid="filter-destination-varanasi"
+              >
+                Varanasi
+              </Badge>
+              <Badge
+                className={`cursor-pointer ${destinationFilter === "Ayodhya" ? "bg-primary" : "bg-muted hover-elevate"}`}
+                onClick={() => setDestinationFilter("Ayodhya")}
+                data-testid="filter-destination-ayodhya"
+              >
+                Ayodhya
+              </Badge>
+            </div>
           </div>
 
           {/* Popular Events Section */}
@@ -173,19 +200,18 @@ export default function Packages() {
                     id={pkg.id}
                     name={pkg.name}
                     duration={pkg.duration}
-                    shortDescription={pkg.shortDescription}
                     highlights={pkg.highlights}
                     imageUrl={pkg.imageUrl}
-                    onViewDetails={() => setLocation(`/package/${pkg.id}`)}
-                    onEnquireNow={() => handleWhatsApp(pkg.name)}
                     onBookNow={() => handleBookNow(pkg.name)}
+                    onWhatsApp={() => handleWhatsApp(pkg.name)}
+                    data-testid={`card-package-${pkg.id}`}
                   />
                 ))}
               </div>
             </div>
           )}
 
-          {/* Touristic Packages Section */}
+          {/* Tourist Packages Section */}
           {touristicPackages.length > 0 && (
             <div className="mb-16">
               <h2 className="font-display text-2xl md:text-3xl font-bold mb-6">
@@ -198,12 +224,11 @@ export default function Packages() {
                     id={pkg.id}
                     name={pkg.name}
                     duration={pkg.duration}
-                    shortDescription={pkg.shortDescription}
                     highlights={pkg.highlights}
                     imageUrl={pkg.imageUrl}
-                    onViewDetails={() => setLocation(`/package/${pkg.id}`)}
-                    onEnquireNow={() => handleWhatsApp(pkg.name)}
                     onBookNow={() => handleBookNow(pkg.name)}
+                    onWhatsApp={() => handleWhatsApp(pkg.name)}
+                    data-testid={`card-package-${pkg.id}`}
                   />
                 ))}
               </div>
@@ -212,7 +237,7 @@ export default function Packages() {
 
           {/* Pooja Packages Section */}
           {poojaPackages.length > 0 && (
-            <div>
+            <div className="mb-16">
               <h2 className="font-display text-2xl md:text-3xl font-bold mb-6">
                 Pooja Packages
               </h2>
@@ -223,12 +248,11 @@ export default function Packages() {
                     id={pkg.id}
                     name={pkg.name}
                     duration={pkg.duration}
-                    shortDescription={pkg.shortDescription}
                     highlights={pkg.highlights}
                     imageUrl={pkg.imageUrl}
-                    onViewDetails={() => setLocation(`/package/${pkg.id}`)}
-                    onEnquireNow={() => handleWhatsApp(pkg.name)}
                     onBookNow={() => handleBookNow(pkg.name)}
+                    onWhatsApp={() => handleWhatsApp(pkg.name)}
+                    data-testid={`card-package-${pkg.id}`}
                   />
                 ))}
               </div>
@@ -236,23 +260,26 @@ export default function Packages() {
           )}
 
           {filteredPackages.length === 0 && (
-            <div className="text-center py-16">
-              <p className="text-lg text-muted-foreground">
-                No packages found matching your filters.
-              </p>
-            </div>
+            <FadeInSection>
+              <div className="text-center py-16">
+                <p className="text-lg text-muted-foreground">
+                  No packages found matching your filters. Try adjusting your selection.
+                </p>
+              </div>
+            </FadeInSection>
           )}
         </div>
+
+        <BookingDialog
+          open={bookingDialogOpen}
+          onOpenChange={setBookingDialogOpen}
+          packageName={selectedPackage}
+        />
       </section>
 
-      <BookingDialog
-        open={bookingDialogOpen}
-        onOpenChange={setBookingDialogOpen}
-        packageName={selectedPackage}
-      />
-      <Footer />
+      <Footer onBookNowClick={() => scrollToSection("contact")} />
+      <BottomNav onBookNowClick={() => scrollToSection("contact")} />
       <WhatsAppFloat />
-      <BottomNav onWhatsAppClick={() => handleWhatsApp()} />
     </div>
   );
 }

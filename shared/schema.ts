@@ -42,6 +42,7 @@ export const packages = pgTable("packages", {
   name: text("name").notNull(),
   category: text("category").notNull(),
   duration: text("duration").notNull(),
+  destination: text("destination"),
   shortDescription: text("short_description").notNull(),
   highlights: text("highlights").array().notNull(),
   imageUrl: text("image_url").notNull(),
