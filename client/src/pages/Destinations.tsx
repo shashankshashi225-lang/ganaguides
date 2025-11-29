@@ -9,11 +9,13 @@ import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import FadeInSection from "@/components/FadeInSection";
 import { Input } from "@/components/ui/input";
-import { Search } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Search, Filter } from "lucide-react";
 
 export default function Destinations() {
   const [, setLocation] = useLocation();
   const [searchQuery, setSearchQuery] = useState<string>("");
+  const [regionFilter, setRegionFilter] = useState<string>("all");
 
   const { data: apiDestinations, isLoading } = useQuery<Destination[]>({
     queryKey: ['/api/destinations'],
@@ -21,26 +23,27 @@ export default function Destinations() {
 
   const destinations = apiDestinations || [];
 
-  // Separate destinations by city
-  const varanasi = useMemo(() => {
+  // Filter by region and search
+  const filteredDestinations = useMemo(() => {
     return destinations
-      .filter(dest => dest.region === "Varanasi")
+      .filter(dest => 
+        regionFilter === "all" || dest.region === regionFilter
+      )
       .filter(dest => 
         searchQuery === "" || 
         dest.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         dest.shortDescription.toLowerCase().includes(searchQuery.toLowerCase())
       );
-  }, [destinations, searchQuery]);
+  }, [destinations, searchQuery, regionFilter]);
+
+  // Separate destinations by city for display
+  const varanasi = useMemo(() => {
+    return filteredDestinations.filter(dest => dest.region === "Varanasi");
+  }, [filteredDestinations]);
 
   const ayodhya = useMemo(() => {
-    return destinations
-      .filter(dest => dest.region === "Ayodhya")
-      .filter(dest => 
-        searchQuery === "" || 
-        dest.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        dest.shortDescription.toLowerCase().includes(searchQuery.toLowerCase())
-      );
-  }, [destinations, searchQuery]);
+    return filteredDestinations.filter(dest => dest.region === "Ayodhya");
+  }, [filteredDestinations]);
 
   if (isLoading) {
     return (
@@ -69,7 +72,7 @@ export default function Destinations() {
 
           {/* Search Bar */}
           <div className="mb-12">
-            <div className="relative max-w-2xl mx-auto">
+            <div className="relative max-w-2xl mx-auto mb-8">
               <Search className="absolute left-3 top-3 w-4 h-4 text-muted-foreground" />
               <Input
                 placeholder="Search destinations by name or description..."
@@ -78,6 +81,38 @@ export default function Destinations() {
                 className="pl-10 py-2"
                 data-testid="input-search-destinations"
               />
+            </div>
+
+            {/* Region Filters */}
+            <div className="flex flex-wrap gap-4 justify-center items-center">
+              <div className="flex items-center gap-2">
+                <Filter className="w-4 h-4 text-muted-foreground" />
+                <span className="text-sm font-medium">Filter by Region:</span>
+              </div>
+              
+              <div className="flex flex-wrap gap-2">
+                <Badge
+                  className={`cursor-pointer ${regionFilter === "all" ? "bg-primary" : "bg-muted hover-elevate"}`}
+                  onClick={() => setRegionFilter("all")}
+                  data-testid="filter-region-all"
+                >
+                  All Destinations
+                </Badge>
+                <Badge
+                  className={`cursor-pointer ${regionFilter === "Varanasi" ? "bg-primary" : "bg-muted hover-elevate"}`}
+                  onClick={() => setRegionFilter("Varanasi")}
+                  data-testid="filter-region-varanasi"
+                >
+                  Varanasi
+                </Badge>
+                <Badge
+                  className={`cursor-pointer ${regionFilter === "Ayodhya" ? "bg-primary" : "bg-muted hover-elevate"}`}
+                  onClick={() => setRegionFilter("Ayodhya")}
+                  data-testid="filter-region-ayodhya"
+                >
+                  Ayodhya
+                </Badge>
+              </div>
             </div>
           </div>
 
