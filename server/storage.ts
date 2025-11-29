@@ -332,7 +332,7 @@ const mockPackages: Package[] = [
       "Explore hidden alleys of old Varanasi",
       "Witness evening Ganga Aarti ceremony"
     ],
-    imageUrl: "/assets/generated_images/Kashi_walking_tour_group_d0392eea.png",
+    imageUrl: "/generated_images/Kashi_walking_tour_group_d0392eea.png",
     detailedDescription: "Begin your spiritual journey with a magical sunrise boat ride on the Ganges, watching the city come alive with morning prayers. After breakfast, visit the iconic Kashi Vishwanath Temple, one of the twelve Jyotirlingas. Your local guide will lead you through Varanasi's ancient alleys, revealing hidden temples and sharing stories passed down through generations. Experience authentic local cuisine for lunch. The day culminates with the spectacular Ganga Aarti at Dashashwamedh Ghat, where priests perform synchronized rituals as thousands of diyas float on the sacred river. This is Varanasi at its most magical.",
     price: null,
     featured: true
@@ -352,7 +352,7 @@ const mockPackages: Package[] = [
       "Explore famous temples – Durga Mandir, Sankat Mochan Hanuman Temple, and Tulsi Manas Mandir",
       "Comfortable stay in a well-rated hotel with meals"
     ],
-    imageUrl: "/assets/generated_images/varanasi_ganga_river_sunset.png",
+    imageUrl: "/generated_images/varanasi_ganga_river_sunset.png",
     detailedDescription: "Experience the divine aura of Kashi – the Spiritual Capital of India. This 2-day Varanasi package is specially designed for devotees and travelers who wish to seek blessings at the sacred temples, witness the famous Ganga Aarti at Dashashwamedh Ghat, and explore the peaceful Buddhist site of Sarnath.\n\nDay 1: Arrival in Varanasi – Evening Darshan & Aarti\n• Pick-up from Airport/Railway Station\n• Check-in at hotel & freshen up\n• Evening visit to Shri Kashi Vishwanath Temple (seek blessings at the sacred Jyotirlinga) and Kaal Bhairav Temple (protector of Kashi)\n• Witness the mesmerizing Ganga Shanti Aarti at Dashashwamedh Ghat – a once-in-a-lifetime spiritual experience\n• Return to hotel for dinner & overnight stay\n\nDay 2: Excursion to Sarnath & Temple Tour\n• Early breakfast at hotel\n• Proceed for half-day excursion to Sarnath – Explore Dhamek Stupa, Ashokan Pillar, and Sarnath Museum\n• Visit Sarangnath Temple, Markandeya Mahadev, and Sarnved Mandir\n• Return to hotel for lunch & rest\n• Evening Temple Tour: Durga Mandir (Durga Kund), Sankat Mochan Hanuman Mandir, Tulsi Manas Mandir\n• Return to hotel for dinner & overnight stay\n\nDay 3: Departure\n• Breakfast at hotel\n• Check-out and transfer to Airport/Railway Station with beautiful memories of Kashi\n\nInclusions:\n• Pick-up & drop from Varanasi Airport/Railway Station\n• 2 Nights stay in a deluxe hotel (AC room)\n• Breakfast, lunch, tea, and dinner (as per itinerary)\n• AC vehicle for sightseeing & transfers\n• Driver allowance, tolls, parking & all applicable taxes\n\nExclusions:\n• Personal expenses, shopping, tips, and camera charges\n• Any extra meals or activities not mentioned in the itinerary\n• Travel insurance & flight/train tickets\n\nWhy Book with Us?\n• Handpicked hotels with comfort & hygiene\n• Local expert guides & hassle-free travel\n• 24x7 customer support during your trip\n• Best price guarantee",
     price: null,
     featured: true
@@ -373,7 +373,7 @@ const mockPackages: Package[] = [
       "Special visit to Adalpura Seetla Mata Mandir before departure",
       "Comfortable AC transfers, local assistance & guided tours"
     ],
-    imageUrl: "/assets/generated_images/kashi_vishwanath_temple_night_aarti.png",
+    imageUrl: "/generated_images/kashi_vishwanath_temple_night_aarti.png",
     detailedDescription: "Discover the divine charm of Kashi (Varanasi) – the city where spirituality meets eternity. This 3-day spiritual tour package is designed to cover the most sacred temples of Kashi, the holy ghats, and the peaceful Buddhist sites of Sarnath.\n\nDay 1: Arrival in Varanasi – Temple Tour & Evening Ganga Aarti\n• Pick-up from Airport/Railway Station\n• Visit the sacred temples: Shri Kashi Vishwanath Temple (Jyotirlinga Darshan), Kaal Bhairav Temple (Kashi Kotwal), Mangala Gauri Temple, Sankatha Devi Temple, Atma Vireshwar Mahadev Temple\n• After darshan, check-in at hotel & rest\n• In the evening, attend the divine Ganga Aarti at Dashashwamedh Ghat – a spiritual spectacle of lights, chants & devotion\n• Return to hotel for dinner & overnight stay\n\nDay 2: Excursion to Sarnath & Evening Temple Tour\n• Early breakfast at hotel\n• Proceed for half-day excursion to Sarnath – Dhamek Stupa, Ashokan Pillar, Sarnath Museum & Buddhist ruins\n• Visit Markandeya Mahadev Temple and Sarvedha Temple\n• Return to hotel for lunch & relaxation\n• Evening visit to Durga Mandir (Durga Kund), Sankat Mochan Hanuman Mandir, Tulsi Manas Mandir, Assi Ghat – experience the soulful atmosphere with live music & evening prayers\n• Return to hotel, dinner & overnight stay\n\nDay 3: Morning Darshan & Departure\n• Breakfast at hotel\n• Morning visit to Markandeya Mahadev Temple (second darshan for blessings) and Adalpura Seetla Mata Mandir\n• Return to hotel, check-out & transfer to Airport/Railway Station for departure with divine memories of Kashi\n\nInclusions:\n• Pick-up & drop from Airport/Railway Station\n• 2 Nights stay in a deluxe hotel (AC rooms)\n• Breakfast, lunch, tea & dinner (as per itinerary)\n• AC vehicle for sightseeing & transfers\n• Driver allowance, tolls, parking & all applicable taxes\n\nExclusions:\n• Airfare / Train fare\n• Personal expenses (shopping, tips, laundry, etc.)\n• Camera charges & entry fees (if applicable)\n• Anything not mentioned in inclusions\n\nWhy Choose Us?\n• Authentic spiritual itinerary curated by local experts\n• Comfortable stay in hygienic hotels\n• Professional drivers & guided temple visits\n• Hassle-free arrangements for families & groups\n• 24x7 customer support during your trip",
     price: null,
     featured: true
@@ -390,7 +390,7 @@ const mockPackages: Package[] = [
       "Complete Varanasi heritage experience",
       "Sacred rituals participation opportunity"
     ],
-    imageUrl: "/assets/generated_images/Ayodhya_Ram_Mandir_temple_baae3de1.png",
+    imageUrl: "/generated_images/Ayodhya_Ram_Mandir_temple_baae3de1.png",
     detailedDescription: "This comprehensive pilgrimage covers two of Hinduism's holiest cities. Days 1-2 in Ayodhya include visits to Ram Janmabhoomi, Hanuman Garhi, Kanak Bhawan, and other sacred sites. Experience the evening aarti at Saryu River. Day 3 brings you to Varanasi for the complete Kashi darshan - boat ride, temple visits, heritage walk, and the magnificent Ganga Aarti. Throughout the journey, participate in authentic rituals and pujas, guided by local pandits who ensure the spiritual significance of each experience is fully understood. Comfortable AC transport and quality accommodation included.",
     price: null,
     featured: true
