@@ -61,7 +61,7 @@ const mockDestinations: Destination[] = [
     name: "Varanasi",
     shortDescription: "Walk along the holy Ganga, witness morning aarti, and explore hidden alleys of the eternal city.",
     description: "Varanasi, the spiritual capital of India, is one of the world's oldest continuously inhabited cities. Walk along the sacred ghats of the Ganges, witness the mesmerizing Ganga Aarti ceremony, and explore ancient temples that have stood for millennia. The city's narrow alleys hide centuries of spiritual heritage, making every visit a journey through time.",
-    mainImage: "/assets/generated_images/Boat_perspective_Ganges_view_e308dae7.png",
+    mainImage: "/assets/generated_images/varanasi_ganga_river_sunset.png",
     image2: "/assets/generated_images/Evening_aarti_ceremony_Varanasi_fdd358a3.png",
     image3: "/assets/generated_images/Hidden_temple_courtyard_Varanasi_c1f0199e.png",
     image4: "/assets/generated_images/Varanasi_temple_architecture_detail_a35f07ab.png",
@@ -103,6 +103,90 @@ const mockDestinations: Destination[] = [
     image4: null,
     region: "Uttar Pradesh",
     featured: true
+  },
+  {
+    id: "durga-temple",
+    name: "Durga Temple",
+    shortDescription: "The benevolent guardian goddess of Varanasi, protector of the sacred city.",
+    description: "The Durga Temple in Varanasi is one of the city's most iconic shrines, dedicated to Goddess Durga, the protector of Kashi. According to legend, Goddess Durga pledged to reside in Varanasi as long as the city exists. The temple features distinctive crimson-red walls and ornate architecture in the Nagara style. Reconstructed in 1760 by Rani Bhavani of Bengal, this sacred sanctuary is especially vibrant on Tuesdays and Fridays. The main idol is worshipped in yantra form, identified with Kushmanda, the fourth form of Durga. During Navratri, the goddess is adorned in various 'shringar' (ritual decorations). The temple's annual Durga Kund Sangeet Samaroh in August-September features classical musicians performing in her honor.",
+    mainImage: "/assets/generated_images/durga_temple_varanasi.png",
+    image2: null,
+    image3: null,
+    image4: null,
+    region: "Uttar Pradesh",
+    featured: false
+  },
+  {
+    id: "sankat-mochan-temple",
+    name: "Sankat Mochan Hanuman Temple",
+    shortDescription: "The reliever of troubles - Varanasi's most beloved Hanuman shrine.",
+    description: "Nestled on the banks of the Assi River, the Sankat Mochan Hanuman Temple is one of Varanasi's most beloved shrines. The temple traces its founding to the 16th century when saint-poet Goswami Tulsidas had a vision of Lord Hanuman at this very spot. Sankat Mochan means 'one who removes crises, troubles, and pain,' and every month lakhs of devotees visit seeking relief from their problems. The temple is believed to be where Tulsidas composed significant portions of the Ramcharitamanas. Devotees flock here especially on Tuesdays and Saturdays, believing Hanuman's grace helps relieve planetary afflictions. The temple also preserves a sacred fig tree under which many verses of Ramcharitamanas are said to have been written. The Sankat Mochan Music Festival is a major cultural event held annually, featuring classical music artists. Currently managed by Prof. Vishwambhar Nath Mishra, the Sankat Mochan Foundation established in 1982 works towards cleaning and protecting the Ganga.",
+    mainImage: "/assets/generated_images/sankat_mochan_hanuman_temple.png",
+    image2: null,
+    image3: null,
+    image4: null,
+    region: "Uttar Pradesh",
+    featured: false
+  },
+  {
+    id: "annapurna-temple",
+    name: "Annapurna Temple",
+    shortDescription: "Goddess of nourishment and sustenance, located near Kashi Vishwanath.",
+    description: "The Annapurna Temple in Varanasi is dedicated to Goddess Annapurna, the Divine Mother who ensures her devotees are never deprived of food. With a golden ladle in one hand and a bowl of rice in the other, she is worshipped as the provider of nourishment and sustenance. The temple was built in 1729 by Maratha ruler Peshwa Baji Rao I in the Nagara architectural style. Within its large pillared sanctum are two idols of the Goddess: one brass, available for darshan every day, and another gold, shown to devotees only once annually on Annakut (the day after Diwali). The temple follows the Panchayatana layout with subsidiary shrines dedicated to Ganesha, Kubera, Surya, and Hanuman. Legend says that Parvati adopted the form of Annapurna to distribute food in Varanasi, emphasizing the importance of sustenance. During Navratri, the temple receives large crowds for special pujas. The temple trust runs extensive social service activities including free food distribution (annadaan), elderly care, medical clinics, and education.",
+    mainImage: "/assets/generated_images/annapurna_temple_varanasi.png",
+    image2: null,
+    image3: null,
+    image4: null,
+    region: "Uttar Pradesh",
+    featured: false
+  },
+  {
+    id: "nageshwar-nath-temple",
+    name: "Nageshwar Nath Temple",
+    shortDescription: "Ancient Shiva shrine built by Kush, son of Lord Rama, in sacred Ayodhya.",
+    description: "The Nageshwar Nath Temple near Ram Ki Paidi in Ayodhya is a heritage treasure with origins tracing back to the era of Kush, the son of Lord Rama. According to legend, while bathing in the Saryu River, Kush lost his armlet, which was discovered by a Nag-Kanya (serpent maiden) who instantly fell in love with him. To honor her devotion, Kush established this temple dedicated to Nageshwar Mahadev. The present-day temple was rebuilt around 1750 CE by Naval Rai, minister of Safdar Jung. It features a graceful blend of traditional Awadhi temple structures, Shiva iconography, ornate domes and arches, and stone courtyards facing the Saryu ghats. Nageshwar Mahadev is believed to grant liberation from karmic bondage and remove fear from serpent-related inauspiciousness. The temple becomes the beating heart of Ayodhya during Mahashivratri when thousands of devotees line up for jalabhishek and the famous Shiv Barat procession is carried out with great enthusiasm. Locals believe attending Shiv Barat here brings blessings equivalent to visiting multiple Jyotirlingas.",
+    mainImage: "/assets/generated_images/nageshwar_nath_temple_ayodhya.png",
+    image2: null,
+    image3: null,
+    image4: null,
+    region: "Uttar Pradesh",
+    featured: false
+  },
+  {
+    id: "hanuman-garhi",
+    name: "Hanuman Garhi",
+    shortDescription: "Hilltop fortress temple of Bajrangbali guarding Ayodhya since the 10th century.",
+    description: "Standing proudly in the heart of Ayodhya, the Hanuman Garhi Temple is one of the most iconic shrines dedicated to Lord Hanuman. Believed to be built around the 10th century, this sacred fort-like temple is a must-visit destination for pilgrims and spiritual seekers. Perched atop a small hill, the temple houses a beautiful idol of Child Hanuman sitting in the lap of Maa Anjani, a rare and heartwarming depiction. Devotees believe Hanuman ji guards Ayodhya round the clock, ensuring peace and protection. The temple features a long flight of 76 steep stairs leading up to the shrine, massive fort-like walls, arched gateways, bright saffron flags, and bells adding to the divine ambience. Inside, visitors witness beautifully carved interiors and arches reflecting early medieval North Indian architecture. Tradition says Hanuman lived here in a cave to protect Lord Rama's birthplace. The temple is one of Ayodhya's four major temples and is especially busy during Hanuman Jayanti, Ram Navami, and Diwali. From the hilltop, visitors enjoy panoramic views of the entire Ayodhya city.",
+    mainImage: "/assets/generated_images/hanuman_garhi_temple_ayodhya.png",
+    image2: null,
+    image3: null,
+    image4: null,
+    region: "Uttar Pradesh",
+    featured: false
+  },
+  {
+    id: "treta-ke-thakur",
+    name: "Treta Ke Thakur Temple",
+    shortDescription: "Sacred seat of Lord Rama's Ashwamedha Yagna on the serene Saryu banks.",
+    description: "Located on the serene banks of the Saryu River at Naya Ghat, the Treta Ke Thakur Temple is one of Ayodhya's most revered spiritual landmarks. Dedicated to Lord Rama in his Treta Yuga form, this ancient shrine attracts pilgrims and travelers alike for its divine aura and powerful legends. The temple stands at the very place believed to be the site where Lord Rama performed the Ashwamedha Yagna, one of the most significant Vedic rituals symbolizing sovereign victory and universal harmony. The origins of the temple go back roughly 300 years, when the King of Kullu constructed a shrine here. Major renovation occurred under great Maratha queen Ahilyabai Holkar in 1784 CE. One of the most mesmerizing features is its set of ancient idols carved from a single block of black sandstone: Lord Rama, Sita Mata, Lakshman, and Hanuman. Legend says they were crafted not by human hands, but by divine beings themselves. The idols are brought out for public viewing mainly during Kartik Purnima, when thousands gather to witness them. The temple exudes an ancient, peaceful charm with open courtyards facing the Saryu River.",
+    mainImage: "/assets/generated_images/treta_ke_thakur_temple_ayodhya.png",
+    image2: null,
+    image3: null,
+    image4: null,
+    region: "Uttar Pradesh",
+    featured: false
+  },
+  {
+    id: "kanak-bhawan",
+    name: "Kanak Bhawan",
+    shortDescription: "The golden palace of Sita and Ram, radiating royal charm and devotion.",
+    description: "In the spiritual heart of Ayodhya stands Kanak Bhawan, one of the most enchanting temples dedicated to Lord Rama and Goddess Sita. Radiating beauty, devotion, and royal charm, this shrine is often called the 'Golden Palace of Ayodhya' for its richly adorned idols and luminous interiors. Located near the famous Ram Janmabhoomi complex, it remains one of the most visited and cherished temples in the region. According to tradition, Mata Kaikeyi, the mother of Bharata, gifted this palace to Sita after her marriage to Lord Rama, making it one of the earliest residences of Sita in Ayodhya. King Vikramaditya is believed to have restored it during ancient times. The present magnificent temple was fully rebuilt in 1891 CE by Vrish Bhanu Kunwari, queen of Tikamgarh, whose devotion resulted in a breathtaking architectural gem. The temple is a prime example of Bundela architectural style, known for ornate arches, beautifully carved pillars, courtyards with symmetrical patterns, and domes with Rajasthani-Bundelkhand influence. The idols of Rama and Sita are richly adorned with gold and jewels, symbolizing their royal status and divine nature.",
+    mainImage: "/assets/generated_images/kanak_bhawan_golden_palace.png",
+    image2: null,
+    image3: null,
+    image4: null,
+    region: "Uttar Pradesh",
+    featured: false
   }
 ];
 
@@ -166,24 +250,48 @@ const mockPackages: Package[] = [
     ],
     imageUrl: "/assets/generated_images/Kashi_walking_tour_group_d0392eea.png",
     detailedDescription: "Begin your spiritual journey with a magical sunrise boat ride on the Ganges, watching the city come alive with morning prayers. After breakfast, visit the iconic Kashi Vishwanath Temple, one of the twelve Jyotirlingas. Your local guide will lead you through Varanasi's ancient alleys, revealing hidden temples and sharing stories passed down through generations. Experience authentic local cuisine for lunch. The day culminates with the spectacular Ganga Aarti at Dashashwamedh Ghat, where priests perform synchronized rituals as thousands of diyas float on the sacred river. This is Varanasi at its most magical.",
-    price: 2500,
+    price: null,
     featured: true
   },
   {
-    id: "2day-sarnath",
-    name: "2-Day Kashi + Sarnath",
+    id: "2day-kashi-sarnath",
+    name: "2 Days Varanasi Tour Package – Kashi Darshan with Sarnath",
     category: "Multi-Day Tours",
     duration: "2 Days",
-    shortDescription: "Combine the spiritual energy of Varanasi with the peaceful Buddhist heritage of Sarnath on this immersive journey.",
+    shortDescription: "Experience the divine aura of Kashi – the Spiritual Capital of India. Seek blessings at sacred temples, witness the famous Ganga Aarti at Dashashwamedh Ghat, and explore the peaceful Buddhist site of Sarnath.",
     highlights: [
-      "Complete Varanasi tour with boat ride",
-      "Explore Sarnath where Buddha gave first sermon",
-      "Visit Dhamek Stupa and museums",
-      "Morning meditation session by the Ganges"
+      "Darshan at Shri Kashi Vishwanath Temple, one of the 12 Jyotirlingas",
+      "Visit Kaal Bhairav Temple, the guardian deity of Kashi",
+      "Evening Ganga Shanti Aarti at Dashashwamedh Ghat",
+      "Half-day trip to Sarnath, where Lord Buddha gave his first sermon",
+      "Visit to Sarangnath Temple, Markandeya Mahadev & Sarnved Mandir",
+      "Explore famous temples – Durga Mandir, Sankat Mochan Hanuman Temple, and Tulsi Manas Mandir",
+      "Comfortable stay in a well-rated hotel with meals"
     ],
-    imageUrl: "/assets/generated_images/Sarnath_Buddhist_stupa_sunset_888b3275.png",
-    detailedDescription: "Day 1 covers the complete Varanasi experience - from the sunrise boat ride to the evening aarti, with temple visits and heritage walks in between. Day 2 takes you to Sarnath, just 10 km from Varanasi, where Buddhism began. Visit the Dhamek Stupa where Buddha gave his first sermon, the archaeological museum housing the famous Lion Capital, and the serene deer park. Start the morning with a guided meditation session by the Ganges, learning techniques that have been practiced here for millennia. This tour perfectly balances Hindu and Buddhist spiritual heritage.",
-    price: 4500,
+    imageUrl: "/assets/generated_images/varanasi_ganga_river_sunset.png",
+    detailedDescription: "Experience the divine aura of Kashi – the Spiritual Capital of India. This 2-day Varanasi package is specially designed for devotees and travelers who wish to seek blessings at the sacred temples, witness the famous Ganga Aarti at Dashashwamedh Ghat, and explore the peaceful Buddhist site of Sarnath.\n\nDay 1: Arrival in Varanasi – Evening Darshan & Aarti\n• Pick-up from Airport/Railway Station\n• Check-in at hotel & freshen up\n• Evening visit to Shri Kashi Vishwanath Temple (seek blessings at the sacred Jyotirlinga) and Kaal Bhairav Temple (protector of Kashi)\n• Witness the mesmerizing Ganga Shanti Aarti at Dashashwamedh Ghat – a once-in-a-lifetime spiritual experience\n• Return to hotel for dinner & overnight stay\n\nDay 2: Excursion to Sarnath & Temple Tour\n• Early breakfast at hotel\n• Proceed for half-day excursion to Sarnath – Explore Dhamek Stupa, Ashokan Pillar, and Sarnath Museum\n• Visit Sarangnath Temple, Markandeya Mahadev, and Sarnved Mandir\n• Return to hotel for lunch & rest\n• Evening Temple Tour: Durga Mandir (Durga Kund), Sankat Mochan Hanuman Mandir, Tulsi Manas Mandir\n• Return to hotel for dinner & overnight stay\n\nDay 3: Departure\n• Breakfast at hotel\n• Check-out and transfer to Airport/Railway Station with beautiful memories of Kashi\n\nInclusions:\n• Pick-up & drop from Varanasi Airport/Railway Station\n• 2 Nights stay in a deluxe hotel (AC room)\n• Breakfast, lunch, tea, and dinner (as per itinerary)\n• AC vehicle for sightseeing & transfers\n• Driver allowance, tolls, parking & all applicable taxes\n\nExclusions:\n• Personal expenses, shopping, tips, and camera charges\n• Any extra meals or activities not mentioned in the itinerary\n• Travel insurance & flight/train tickets\n\nWhy Book with Us?\n• Handpicked hotels with comfort & hygiene\n• Local expert guides & hassle-free travel\n• 24x7 customer support during your trip\n• Best price guarantee",
+    price: null,
+    featured: true
+  },
+  {
+    id: "3day-kashi-spiritual",
+    name: "3 Days / 2 Nights Varanasi Spiritual Tour Package – Kashi Darshan with Sarnath",
+    category: "Pilgrimage Tours",
+    duration: "3 Days",
+    shortDescription: "Discover the divine charm of Kashi (Varanasi) – the city where spirituality meets eternity. Cover the most sacred temples of Kashi, the holy ghats, and the peaceful Buddhist sites of Sarnath.",
+    highlights: [
+      "Sacred darshan at Shri Kashi Vishwanath Temple – one of the 12 Jyotirlingas",
+      "Visit to Kaal Bhairav (Kashi Kotwal), Mangala Gauri, Sankatha Devi & Atma Vireshwar Mahadev Temples",
+      "Mesmerizing Ganga Aarti at Dashashwamedh Ghat",
+      "Full-day excursion to Sarnath – the place where Lord Buddha gave his first sermon",
+      "Temple visits – Markandeya Mahadev & Sarvedha Temple",
+      "Evening darshan at Durga Mandir, Sankat Mochan Hanuman Mandir, Tulsi Manas Mandir & Assi Ghat",
+      "Special visit to Adalpura Seetla Mata Mandir before departure",
+      "Comfortable AC transfers, local assistance & guided tours"
+    ],
+    imageUrl: "/assets/generated_images/kashi_vishwanath_temple_night_aarti.png",
+    detailedDescription: "Discover the divine charm of Kashi (Varanasi) – the city where spirituality meets eternity. This 3-day spiritual tour package is designed to cover the most sacred temples of Kashi, the holy ghats, and the peaceful Buddhist sites of Sarnath.\n\nDay 1: Arrival in Varanasi – Temple Tour & Evening Ganga Aarti\n• Pick-up from Airport/Railway Station\n• Visit the sacred temples: Shri Kashi Vishwanath Temple (Jyotirlinga Darshan), Kaal Bhairav Temple (Kashi Kotwal), Mangala Gauri Temple, Sankatha Devi Temple, Atma Vireshwar Mahadev Temple\n• After darshan, check-in at hotel & rest\n• In the evening, attend the divine Ganga Aarti at Dashashwamedh Ghat – a spiritual spectacle of lights, chants & devotion\n• Return to hotel for dinner & overnight stay\n\nDay 2: Excursion to Sarnath & Evening Temple Tour\n• Early breakfast at hotel\n• Proceed for half-day excursion to Sarnath – Dhamek Stupa, Ashokan Pillar, Sarnath Museum & Buddhist ruins\n• Visit Markandeya Mahadev Temple and Sarvedha Temple\n• Return to hotel for lunch & relaxation\n• Evening visit to Durga Mandir (Durga Kund), Sankat Mochan Hanuman Mandir, Tulsi Manas Mandir, Assi Ghat – experience the soulful atmosphere with live music & evening prayers\n• Return to hotel, dinner & overnight stay\n\nDay 3: Morning Darshan & Departure\n• Breakfast at hotel\n• Morning visit to Markandeya Mahadev Temple (second darshan for blessings) and Adalpura Seetla Mata Mandir\n• Return to hotel, check-out & transfer to Airport/Railway Station for departure with divine memories of Kashi\n\nInclusions:\n• Pick-up & drop from Airport/Railway Station\n• 2 Nights stay in a deluxe hotel (AC rooms)\n• Breakfast, lunch, tea & dinner (as per itinerary)\n• AC vehicle for sightseeing & transfers\n• Driver allowance, tolls, parking & all applicable taxes\n\nExclusions:\n• Airfare / Train fare\n• Personal expenses (shopping, tips, laundry, etc.)\n• Camera charges & entry fees (if applicable)\n• Anything not mentioned in inclusions\n\nWhy Choose Us?\n• Authentic spiritual itinerary curated by local experts\n• Comfortable stay in hygienic hotels\n• Professional drivers & guided temple visits\n• Hassle-free arrangements for families & groups\n• 24x7 customer support during your trip",
+    price: null,
     featured: true
   },
   {
@@ -200,7 +308,7 @@ const mockPackages: Package[] = [
     ],
     imageUrl: "/assets/generated_images/Ayodhya_Ram_Mandir_temple_baae3de1.png",
     detailedDescription: "This comprehensive pilgrimage covers two of Hinduism's holiest cities. Days 1-2 in Ayodhya include visits to Ram Janmabhoomi, Hanuman Garhi, Kanak Bhawan, and other sacred sites. Experience the evening aarti at Saryu River. Day 3 brings you to Varanasi for the complete Kashi darshan - boat ride, temple visits, heritage walk, and the magnificent Ganga Aarti. Throughout the journey, participate in authentic rituals and pujas, guided by local pandits who ensure the spiritual significance of each experience is fully understood. Comfortable AC transport and quality accommodation included.",
-    price: 7500,
+    price: null,
     featured: true
   }
 ];
