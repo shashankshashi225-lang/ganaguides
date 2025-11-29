@@ -65,7 +65,7 @@ const mockDestinations: Destination[] = [
     image2: "/generated_images/Evening_aarti_ceremony_Varanasi_fdd358a3.png",
     image3: "/generated_images/Hidden_temple_courtyard_Varanasi_c1f0199e.png",
     image4: "/generated_images/Varanasi_temple_architecture_detail_a35f07ab.png",
-    region: "Uttar Pradesh",
+    region: "Varanasi",
     featured: true
   },
   {
@@ -77,7 +77,7 @@ const mockDestinations: Destination[] = [
     image2: "/generated_images/Ayodhya_spiritual_trail_dusk_b641daa9.png",
     image3: null,
     image4: null,
-    region: "Uttar Pradesh",
+    region: "Ayodhya",
     featured: true
   },
   {
