@@ -77,13 +77,15 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-primary-foreground/20 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="border-t border-primary-foreground/20 pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <Link href="/">
-            <img 
-              src={logoImage} 
-              alt="Ganga Guides" 
-              className="h-16 md:h-20 w-auto object-contain max-w-md"
-            />
+            <div className="bg-white rounded-lg p-3 hover-elevate transition-all">
+              <img 
+                src={logoImage} 
+                alt="Ganga Guides" 
+                className="h-20 md:h-28 w-auto object-contain max-w-2xl"
+              />
+            </div>
           </Link>
           <p className="text-sm text-primary-foreground/80">
             © {currentYear} Ganga Guides. All rights reserved.
