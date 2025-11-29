@@ -1,6 +1,8 @@
-import { Home, Package, Map, BookOpen, Users, MessageCircle } from "lucide-react";
+import { useState } from "react";
+import { Home, Package, Map, BookOpen, Users, MessageCircle, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLocation } from "wouter";
+import logoImage from "@assets/Untitled design (1)_1764387987253.png";
 
 interface BottomNavProps {
   onWhatsAppClick?: () => void;
@@ -8,6 +10,9 @@ interface BottomNavProps {
 
 export default function BottomNav({ onWhatsAppClick }: BottomNavProps) {
   const [, setLocation] = useLocation();
+  const [isChatOpen, setIsChatOpen] = useState(false);
+  const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || "918468003094";
+  const whatsappLink = `https://wa.me/${whatsappNumber}`;
 
   const navItems = [
     { label: "Home", icon: Home, href: "/" },
@@ -41,8 +46,8 @@ export default function BottomNav({ onWhatsAppClick }: BottomNavProps) {
             );
           })}
           <Button
-            onClick={onWhatsAppClick}
-            className="bg-[#25D366] hover:bg-[#20BD5A] text-white border-none flex flex-col items-center gap-1 px-3 py-2 h-auto min-h-0"
+            onClick={() => setIsChatOpen(!isChatOpen)}
+            className="bg-[#25D366] hover:bg-[#20BD5A] text-white border-none flex flex-col items-center gap-1 px-3 py-2 h-auto min-h-0 relative"
             data-testid="button-whatsapp-nav"
           >
             <MessageCircle className="w-5 h-5" />
@@ -50,6 +55,67 @@ export default function BottomNav({ onWhatsAppClick }: BottomNavProps) {
           </Button>
         </div>
       </div>
+
+      {/* Chat Popup */}
+      {isChatOpen && (
+        <div
+          className="fixed bottom-20 right-4 z-50 w-80 rounded-lg shadow-2xl overflow-hidden bg-white animate-in fade-in slide-in-from-bottom-4 duration-300 md:bottom-24 md:right-6"
+          data-testid="whatsapp-chat-popup"
+        >
+          {/* Header */}
+          <div className="bg-green-600 text-white p-4 flex items-center justify-between">
+            <div className="flex items-center gap-3 flex-1">
+              <img
+                src={logoImage}
+                alt="Ganga Guides"
+                className="h-10 w-auto object-contain"
+              />
+              <div>
+                <h3 className="font-semibold text-sm">Ganga Guides</h3>
+                <p className="text-xs text-green-100">online</p>
+              </div>
+            </div>
+            <button
+              onClick={() => setIsChatOpen(false)}
+              className="hover:bg-green-700 p-1 rounded transition-all"
+              aria-label="Close chat"
+              data-testid="button-close-chat"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+
+          {/* Chat Content */}
+          <div className="p-4 bg-gray-50 min-h-32 flex flex-col justify-between">
+            <div className="space-y-4">
+              <div className="bg-white rounded-lg p-3 shadow-sm">
+                <p className="font-semibold text-gray-800 text-sm mb-1">
+                  Ganga Guides
+                </p>
+                <p className="text-gray-700 text-sm">
+                  Hi! Welcome to Ganga Guides. How can we help you with your spiritual journey today?
+                </p>
+              </div>
+              <p className="text-xs text-gray-500 text-center mt-3">
+                Typically replies instantly
+              </p>
+            </div>
+
+            {/* Start Chat Button */}
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full"
+              data-testid="button-start-whatsapp-chat"
+            >
+              <Button className="w-full bg-green-500 hover:bg-green-600 text-white mt-3">
+                Start chat
+              </Button>
+            </a>
+          </div>
+        </div>
+      )}
     </nav>
   );
 }
