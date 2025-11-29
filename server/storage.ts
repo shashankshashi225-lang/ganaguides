@@ -113,7 +113,7 @@ const mockDestinations: Destination[] = [
     image2: null,
     image3: null,
     image4: null,
-    region: "Uttar Pradesh",
+    region: "Varanasi",
     featured: false
   },
   {
@@ -125,7 +125,7 @@ const mockDestinations: Destination[] = [
     image2: null,
     image3: null,
     image4: null,
-    region: "Uttar Pradesh",
+    region: "Varanasi",
     featured: false
   },
   {
@@ -137,7 +137,7 @@ const mockDestinations: Destination[] = [
     image2: null,
     image3: null,
     image4: null,
-    region: "Uttar Pradesh",
+    region: "Varanasi",
     featured: false
   },
   {
@@ -149,7 +149,7 @@ const mockDestinations: Destination[] = [
     image2: null,
     image3: null,
     image4: null,
-    region: "Uttar Pradesh",
+    region: "Ayodhya",
     featured: false
   },
   {
@@ -161,7 +161,7 @@ const mockDestinations: Destination[] = [
     image2: null,
     image3: null,
     image4: null,
-    region: "Uttar Pradesh",
+    region: "Ayodhya",
     featured: false
   },
   {
@@ -173,7 +173,7 @@ const mockDestinations: Destination[] = [
     image2: null,
     image3: null,
     image4: null,
-    region: "Uttar Pradesh",
+    region: "Ayodhya",
     featured: false
   },
   {
@@ -185,7 +185,7 @@ const mockDestinations: Destination[] = [
     image2: null,
     image3: null,
     image4: null,
-    region: "Uttar Pradesh",
+    region: "Ayodhya",
     featured: false
   },
   {
@@ -197,7 +197,7 @@ const mockDestinations: Destination[] = [
     image2: null,
     image3: null,
     image4: null,
-    region: "Uttar Pradesh",
+    region: "Varanasi",
     featured: false
   },
   {
@@ -209,7 +209,7 @@ const mockDestinations: Destination[] = [
     image2: null,
     image3: null,
     image4: null,
-    region: "Uttar Pradesh",
+    region: "Varanasi",
     featured: false
   },
   {
@@ -221,7 +221,7 @@ const mockDestinations: Destination[] = [
     image2: null,
     image3: null,
     image4: null,
-    region: "Uttar Pradesh",
+    region: "Varanasi",
     featured: false
   },
   {
@@ -233,7 +233,7 @@ const mockDestinations: Destination[] = [
     image2: null,
     image3: null,
     image4: null,
-    region: "Uttar Pradesh",
+    region: "Varanasi",
     featured: false
   },
   {
@@ -245,7 +245,7 @@ const mockDestinations: Destination[] = [
     image2: null,
     image3: null,
     image4: null,
-    region: "Uttar Pradesh",
+    region: "Ayodhya",
     featured: false
   },
   {
@@ -257,7 +257,7 @@ const mockDestinations: Destination[] = [
     image2: null,
     image3: null,
     image4: null,
-    region: "Uttar Pradesh",
+    region: "Ayodhya",
     featured: false
   },
   {
@@ -269,7 +269,7 @@ const mockDestinations: Destination[] = [
     image2: null,
     image3: null,
     image4: null,
-    region: "Uttar Pradesh",
+    region: "Ayodhya",
     featured: false
   }
 ];
