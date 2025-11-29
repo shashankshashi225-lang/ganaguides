@@ -117,68 +117,78 @@ export default function Destinations() {
           </div>
 
           {/* Varanasi Destinations Section */}
-          <div className="mb-20">
-            <FadeInSection>
-              <div className="mb-8">
-                <h2 className="font-display text-2xl md:text-3xl font-bold mb-2">
-                  Varanasi
-                </h2>
-                <p className="text-muted-foreground">
-                  Explore the sacred temples and spiritual sites of Varanasi along the holy Ganges
-                </p>
-              </div>
-            </FadeInSection>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {varanasi.map((destination, index) => (
-                <FadeInSection key={destination.id} delay={index * 0.1}>
-                  <DestinationGuideCard
-                    name={destination.name}
-                    shortDescription={destination.shortDescription}
-                    imageUrl={destination.mainImage}
-                    onClick={() => setLocation(`/destination/${destination.id}`)}
-                    data-testid={`card-destination-${destination.id}`}
-                  />
-                </FadeInSection>
-              ))}
+          {(regionFilter === "all" || regionFilter === "Varanasi") && (
+            <div className="mb-20">
+              {varanasi.length > 0 ? (
+                <>
+                  <FadeInSection>
+                    <div className="mb-8">
+                      <h2 className="font-display text-2xl md:text-3xl font-bold mb-2">
+                        Varanasi
+                      </h2>
+                      <p className="text-muted-foreground">
+                        Explore the sacred temples and spiritual sites of Varanasi along the holy Ganges
+                      </p>
+                    </div>
+                  </FadeInSection>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {varanasi.map((destination, index) => (
+                      <FadeInSection key={destination.id} delay={index * 0.1}>
+                        <DestinationGuideCard
+                          name={destination.name}
+                          shortDescription={destination.shortDescription}
+                          imageUrl={destination.mainImage}
+                          onClick={() => setLocation(`/destination/${destination.id}`)}
+                          data-testid={`card-destination-${destination.id}`}
+                        />
+                      </FadeInSection>
+                    ))}
+                  </div>
+                </>
+              ) : (
+                <div className="text-center py-8">
+                  <p className="text-muted-foreground">No destinations found in Varanasi</p>
+                </div>
+              )}
             </div>
-            {varanasi.length === 0 && (
-              <div className="text-center py-8">
-                <p className="text-muted-foreground">No destinations found in Varanasi</p>
-              </div>
-            )}
-          </div>
+          )}
 
           {/* Ayodhya Destinations Section */}
-          <div className="mb-20">
-            <FadeInSection>
-              <div className="mb-8">
-                <h2 className="font-display text-2xl md:text-3xl font-bold mb-2">
-                  Ayodhya
-                </h2>
-                <p className="text-muted-foreground">
-                  Discover the sacred temples and pilgrimage sites connected to Lord Rama in Ayodhya
-                </p>
-              </div>
-            </FadeInSection>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {ayodhya.map((destination, index) => (
-                <FadeInSection key={destination.id} delay={index * 0.1}>
-                  <DestinationGuideCard
-                    name={destination.name}
-                    shortDescription={destination.shortDescription}
-                    imageUrl={destination.mainImage}
-                    onClick={() => setLocation(`/destination/${destination.id}`)}
-                    data-testid={`card-destination-${destination.id}`}
-                  />
-                </FadeInSection>
-              ))}
+          {(regionFilter === "all" || regionFilter === "Ayodhya") && (
+            <div className="mb-20">
+              {ayodhya.length > 0 ? (
+                <>
+                  <FadeInSection>
+                    <div className="mb-8">
+                      <h2 className="font-display text-2xl md:text-3xl font-bold mb-2">
+                        Ayodhya
+                      </h2>
+                      <p className="text-muted-foreground">
+                        Discover the sacred temples and pilgrimage sites connected to Lord Rama in Ayodhya
+                      </p>
+                    </div>
+                  </FadeInSection>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {ayodhya.map((destination, index) => (
+                      <FadeInSection key={destination.id} delay={index * 0.1}>
+                        <DestinationGuideCard
+                          name={destination.name}
+                          shortDescription={destination.shortDescription}
+                          imageUrl={destination.mainImage}
+                          onClick={() => setLocation(`/destination/${destination.id}`)}
+                          data-testid={`card-destination-${destination.id}`}
+                        />
+                      </FadeInSection>
+                    ))}
+                  </div>
+                </>
+              ) : (
+                <div className="text-center py-8">
+                  <p className="text-muted-foreground">No destinations found in Ayodhya</p>
+                </div>
+              )}
             </div>
-            {ayodhya.length === 0 && (
-              <div className="text-center py-8">
-                <p className="text-muted-foreground">No destinations found in Ayodhya</p>
-              </div>
-            )}
-          </div>
+          )}
         </div>
       </section>
 
