@@ -398,6 +398,137 @@ const mockPackages: Package[] = [
     detailedDescription: "This comprehensive pilgrimage covers two of Hinduism's holiest cities. Days 1-2 in Ayodhya include visits to Ram Janmabhoomi, Hanuman Garhi, Kanak Bhawan, and other sacred sites. Experience the evening aarti at Saryu River. Day 3 brings you to Varanasi for the complete Kashi darshan - boat ride, temple visits, heritage walk, and the magnificent Ganga Aarti. Throughout the journey, participate in authentic rituals and pujas, guided by local pandits who ensure the spiritual significance of each experience is fully understood. Comfortable AC transport and quality accommodation included.",
     price: null,
     featured: true
+  },
+  {
+    id: "kaal-bhairav-madira-seva",
+    name: "Kaal Bhairav Madira Seva – Exclusive Temple Service",
+    destination: "Varanasi",
+    category: "pooja",
+    duration: "Varies",
+    shortDescription: "Sacred tantric-Vedic ritual where alcohol is offered to Lord Kaal Bhairav, invoking divine protection and removing negative energies.",
+    highlights: [
+      "Madira (Offerings) Ritual performed as per traditional Kashi tantra-vidhi",
+      "Kaal Bhairav Mantra Jaap for protection and inner strength",
+      "Tilak & Raksha Sutra for personal safeguarding",
+      "Special Prarthana for removing obstacles & ensuring success",
+      "Return Prasad from the sanctum (bhabhuti, chunari, raksha thread)",
+      "Digital Video of Seva (if opted)",
+      "Prasad Courier Option (India & International)"
+    ],
+    imageUrl: "/generated_images/kaal_bhairav_temple_varanasi.png",
+    detailedDescription: "Kaal Bhairav Madira Seva is a sacred tantric-Vedic ritual where alcohol is offered to Lord Kaal Bhairav, symbolizing surrender of ego and tamasic energies. Practiced for centuries in Kashi, this seva is known to invoke divine protection, remove negative energies, and bring success and spiritual upliftment.\n\nBenefits:\n• Protection from unseen obstacles & negative energies\n• Boost in career, success, and confidence\n• Removal of fear, anxiety, and inner blockages\n• Divine support for legal matters, business growth & safety\n• Spiritual cleansing & empowerment\n\nSeva Timings: Performed daily during temple ritual hours. Auspicious Days: Ashtami, Kalashtami, Sundays, and special Bhairav Tithis\n\nWhat You Receive: Digital Video of Seva, Prasad Courier Option, Personalized Sankalp with name & gotra, Seva Certificate (optional add-on)",
+    price: null,
+    featured: true
+  },
+  {
+    id: "kaal-bhairav-abhishek-shringar",
+    name: "Kaal Bhairav Abhishek & Shringar Puja – Temple Service",
+    destination: "Varanasi",
+    category: "pooja",
+    duration: "Varies",
+    shortDescription: "Ancient Kashi rituals of ritual bathing and adorning Bhagwan Bhairav for purification, protection, and spiritual upliftment.",
+    highlights: [
+      "Panchamrit Abhishek",
+      "Ganga Jal Snan",
+      "Bhasm & Chandan Shringar",
+      "Floral decoration (Pushpa Shringar)",
+      "Vastra offering (cloth)",
+      "Special protection prayer for devotee",
+      "Bhairav Mantra Jaap",
+      "Tilak & Raksha Sutra"
+    ],
+    imageUrl: "/generated_images/kaal_bhairav_temple_varanasi.png",
+    detailedDescription: "Kaal Bhairav Abhishek and Shringar Puja are ancient Kashi rituals known for purifying energy, removing obstacles, and invoking powerful divine protection. Abhishek is ritual bathing of the deity with Panchamrit, Ganga Jal, and sacred herbs. Shringar is adorning Bhagwan Bhairav with flowers, sandalwood, vastra, garlands, and traditional ornaments.\n\nBenefits:\n• Removal of obstacles, fear & negative influences\n• Peace, prosperity & improved mental clarity\n• Strong spiritual protection (Raksha Kavach)\n• Success in work, business & legal matters\n• Aura purification and emotional stability\n\nSeva Timings: Daily during temple puja hours. Highly auspicious on Ashtami, Kalashtami, Sundays, and Bhairav Jayanti\n\nWhat You Receive: Prasad Packet, Digital Photos/Video, Personalized Sankalp, Seva Completion Message, Courier Prasad Option",
+    price: null,
+    featured: true
+  },
+  {
+    id: "kaal-bhairav-akhand-deepak",
+    name: "Kaal Bhairav Akhand Deepak Sewa – Temple Service",
+    destination: "Varanasi",
+    category: "pooja",
+    duration: "Varies",
+    shortDescription: "Offering of a continuously burning ghee diya in Kaal Bhairav Temple, symbolizing protection, karma cleansing, and divine guidance.",
+    highlights: [
+      "Sacred ghee diya setup",
+      "Akhand (unbroken) flame maintenance",
+      "Daily bhabhuti & chandan application",
+      "Kaal Bhairav Mantra Jaap",
+      "Special protection prayer for the devotee",
+      "Offering of flowers & Bilwa leaves",
+      "Tilak & Raksha Sutra",
+      "Daily/Weekly photo updates available"
+    ],
+    imageUrl: "/generated_images/kaal_bhairav_temple_varanasi.png",
+    detailedDescription: "Kaal Bhairav Akhand Deepak Sewa is the offering of a continuously burning ghee diya in the sacred temple of Bhagwan Kaal Bhairav. This uninterrupted flame symbolizes protection, karma cleansing, fear removal, and divine guidance. Extremely beneficial for those facing fear or anxiety, legal issues, life transitions or instability, and those seeking spiritual direction and strength.\n\nBenefits:\n• Divine protection from negative energies\n• Removal of fear, unknown obstacles & bad karma\n• Support in legal matters & disputes\n• Stability in career, business & life decisions\n• Mental peace and spiritual clarity\n• Blessings for family safety & wellbeing\n\nWhat You Receive: Daily/Completion Prasad Packet, Sankalp with name & gotra, Daily/Weekly photo updates or final photo, Video option, Courier Prasad available",
+    price: null,
+    featured: true
+  },
+  {
+    id: "kaal-bhairav-trishul-maha",
+    name: "Kaal Bhairav Trishul Maha Abhishek Puja – Temple Service",
+    destination: "Varanasi",
+    category: "pooja",
+    duration: "Varies",
+    shortDescription: "Highly energizing ritual to honor and activate the sacred Trishul of Lord Shiva/Kaal Bhairav for spiritual strength and protection.",
+    highlights: [
+      "Trishul Maha Abhishek with Milk, Honey, Curd, Ganga Jal, Ghee & Panchamrit",
+      "Bhasm & Chandan application",
+      "Flower & Bilwa leaf offering",
+      "Kaal Bhairav Mantra Jaap",
+      "Special protection prayer",
+      "Raksha Sutra & Tilak",
+      "Devotee's personalized Sankalp",
+      "Photos/Video of Puja optional"
+    ],
+    imageUrl: "/generated_images/kaal_bhairav_temple_varanasi.png",
+    detailedDescription: "The Trishul Maha Abhishek Puja is a highly energizing ritual performed to honor and activate the sacred Trishul of Lord Shiva/Kaal Bhairav. Priests in Kashi perform the ceremony using milk, honey, curd, Ganga Jal, ghee, and sacred herbs, while chanting powerful mantras. This puja invokes strong divine protection, removal of negativity, courage, clarity & spiritual strength, and prosperity and inner stability.\n\nBenefits:\n• Strong spiritual protection\n• Removal of negative energies & blockages\n• Increase in courage, clarity & determination\n• Support in legal matters & tough life decisions\n• Prosperity & stability in work/business\n• Deep spiritual connection with Kaal Bhairav\n\nPuja Timings: Performed daily by trained priests. Highly auspicious on Ashtami, Kalashtami, Sundays, and Bhairav Jayanti\n\nWhat You Receive: Prasad Packet, Photos/Video of Puja, Sankalp Confirmation Message, Courier Prasad Option, Special Blessing Note from temple",
+    price: null,
+    featured: true
+  },
+  {
+    id: "maha-mrityunjay-sewa",
+    name: "Maha Mrityunjay Temple Sewa Package – Varanasi",
+    destination: "Varanasi",
+    category: "pooja",
+    duration: "Varies",
+    shortDescription: "Comprehensive puja packages at Maha Mrityunjay Temple dedicated to Lord Shiva, for healing, protection, and longevity.",
+    highlights: [
+      "Basic Maha Mrityunjay Sewa with Mantra Recitation & Abhishek",
+      "Complete Rudra Abhishek with Panchamrit (Milk, Curd, Ghee, Honey & Sugar)",
+      "Maha Mrityunjay Mantra Japa (108 or 11000 Times)",
+      "Vibhuti application ritual & Rudraksha thread",
+      "Maha Mrityunjay Havan (Homa) with protective family shield prayer",
+      "Holy water from ancient temple well for healing",
+      "Certificate of completion available",
+      "Prasad courier option for India & International"
+    ],
+    imageUrl: "/generated_images/kashi_vishwanath_temple.png",
+    detailedDescription: "The Maha Mrityunjay Temple, dedicated to Lord Shiva, holds immense spiritual importance in Varanasi. Located on the route from Daranagar to Kaal Bhairav Temple, it is especially known for the ancient curative well, whose holy water is believed to heal diseases and negative energies.\n\nSewa Packages Offered:\n1. Basic Maha Mrityunjay Sewa - Sankalp, Mantra Recitation, Abhishek with holy water, Bilva Patra offering\n2. Maha Mrityunjay Abhishek Puja - Complete Rudra Abhishek, Panchamrit Abhishek, Vibhuti & Rudraksha thread\n3. Mantra Japa - 108 or 11000 Times dedicated Brahmin chanting in front of Lord Shiva\n4. Special Healing & Protection Sewa - Maha Mrityunjay Havan, Protective family shield prayer, Health & longevity blessings\n\nBenefits:\n• Overcomes physical, mental, and spiritual problems\n• Removes evil effects and negative energies\n• Supports career growth and professional success\n• Helps heal chronic diseases and energizes body systems\n• Opens blocked chakras/energy points\n• Protects against malefic Maraka planets\n• Creates strong protection for the entire family\n• Enhances inner strength, calmness, and spiritual clarity\n\nTemple Timings: Opens 4:00 AM, Closes 12:00 Midnight. Morning Aarti: 5:30 AM, Evening Aarti: 6:30 PM, Shayan Aarti: 11:30 PM",
+    price: null,
+    featured: true
+  },
+  {
+    id: "bilva-archana-puja",
+    name: "Bilva Archana Puja – Gauri Kedareshwar Temple, Varanasi",
+    destination: "Varanasi",
+    category: "pooja",
+    duration: "Varies",
+    shortDescription: "Sacred offering of Belpatra to Lord Shiva for divine grace, purification, purity, and spiritual protection.",
+    highlights: [
+      "Sankalp taken by the priest in devotee's name",
+      "Offering of fresh Bilva leaves",
+      "Archana with Shiva Mantras",
+      "Flower & Prasad offering",
+      "Complete Rudra Abhishek with pure water & Panchamrit",
+      "Chanting of Om Namah Shivaya & Shiva Stotram",
+      "Vibhuti tilak ritual",
+      "Personalized blessings for peace, purity & protection"
+    ],
+    imageUrl: "/generated_images/kashi_vishwanath_temple.png",
+    detailedDescription: "The Bilva Archana Puja is one of the most powerful and spiritually elevating rituals dedicated to Lord Shiva. Offering Bilva (Belpatra) to the Shiva Linga symbolizes devotion, purification, and surrender. Scriptures glorify the Bilva Tree as a divine tirtha, and performing this puja is believed to grant the benefit of countless pilgrimages.\n\nPerformed at the holy Gauri Kedareshwar Temple, Varanasi (Uttar Pradesh), this sewa is especially auspicious during Shravan Maas, Masik Shivratri, and Mondays.\n\nSewa Packages:\n1. Basic Bilva Archana Sewa - Sankalp, Fresh Bilva leaves, Archana with Shiva Mantras, Flower & Prasad offering, Blessings for peace & purity\n2. Bilva Archana with Rudra Abhishek - Complete Rudra Abhishek with water & Panchamrit, Sacred Bilva offering, Om Namah Shivaya chanting, Vibhuti tilak ritual\n\nBenefits:\n• Daily blessings and spiritual purity\n• Removal of negative energies\n• Overcomes obstacles in spiritual path\n• Divine connection with Lord Shiva\n• Mental peace and emotional balance\n• Protection from malefic influences\n• Healing and rejuvenation\n\nBest For: Spiritual seekers during Shravan Maas, Masik Shivratri, and Mondays for enhanced benefits",
+    price: null,
+    featured: true
   }
 ];
 
