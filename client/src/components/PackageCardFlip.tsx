@@ -61,28 +61,31 @@ export default function PackageCardFlip({
                 </h3>
               </div>
             </div>
-            <div className="flex-1 p-4 sm:p-6 flex flex-col justify-between bg-gradient-to-br from-card to-card/80">
-              <p className="text-muted-foreground leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
+            <div className="flex-1 p-3 sm:p-6 flex flex-col justify-between bg-gradient-to-br from-card to-card/80 min-w-0">
+              <p className="text-muted-foreground leading-relaxed mb-3 sm:mb-6 text-xs sm:text-base line-clamp-3">
                 {shortDescription}
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 w-full">
+              <div className="flex flex-col gap-2 w-full">
                 <Button
-                  className="w-full sm:flex-1 bg-primary text-primary-foreground font-semibold text-sm sm:text-base py-2 sm:py-auto"
+                  className="w-full bg-primary text-primary-foreground font-semibold text-xs sm:text-base py-2 sm:py-2 h-auto"
                   onClick={onBookNow}
                   data-testid="button-book-now"
                 >
                   Book Now
                 </Button>
-                <Button
-                  variant="outline"
-                  className="w-full sm:w-auto border-[#25D366] text-[#25D366] hover:bg-[#25D366]/10 font-semibold text-sm sm:text-base py-2 sm:py-auto gap-2"
-                  onClick={onEnquireNow}
-                  data-testid="button-whatsapp-icon"
-                >
-                  <FaWhatsapp className="w-4 h-4 sm:w-5 sm:h-5" />
-                  <span className="sm:hidden">WhatsApp</span>
-                </Button>
+                <div className="flex gap-2 w-full">
+                  <Button
+                    variant="outline"
+                    className="flex-1 border-[#25D366] text-[#25D366] hover:bg-[#25D366]/10 font-semibold text-xs sm:text-base py-2 sm:py-2 h-auto gap-1 sm:gap-2"
+                    onClick={onEnquireNow}
+                    data-testid="button-whatsapp-enquire"
+                  >
+                    <FaWhatsapp className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+                    <span className="hidden sm:inline">Enquire</span>
+                    <span className="sm:hidden">WhatsApp</span>
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
