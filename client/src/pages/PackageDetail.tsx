@@ -176,16 +176,6 @@ export default function PackageDetail() {
                         <p className="font-semibold">{pkg.duration}</p>
                       </div>
                     </div>
-                    {pkg.price && (
-                      <div className="flex items-center gap-3 p-3 bg-primary/10 rounded-lg border-2 border-primary/30">
-                        <div className="flex-1">
-                          <p className="text-sm text-muted-foreground mb-1">Starting from</p>
-                          <p className="font-display text-3xl font-bold text-primary" data-testid="text-package-price">
-                            ₹{pkg.price}
-                          </p>
-                        </div>
-                      </div>
-                    )}
                   </div>
                 </div>
 
