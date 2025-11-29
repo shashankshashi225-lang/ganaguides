@@ -125,15 +125,14 @@ export default function PackageCardFlip({
               >
                 View Full Details
               </Button>
-              <div className="flex flex-col sm:flex-row gap-2 w-full">
+              <div className="flex gap-2 w-full">
                 <Button
-                  className="flex-1 bg-[#D4EDDA] hover:bg-[#C3E6CB] text-[#155724] border border-[#C3E6CB] font-semibold text-xs sm:text-sm py-2 h-auto gap-1"
+                  className="flex-1 bg-[#D4EDDA] hover:bg-[#C3E6CB] text-[#155724] border border-[#C3E6CB] font-semibold text-sm py-2 h-auto gap-2"
                   onClick={onEnquireNow}
                   data-testid="button-enquire-whatsapp"
                 >
-                  <FaWhatsapp className="w-3 h-3 flex-shrink-0" />
-                  <span className="hidden xs:inline">Enquire</span>
-                  <span className="xs:hidden">WhatsApp</span>
+                  <FaWhatsapp className="w-4 h-4 flex-shrink-0" />
+                  Enquire
                 </Button>
                 <Button
                   className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-sm h-auto py-2"
