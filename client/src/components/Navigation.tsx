@@ -30,11 +30,10 @@ export default function Navigation({ onBookNowClick }: NavigationProps) {
         <div className="flex items-center justify-between">
           <Link href="/" className="flex-none">
             <button 
-              className="flex flex-col items-start hover-elevate active-elevate-2 rounded-lg transition-all group"
+              className="flex items-center hover-elevate active-elevate-2 rounded-lg transition-all group"
               data-testid="button-logo"
             >
               <img src={logoImage} alt="Ganga Guides Logo" className="h-20 md:h-24 w-48 md:w-96" />
-              <span className="text-xs text-muted-foreground">Spiritual Essence, Guided by Heritage</span>
             </button>
           </Link>
 
