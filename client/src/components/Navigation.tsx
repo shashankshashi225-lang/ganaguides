@@ -26,22 +26,22 @@ export default function Navigation({ onBookNowClick }: NavigationProps) {
       className="fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-white shadow-lg border-b border-border"
       data-testid="navigation"
     >
-      <div className="max-w-7xl mx-auto px-4 py-3">
+      <div className="max-w-7xl mx-auto px-2 md:px-4 py-2 md:py-3">
         <div className="flex items-center justify-between">
-          <Link href="/">
+          <Link href="/" className="flex-[6] md:flex-none min-w-0">
             <button 
-              className="flex items-center hover-elevate active-elevate-2 px-1 py-1 rounded-lg transition-all group flex-shrink-0"
+              className="flex items-center hover-elevate active-elevate-2 rounded-lg transition-all group w-full"
               data-testid="button-logo"
             >
               <img 
                 src={logoImage} 
                 alt="Ganga Guides - Spiritual Essence, Guided by Heritage" 
-                className="h-12 md:h-20 w-[60vw] md:w-auto object-contain md:max-w-md"
+                className="h-16 md:h-20 w-full md:w-auto object-contain object-left md:max-w-md"
               />
             </button>
           </Link>
 
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-2 md:gap-6 flex-[4] md:flex-none justify-end min-w-0">
             <div className="hidden md:flex items-center gap-6">
               <Link href="/">
                 <button
@@ -107,8 +107,8 @@ export default function Navigation({ onBookNowClick }: NavigationProps) {
 
             <Button
               onClick={onBookNowClick}
-              size="lg"
-              className="bg-primary text-primary-foreground border border-primary-border font-semibold shadow-lg hover:shadow-xl transition-all"
+              size="default"
+              className="bg-primary text-primary-foreground border border-primary-border font-semibold shadow-lg hover:shadow-xl transition-all text-xs md:text-sm px-2 md:px-4 whitespace-nowrap w-full md:w-auto"
               data-testid="button-plan-journey"
             >
               Plan Your Journey
