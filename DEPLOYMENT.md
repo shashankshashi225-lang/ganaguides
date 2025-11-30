@@ -21,16 +21,21 @@ Your project is already configured for Vercel deployment. The following files ar
    postgresql://user:password@ep-xxx.region.aws.neon.tech/neondb?sslmode=require
    ```
 
-### Initialize the Database:
-1. In Neon Console, click on "SQL Editor"
-2. Open `scripts/init-db.sql` from your project
-3. Copy and paste the entire content into Neon's SQL Editor
-4. Click "Run" to create all tables
-5. Open `scripts/seed-db.sql` from your project
-6. Copy and paste the entire content into Neon's SQL Editor
-7. Click "Run" to seed initial data
+### Database Setup (Automatic):
+**Good news!** The database tables and initial data are created automatically when your app starts for the first time. You don't need to run any SQL manually.
 
-You should see output showing the count of records in each table.
+When you deploy to Vercel with the DATABASE_URL set, the app will:
+1. Automatically create all required tables (destinations, packages, blog_posts, etc.)
+2. Automatically seed initial content (sample destinations, packages, events)
+
+This happens on the first request to your deployed app. Just make sure DATABASE_URL is set correctly in Vercel.
+
+### Manual Setup (Optional):
+If you prefer to set up the database manually, you can use these SQL scripts:
+- `scripts/init-db.sql` - Creates all tables
+- `scripts/seed-db.sql` - Adds initial data
+
+Run them in Neon's SQL Editor if needed.
 
 ## Step 2: Download Your Project
 
@@ -169,8 +174,9 @@ Make sure the `client/public/generated_images/` folder is included in your Git r
 2. Redeploy after adding the environment variable
 
 ### API returning empty arrays?
-1. Make sure you ran the `scripts/seed-db.sql` in Neon
-2. Check that tables have data: `SELECT COUNT(*) FROM destinations;`
+1. The database should auto-seed on first startup. Check the Vercel logs for any errors.
+2. In Neon SQL Editor, verify tables exist: `SELECT COUNT(*) FROM destinations;`
+3. If tables don't exist, check that DATABASE_URL is correct and redeploy.
 
 ### Build failing?
 1. Go to Vercel dashboard → Your project → "Deployments"
