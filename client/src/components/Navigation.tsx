@@ -26,14 +26,14 @@ export default function Navigation({ onBookNowClick }: NavigationProps) {
       className="fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-white shadow-lg border-b border-border"
       data-testid="navigation"
     >
-      <div className="max-w-7xl mx-auto px-2 md:px-4 py-2 md:py-3">
+      <div className="max-w-7xl mx-auto px-2 md:px-4 py-1 md:py-2">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex-[6] md:flex-none min-w-0">
             <button 
-              className="flex items-center hover-elevate active-elevate-2 rounded-lg transition-all group w-full px-2"
+              className="flex items-center hover-elevate active-elevate-2 rounded-lg transition-all group"
               data-testid="button-logo"
             >
-              <img src={logoImage} alt="Ganga Guides Logo" className="h-40 md:h-48 w-auto" />
+              <img src={logoImage} alt="Ganga Guides Logo" className="h-56 md:h-64 w-auto max-w-xs md:max-w-md" />
             </button>
           </Link>
 
