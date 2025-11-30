@@ -19,7 +19,8 @@ CREATE TABLE IF NOT EXISTS destinations (
   image_3 TEXT,
   image_4 TEXT,
   region TEXT,
-  featured BOOLEAN NOT NULL DEFAULT false
+  featured BOOLEAN NOT NULL DEFAULT false,
+  is_visible BOOLEAN NOT NULL DEFAULT true
 );
 
 -- Blog posts table
@@ -35,7 +36,8 @@ CREATE TABLE IF NOT EXISTS blog_posts (
   image_2 TEXT,
   image_3 TEXT,
   image_4 TEXT,
-  featured BOOLEAN NOT NULL DEFAULT false
+  featured BOOLEAN NOT NULL DEFAULT false,
+  is_visible BOOLEAN NOT NULL DEFAULT true
 );
 
 -- Packages table
@@ -50,7 +52,8 @@ CREATE TABLE IF NOT EXISTS packages (
   image_url TEXT NOT NULL,
   detailed_description TEXT NOT NULL,
   price INTEGER,
-  featured BOOLEAN NOT NULL DEFAULT false
+  featured BOOLEAN NOT NULL DEFAULT false,
+  is_visible BOOLEAN NOT NULL DEFAULT true
 );
 
 -- Panchang events table
@@ -60,7 +63,9 @@ CREATE TABLE IF NOT EXISTS panchang_events (
   name TEXT NOT NULL,
   description TEXT NOT NULL,
   type TEXT NOT NULL,
-  significance TEXT
+  significance TEXT,
+  featured BOOLEAN NOT NULL DEFAULT false,
+  is_visible BOOLEAN NOT NULL DEFAULT true
 );
 
 -- Video testimonials table
@@ -71,5 +76,31 @@ CREATE TABLE IF NOT EXISTS video_testimonials (
   embed_code TEXT,
   caption TEXT,
   author TEXT,
-  featured BOOLEAN NOT NULL DEFAULT false
+  featured BOOLEAN NOT NULL DEFAULT false,
+  is_visible BOOLEAN NOT NULL DEFAULT true
 );
+
+-- Bookings table
+CREATE TABLE IF NOT EXISTS bookings (
+  id VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(),
+  name TEXT NOT NULL,
+  email TEXT NOT NULL,
+  phone TEXT NOT NULL,
+  package_id VARCHAR,
+  package_name TEXT,
+  preferred_date TEXT,
+  number_of_people INTEGER,
+  message TEXT,
+  status TEXT NOT NULL DEFAULT 'pending',
+  created_at TIMESTAMP NOT NULL DEFAULT now()
+);
+
+-- Add new columns to existing tables if they don't exist (for existing databases)
+-- Run these ALTER statements if you already have the tables created
+
+-- ALTER TABLE destinations ADD COLUMN IF NOT EXISTS is_visible BOOLEAN NOT NULL DEFAULT true;
+-- ALTER TABLE blog_posts ADD COLUMN IF NOT EXISTS is_visible BOOLEAN NOT NULL DEFAULT true;
+-- ALTER TABLE packages ADD COLUMN IF NOT EXISTS is_visible BOOLEAN NOT NULL DEFAULT true;
+-- ALTER TABLE panchang_events ADD COLUMN IF NOT EXISTS featured BOOLEAN NOT NULL DEFAULT false;
+-- ALTER TABLE panchang_events ADD COLUMN IF NOT EXISTS is_visible BOOLEAN NOT NULL DEFAULT true;
+-- ALTER TABLE video_testimonials ADD COLUMN IF NOT EXISTS is_visible BOOLEAN NOT NULL DEFAULT true;

@@ -1,11 +1,29 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertDestinationSchema, insertBlogPostSchema, insertPackageSchema, insertPanchangEventSchema, insertVideoTestimonialSchema } from "@shared/schema";
+import { insertDestinationSchema, insertBlogPostSchema, insertPackageSchema, insertPanchangEventSchema, insertVideoTestimonialSchema, insertBookingSchema } from "@shared/schema";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Destination routes
   app.get("/api/destinations", async (req, res) => {
+    try {
+      const destinations = await storage.getVisibleDestinations();
+      res.json(destinations);
+    } catch (error: any) {
+      res.status(500).json({ message: error.message });
+    }
+  });
+
+  app.get("/api/destinations/featured", async (req, res) => {
+    try {
+      const destinations = await storage.getFeaturedDestinations();
+      res.json(destinations);
+    } catch (error: any) {
+      res.status(500).json({ message: error.message });
+    }
+  });
+
+  app.get("/api/destinations/all", async (req, res) => {
     try {
       const destinations = await storage.getAllDestinations();
       res.json(destinations);
@@ -51,6 +69,24 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Blog post routes
   app.get("/api/blog-posts", async (req, res) => {
     try {
+      const blogPosts = await storage.getVisibleBlogPosts();
+      res.json(blogPosts);
+    } catch (error: any) {
+      res.status(500).json({ message: error.message });
+    }
+  });
+
+  app.get("/api/blog-posts/featured", async (req, res) => {
+    try {
+      const blogPosts = await storage.getFeaturedBlogPosts();
+      res.json(blogPosts);
+    } catch (error: any) {
+      res.status(500).json({ message: error.message });
+    }
+  });
+
+  app.get("/api/blog-posts/all", async (req, res) => {
+    try {
       const blogPosts = await storage.getAllBlogPosts();
       res.json(blogPosts);
     } catch (error: any) {
@@ -94,6 +130,24 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   // Package routes
   app.get("/api/packages", async (req, res) => {
+    try {
+      const packages = await storage.getVisiblePackages();
+      res.json(packages);
+    } catch (error: any) {
+      res.status(500).json({ message: error.message });
+    }
+  });
+
+  app.get("/api/packages/featured", async (req, res) => {
+    try {
+      const packages = await storage.getFeaturedPackages();
+      res.json(packages);
+    } catch (error: any) {
+      res.status(500).json({ message: error.message });
+    }
+  });
+
+  app.get("/api/packages/all", async (req, res) => {
     try {
       const packages = await storage.getAllPackages();
       res.json(packages);
@@ -147,6 +201,24 @@ export async function registerRoutes(app: Express): Promise<Server> {
         );
         return res.json(events);
       }
+      const events = await storage.getVisiblePanchangEvents();
+      res.json(events);
+    } catch (error: any) {
+      res.status(500).json({ message: error.message });
+    }
+  });
+
+  app.get("/api/panchang-events/featured", async (req, res) => {
+    try {
+      const events = await storage.getFeaturedPanchangEvents();
+      res.json(events);
+    } catch (error: any) {
+      res.status(500).json({ message: error.message });
+    }
+  });
+
+  app.get("/api/panchang-events/all", async (req, res) => {
+    try {
       const events = await storage.getAllPanchangEvents();
       res.json(events);
     } catch (error: any) {
@@ -203,6 +275,24 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Video testimonials routes
   app.get("/api/video-testimonials", async (req, res) => {
     try {
+      const testimonials = await storage.getVisibleVideoTestimonials();
+      res.json(testimonials);
+    } catch (error: any) {
+      res.status(500).json({ message: error.message });
+    }
+  });
+
+  app.get("/api/video-testimonials/featured", async (req, res) => {
+    try {
+      const testimonials = await storage.getFeaturedVideoTestimonials();
+      res.json(testimonials);
+    } catch (error: any) {
+      res.status(500).json({ message: error.message });
+    }
+  });
+
+  app.get("/api/video-testimonials/all", async (req, res) => {
+    try {
       const testimonials = await storage.getAllVideoTestimonials();
       res.json(testimonials);
     } catch (error: any) {
@@ -249,6 +339,62 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const success = await storage.deleteVideoTestimonial(req.params.id);
       if (!success) {
         return res.status(404).json({ message: "Video testimonial not found" });
+      }
+      res.status(204).send();
+    } catch (error: any) {
+      res.status(500).json({ message: error.message });
+    }
+  });
+
+  // Booking routes
+  app.get("/api/bookings", async (req, res) => {
+    try {
+      const bookings = await storage.getAllBookings();
+      res.json(bookings);
+    } catch (error: any) {
+      res.status(500).json({ message: error.message });
+    }
+  });
+
+  app.get("/api/bookings/:id", async (req, res) => {
+    try {
+      const booking = await storage.getBooking(req.params.id);
+      if (!booking) {
+        return res.status(404).json({ message: "Booking not found" });
+      }
+      res.json(booking);
+    } catch (error: any) {
+      res.status(500).json({ message: error.message });
+    }
+  });
+
+  app.post("/api/bookings", async (req, res) => {
+    try {
+      const validatedData = insertBookingSchema.parse(req.body);
+      const booking = await storage.createBooking(validatedData);
+      res.status(201).json(booking);
+    } catch (error: any) {
+      res.status(400).json({ message: error.message });
+    }
+  });
+
+  app.patch("/api/bookings/:id", async (req, res) => {
+    try {
+      const booking = await storage.updateBooking(req.params.id, req.body);
+      if (!booking) {
+        return res.status(404).json({ message: "Booking not found" });
+      }
+      res.json(booking);
+    } catch (error: any) {
+      res.status(500).json({ message: error.message });
+    }
+  });
+
+  app.delete("/api/bookings/:id", async (req, res) => {
+    try {
+      const success = await storage.deleteBooking(req.params.id);
+      if (!success) {
+        return res.status(404).json({ message: "Booking not found" });
       }
       res.status(204).send();
     } catch (error: any) {

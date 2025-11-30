@@ -1,5 +1,5 @@
 import { sql } from "drizzle-orm";
-import { pgTable, text, varchar, integer, boolean, date } from "drizzle-orm/pg-core";
+import { pgTable, text, varchar, integer, boolean, date, timestamp } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -20,6 +20,7 @@ export const destinations = pgTable("destinations", {
   image4: text("image_4"),
   region: text("region"),
   featured: boolean("featured").notNull().default(false),
+  isVisible: boolean("is_visible").notNull().default(true),
 });
 
 export const blogPosts = pgTable("blog_posts", {
@@ -35,6 +36,7 @@ export const blogPosts = pgTable("blog_posts", {
   image3: text("image_3"),
   image4: text("image_4"),
   featured: boolean("featured").notNull().default(false),
+  isVisible: boolean("is_visible").notNull().default(true),
 });
 
 export const packages = pgTable("packages", {
@@ -49,6 +51,43 @@ export const packages = pgTable("packages", {
   detailedDescription: text("detailed_description").notNull(),
   price: integer("price"),
   featured: boolean("featured").notNull().default(false),
+  isVisible: boolean("is_visible").notNull().default(true),
+});
+
+export const panchangEvents = pgTable("panchang_events", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  date: date("date").notNull(),
+  name: text("name").notNull(),
+  description: text("description").notNull(),
+  type: text("type").notNull(),
+  significance: text("significance"),
+  featured: boolean("featured").notNull().default(false),
+  isVisible: boolean("is_visible").notNull().default(true),
+});
+
+export const videoTestimonials = pgTable("video_testimonials", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  platform: text("platform").notNull(),
+  videoUrl: text("video_url").notNull(),
+  embedCode: text("embed_code"),
+  caption: text("caption"),
+  author: text("author"),
+  featured: boolean("featured").notNull().default(false),
+  isVisible: boolean("is_visible").notNull().default(true),
+});
+
+export const bookings = pgTable("bookings", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  name: text("name").notNull(),
+  email: text("email").notNull(),
+  phone: text("phone").notNull(),
+  packageId: varchar("package_id"),
+  packageName: text("package_name"),
+  preferredDate: text("preferred_date"),
+  numberOfPeople: integer("number_of_people"),
+  message: text("message"),
+  status: text("status").notNull().default("pending"),
+  createdAt: timestamp("created_at").notNull().default(sql`now()`),
 });
 
 export const insertUserSchema = createInsertSchema(users).omit({
@@ -67,6 +106,19 @@ export const insertPackageSchema = createInsertSchema(packages).omit({
   id: true,
 });
 
+export const insertPanchangEventSchema = createInsertSchema(panchangEvents).omit({
+  id: true,
+});
+
+export const insertVideoTestimonialSchema = createInsertSchema(videoTestimonials).omit({
+  id: true,
+});
+
+export const insertBookingSchema = createInsertSchema(bookings).omit({
+  id: true,
+  createdAt: true,
+});
+
 export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = typeof users.$inferSelect;
 
@@ -79,35 +131,11 @@ export type BlogPost = typeof blogPosts.$inferSelect;
 export type InsertPackage = z.infer<typeof insertPackageSchema>;
 export type Package = typeof packages.$inferSelect;
 
-export const panchangEvents = pgTable("panchang_events", {
-  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
-  date: date("date").notNull(),
-  name: text("name").notNull(),
-  description: text("description").notNull(),
-  type: text("type").notNull(),
-  significance: text("significance"),
-});
-
-export const videoTestimonials = pgTable("video_testimonials", {
-  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
-  platform: text("platform").notNull(),
-  videoUrl: text("video_url").notNull(),
-  embedCode: text("embed_code"),
-  caption: text("caption"),
-  author: text("author"),
-  featured: boolean("featured").notNull().default(false),
-});
-
-export const insertPanchangEventSchema = createInsertSchema(panchangEvents).omit({
-  id: true,
-});
-
-export const insertVideoTestimonialSchema = createInsertSchema(videoTestimonials).omit({
-  id: true,
-});
-
 export type InsertPanchangEvent = z.infer<typeof insertPanchangEventSchema>;
 export type PanchangEvent = typeof panchangEvents.$inferSelect;
 
 export type InsertVideoTestimonial = z.infer<typeof insertVideoTestimonialSchema>;
 export type VideoTestimonial = typeof videoTestimonials.$inferSelect;
+
+export type InsertBooking = z.infer<typeof insertBookingSchema>;
+export type Booking = typeof bookings.$inferSelect;

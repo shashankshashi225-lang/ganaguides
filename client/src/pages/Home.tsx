@@ -46,17 +46,17 @@ export default function Home() {
   const [bookingDialogOpen, setBookingDialogOpen] = useState(false);
   const [selectedPackage, setSelectedPackage] = useState("");
 
-  // Fetch data from APIs
+  // Fetch featured data from APIs for homepage display
   const { data: apiDestinations } = useQuery<Destination[]>({
-    queryKey: ['/api/destinations'],
+    queryKey: ['/api/destinations/featured'],
   });
 
   const { data: apiBlogPosts } = useQuery<BlogPost[]>({
-    queryKey: ['/api/blog-posts'],
+    queryKey: ['/api/blog-posts/featured'],
   });
 
   const { data: apiPackages } = useQuery<Package[]>({
-    queryKey: ['/api/packages'],
+    queryKey: ['/api/packages/featured'],
   });
 
   const heroSlides = [
