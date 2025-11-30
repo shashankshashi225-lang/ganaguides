@@ -141,7 +141,7 @@ export default function Footer() {
 
         <div className="border-t border-primary-foreground/20 pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <Link href="/">
-            <img src={logoImage} alt="Ganga Guides Logo" className="h-16 w-auto hover-elevate transition-all rounded-lg" />
+            <img src={logoImage} alt="Ganga Guides Logo" className="h-48 w-auto hover-elevate transition-all rounded-lg" />
           </Link>
           <p className="text-sm text-primary-foreground/80">
             © {currentYear} Ganga Guides. All rights reserved.
