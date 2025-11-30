@@ -1,6 +1,7 @@
 import { storage } from "./storage";
 import { log } from "./vite";
 import { db } from "./db";
+import { destinations } from "@shared/schema";
 
 export async function seedDatabase() {
   try {
@@ -10,12 +11,14 @@ export async function seedDatabase() {
       return;
     }
 
-    // Check if data already exists
-    const existingDestinations = await storage.getAllDestinations();
+    // Check if data already exists - directly query database, not storage (which has fallback)
+    const existingDestinations = await db.select().from(destinations);
     if (existingDestinations.length > 0) {
       log("Database already seeded");
       return;
     }
+    
+    log("Seeding database with initial data...");
 
     // Image paths - these will be served from the attached_assets folder
     const varanasi = "/attached_assets/generated_images/Boat_perspective_Ganges_view_e308dae7.png";
@@ -262,7 +265,73 @@ export async function seedDatabase() {
       featured: true,
     });
 
-    log("Database seeded successfully with destinations, blog posts, and packages");
+    // Seed Panchang Events
+    await storage.createPanchangEvent({
+      date: "2025-12-15",
+      name: "Kartik Purnima",
+      type: "festival",
+      description: "One of the most auspicious full moon nights, perfect for holy dips and lighting diyas.",
+      significance: "Sacred bathing, lamp lighting, and temple visits",
+    });
+
+    await storage.createPanchangEvent({
+      date: "2025-12-25",
+      name: "Mokshada Ekadashi",
+      type: "religious",
+      description: "A highly significant fasting day dedicated to Lord Vishnu for liberation.",
+      significance: "Fasting, prayer, and spiritual liberation",
+    });
+
+    await storage.createPanchangEvent({
+      date: "2026-01-14",
+      name: "Makar Sankranti",
+      type: "festival",
+      description: "The festival marking the sun's transition into Capricorn, celebrated with holy dips.",
+      significance: "Holy bath at Sangam, kite flying, and sesame sweets",
+    });
+
+    await storage.createPanchangEvent({
+      date: "2026-02-12",
+      name: "Maha Shivaratri",
+      type: "religious",
+      description: "The great night of Lord Shiva, celebrated with fasting and night-long prayers.",
+      significance: "All-night vigil, fasting, and Shiva worship at temples",
+    });
+
+    await storage.createPanchangEvent({
+      date: "2026-03-14",
+      name: "Holi",
+      type: "festival",
+      description: "The vibrant festival of colors celebrating the triumph of good over evil.",
+      significance: "Color play, bonfires, and community celebrations",
+    });
+
+    // Seed Video Testimonials
+    await storage.createVideoTestimonial({
+      platform: "instagram",
+      videoUrl: "https://www.instagram.com/reel/example1/",
+      embedCode: null,
+      author: "Spiritual Traveler",
+      caption: "The morning aarti at Dashashwamedh Ghat changed my perspective on life. Truly magical!",
+    });
+
+    await storage.createVideoTestimonial({
+      platform: "youtube",
+      videoUrl: "https://www.youtube.com/watch?v=example2",
+      embedCode: null,
+      author: "Pilgrim Seeker",
+      caption: "Visiting the Ram Janmabhoomi was a dream come true. The spiritual energy is indescribable.",
+    });
+
+    await storage.createVideoTestimonial({
+      platform: "instagram",
+      videoUrl: "https://www.instagram.com/reel/example3/",
+      embedCode: null,
+      author: "Dawn Voyager",
+      caption: "Watching the sun rise over the ghats from a boat was the highlight of my trip.",
+    });
+
+    log("Database seeded successfully with destinations, blog posts, packages, events, and testimonials");
   } catch (error) {
     log("Warning - could not seed database: " + error);
   }
