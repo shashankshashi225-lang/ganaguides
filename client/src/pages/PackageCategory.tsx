@@ -113,6 +113,46 @@ export default function PackageCategory() {
             </div>
           </FadeInSection>
 
+          {categorySlug === "popular-events" && (
+            <FadeInSection delay={0.1}>
+              <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-xl p-8 mb-16 border-2 border-primary/20">
+                <h2 className="font-display text-2xl md:text-3xl font-bold mb-6">Activities in Varanasi, Ayodhya & Ujjain</h2>
+                <p className="text-muted-foreground mb-8">Experience the soul of Kashi through sacred rituals, cultural walks, and river adventures.</p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="bg-white dark:bg-slate-900 rounded-lg p-6 border border-primary/20">
+                    <h3 className="font-bold text-lg mb-4 text-primary">Varanasi</h3>
+                    <ul className="space-y-2 text-sm">
+                      <li className="flex gap-2"><span className="text-primary">⛵</span> <span><strong>Boat Ride / Cruise Ride</strong> - Sail on the Ganga at sunrise or during evening with amazing views of ghats and temples. Cruise rides add a spiritual backdrop.</span></li>
+                      <li className="flex gap-2"><span className="text-primary">🏛️</span> <span><strong>Temple Visits</strong> - Visit Kaal Vihasnoal and other sacred temples, including deep intricate architecture.</span></li>
+                      <li className="flex gap-2"><span className="text-primary">🌊</span> <span><strong>Ganga Snan</strong> - Take a holy dip in the sacred Ghat, followed on sacred ghats.</span></li>
+                      <li className="flex gap-2"><span className="text-primary">🚶</span> <span><strong>Chat Walk</strong> - Walk across Shri ghats, each with its own legends and histories.</span></li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-white dark:bg-slate-900 rounded-lg p-6 border border-primary/20">
+                    <h3 className="font-bold text-lg mb-4 text-primary">Ayodhya</h3>
+                    <ul className="space-y-2 text-sm">
+                      <li className="flex gap-2"><span className="text-primary">🛕</span> <span><strong>Mandir Visit</strong> - Seek blessings at the grand Ram Mandir, a symbol of cultural pride.</span></li>
+                      <li className="flex gap-2"><span className="text-primary">🛕</span> <span><strong>Saryu Aarti</strong> - Take a dip in the holy Saryu River, a timeless ritual of purity and faith.</span></li>
+                      <li className="flex gap-2"><span className="text-primary">🏰</span> <span><strong>Ram Ki Paadi Walk</strong> - Enjoy peaceful evening walks along the beautifully filled walkways and visit.</span></li>
+                      <li className="flex gap-2"><span className="text-primary">🌟</span> <span><strong>Ram Leela Experience</strong> - Witness grand reenactment of the Ramayana, when displayed and retold.</span></li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-white dark:bg-slate-900 rounded-lg p-6 border border-primary/20">
+                    <h3 className="font-bold text-lg mb-4 text-primary">Ujjain</h3>
+                    <ul className="space-y-2 text-sm">
+                      <li className="flex gap-2"><span className="text-primary">⛩️</span> <span><strong>Shipra Snan</strong> - Immerse in the holy Shipra River, believed to purify the soul and wash away sins.</span></li>
+                      <li className="flex gap-2"><span className="text-primary">🚶</span> <span><strong>Chat Walk</strong> - Walk along Ghats Ghat and witness the serene Aarti by the river.</span></li>
+                      <li className="flex gap-2"><span className="text-primary">🏛️</span> <span><strong>Temple Visits</strong> - Visit Mahakaleshwar Jyotirlinga and other sacred temples with unique legends and rituals.</span></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </FadeInSection>
+          )}
+
           <div className="flex flex-wrap gap-4 mb-12 justify-center">
             <div className="flex items-center gap-2">
               <Filter className="w-4 h-4 text-muted-foreground" />
