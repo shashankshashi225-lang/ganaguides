@@ -529,6 +529,69 @@ const mockPackages: Package[] = [
     detailedDescription: "The Bilva Archana Puja is one of the most powerful and spiritually elevating rituals dedicated to Lord Shiva. Offering Bilva (Belpatra) to the Shiva Linga symbolizes devotion, purification, and surrender. Scriptures glorify the Bilva Tree as a divine tirtha, and performing this puja is believed to grant the benefit of countless pilgrimages.\n\nPerformed at the holy Gauri Kedareshwar Temple, Varanasi (Uttar Pradesh), this sewa is especially auspicious during Shravan Maas, Masik Shivratri, and Mondays.\n\nSewa Packages:\n1. Basic Bilva Archana Sewa - Sankalp, Fresh Bilva leaves, Archana with Shiva Mantras, Flower & Prasad offering, Blessings for peace & purity\n2. Bilva Archana with Rudra Abhishek - Complete Rudra Abhishek with water & Panchamrit, Sacred Bilva offering, Om Namah Shivaya chanting, Vibhuti tilak ritual\n\nBenefits:\n• Daily blessings and spiritual purity\n• Removal of negative energies\n• Overcomes obstacles in spiritual path\n• Divine connection with Lord Shiva\n• Mental peace and emotional balance\n• Protection from malefic influences\n• Healing and rejuvenation\n\nBest For: Spiritual seekers during Shravan Maas, Masik Shivratri, and Mondays for enhanced benefits",
     price: null,
     featured: true
+  },
+  {
+    id: "diwali-2026-special",
+    name: "Diwali 2026 Special - Celebrate Light in Sacred Varanasi",
+    destination: "Varanasi",
+    category: "popular_event",
+    duration: "3 Days",
+    shortDescription: "Experience the most sacred Diwali celebration on the ghats of Varanasi where millions of diyas illuminate the Ganges River. Witness the divine spectacle of lights and spirituality.",
+    highlights: [
+      "Exclusive front-row seating at Dashashwamedh Ghat for Dev Deepawali",
+      "Sunrise boat ride with ceremonial bathing rituals",
+      "Special Lakshmi Puja at ancient temples with local priests",
+      "Millions of diyas lighting ceremony on Ganga ghats",
+      "Authentic Diwali celebrations and rangoli viewing",
+      "Traditional sweets and festive meals included",
+      "Expert local guides for historical and spiritual insights"
+    ],
+    imageUrl: "/generated_images/diwali_celebration_in_varanasi.png",
+    detailedDescription: "Celebrate Diwali in Varanasi, the city where the festival reaches its most magnificent form. This exclusive 3-day package brings you to witness Dev Deepawali - the divine festival of lights where the entire Ganges ghats glow with countless oil lamps and fireworks light up the sky.\n\nDay 1: Arrival & Temple Visits\n• Pick-up from station/airport\n• Evening prayers at Kashi Vishwanath Temple\n• Witness sunset aarti at Assi Ghat\n• Dinner and cultural program\n\nDay 2: Diwali Celebrations\n• Early morning Ganga Snan with rituals\n• Special Lakshmi Puja at local temple\n• Daytime exploration of Varanasi's spiritual sites\n• Evening: Millions of diyas lighting ceremony\n• Watch Dev Deepawali - the most spectacular display of lights\n• Festive dinner with local sweets\n\nDay 3: Heritage Tour & Departure\n• Morning boat ride through festive ghats\n• Visit Sarnath\n• Depart with blessings and memories\n\nFor exact dates and detailed itinerary, please contact us via WhatsApp or phone.",
+    price: null,
+    featured: true
+  },
+  {
+    id: "makar-sankranti-2026",
+    name: "Makar Sankranti 2026 - Holy Dip at Triveni Sangam",
+    destination: "Varanasi",
+    category: "popular_event",
+    duration: "2 Days",
+    shortDescription: "Join the most auspicious bathing ritual of the year at the sacred Ganges during Makar Sankranti, celebrated by millions of pilgrims seeking spiritual cleansing.",
+    highlights: [
+      "Holy dip at Sangam confluence point",
+      "Special early morning rituals and ceremonies",
+      "Guided darshan at major Varanasi temples",
+      "Participation in Ghat Aarti ceremonies",
+      "Traditional Til-Gur sweets distribution",
+      "Meet local spiritual masters and pandits",
+      "Photography opportunity at sunrise"
+    ],
+    imageUrl: "/generated_images/makar_sankranti_festival_in_varanasi.png",
+    detailedDescription: "Makar Sankranti is the most auspicious day for bathing in the holy Ganges. This festival marks the sun's transition into Capricorn and is celebrated as a day of spiritual purification. Millions of pilgrims gather at the Ganges ghats, especially at Prayagraj and Varanasi, for the sacred ritual.\n\nDay 1: Arrival & Evening Preparations\n• Arrive in Varanasi\n• Attend evening Ganga Aarti\n• Traditional welcome and orientation\n• Early rest for next day's spiritual journey\n\nDay 2: Makar Sankranti Celebrations\n• Pre-dawn wake-up for sacred rituals\n• Holy dip at the Sangam point\n• Special Ghat puja and ceremonies\n• Darshan at Kashi Vishwanath, Annapurna, and other key temples\n• Receive Til-Gur prasad (traditional sweets)\n• Meet spiritual gurus and learn about the significance\n• Return to hotel for rest and meals\n• Evening departure\n\nNote: January 14, 2026 is Makar Sankranti. For specific dates, timings, and customized arrangements, please contact us for more details.",
+    price: null,
+    featured: true
+  },
+  {
+    id: "ram-navami-2026-ayodhya",
+    name: "Ram Navami 2026 - Lord Rama's Birthday in Ayodhya",
+    destination: "Ayodhya",
+    category: "popular_event",
+    duration: "3 Days",
+    shortDescription: "Celebrate Lord Rama's birth anniversary in Ayodhya with grand processions, special ceremonies, and the spiritual energy of millions of devotees gathered for this sacred festival.",
+    highlights: [
+      "Grand Ram Navami procession participation",
+      "Exclusive darshan at Ram Mandir",
+      "Special Hanuman Garhi temple ceremonies",
+      "Kanak Bhawan and Nageshwar Nath visits",
+      "Ram Lila theatrical performances",
+      "Traditional feasts and temple prasad",
+      "Expert guides explaining Ram Navami significance"
+    ],
+    imageUrl: "/generated_images/ram_navami_celebration_in_ayodhya.png",
+    detailedDescription: "Ram Navami celebrates the birth of Lord Rama, the seventh incarnation of Lord Vishnu and the protagonist of the Ramayana. In Ayodhya, this festival is celebrated with unmatched devotion as it is Lord Rama's birthplace. This 3-day experience immerses you in the spiritual fervor and celebrates one of Hinduism's most important festivals.\n\nDay 1: Arrival in Ayodhya\n• Airport/station transfer\n• Check-in and lunch\n• Evening darshan at Ram Janmabhoomi Mandir\n• Temple exploration and orientation walk\n• Dinner with local specialties\n\nDay 2: Ram Navami Main Celebrations\n• Early morning prayers and rituals\n• Grand Ram Navami procession (Barat)\n• Special ceremonies and chanting\n• Darshan at Hanuman Garhi temple\n• Visit Kanak Bhawan and Nageshwar Nath temples\n• Watch Ram Lila (theatrical performance of Ram's life)\n• Participate in traditional feasts\n• Evening aarti at Saryu Ghat\n\nDay 3: Heritage & Spiritual Tours\n• Visit Tulsi Smarak Bhawan\n• Explore Ram Katha Sangrahalay museum\n• Final darshan at major temples\n• Departure with blessings\n\nNote: Ram Navami falls in March 2026. For precise dates, full itinerary, and booking details, please contact us via WhatsApp or phone.",
+    price: null,
+    featured: true
   }
 ];
 
