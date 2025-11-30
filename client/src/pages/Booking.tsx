@@ -1,13 +1,67 @@
 import { useLocation } from "wouter";
+import { useState } from "react";
+import { useMutation } from "@tanstack/react-query";
 import Navigation from "@/components/Navigation";
 import BottomNav from "@/components/BottomNav";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import EnhancedContactForm from "@/components/EnhancedContactForm";
 import FadeInSection from "@/components/FadeInSection";
+import { useToast } from "@/hooks/use-toast";
+
+interface FormData {
+  name: string;
+  email: string;
+  phone: string;
+  package: string;
+  travelDate: string;
+  numTravelers: string;
+  specialRequests: string;
+}
 
 export default function Booking() {
   const [, setLocation] = useLocation();
+  const { toast } = useToast();
+  const [formRef, setFormRef] = useState<any>(null);
+
+  const bookingMutation = useMutation({
+    mutationFn: async (data: FormData) => {
+      const response = await fetch("/api/bookings", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          phone: data.phone,
+          packageName: data.package,
+          preferredDate: data.travelDate,
+          numberOfPeople: parseInt(data.numTravelers),
+          message: data.specialRequests,
+        }),
+      });
+      if (!response.ok) throw new Error("Failed to submit booking");
+      return response.json();
+    },
+    onSuccess: () => {
+      toast({
+        title: "Success!",
+        description: "Thank you for submitting your inquiry. We'll be in touch soon!",
+        duration: 5000,
+      });
+      // Reset form by reloading or resetting form data
+      if (formRef) {
+        formRef.reset();
+      }
+    },
+    onError: () => {
+      toast({
+        title: "Error",
+        description: "Failed to submit booking. Please try again.",
+        variant: "destructive",
+        duration: 5000,
+      });
+    },
+  });
 
   const handleWhatsApp = () => {
     const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || "918468003094";
@@ -15,6 +69,10 @@ export default function Booking() {
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
     window.open(whatsappUrl, "_blank");
+  };
+
+  const handleFormSubmit = async (data: FormData) => {
+    bookingMutation.mutate(data);
   };
 
   return (
@@ -36,7 +94,7 @@ export default function Booking() {
 
           <FadeInSection delay={0.2}>
             <EnhancedContactForm
-              onSubmit={(data) => console.log("Form submitted:", data)}
+              onSubmit={handleFormSubmit}
               onWhatsAppClick={handleWhatsApp}
             />
           </FadeInSection>
