@@ -1,8 +1,15 @@
 import { storage } from "./storage";
 import { log } from "./vite";
+import { db } from "./db";
 
 export async function seedDatabase() {
   try {
+    // Skip seeding if database is not available
+    if (!db) {
+      log("Database not available - skipping seed");
+      return;
+    }
+
     // Check if data already exists
     const existingDestinations = await storage.getAllDestinations();
     if (existingDestinations.length > 0) {
@@ -257,6 +264,6 @@ export async function seedDatabase() {
 
     log("Database seeded successfully with destinations, blog posts, and packages");
   } catch (error) {
-    log("Error seeding database: " + error);
+    log("Warning - could not seed database: " + error);
   }
 }
