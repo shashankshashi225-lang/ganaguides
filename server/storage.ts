@@ -18,7 +18,7 @@ import {
   type VideoTestimonial,
   type InsertVideoTestimonial
 } from "@shared/schema";
-import { db, isDatabaseAvailable } from "./db";
+import { db } from "./db";
 import { eq } from "drizzle-orm";
 
 export interface IStorage {
@@ -794,6 +794,7 @@ class MemStorage implements IStorage {
       name: pkg.name,
       category: pkg.category,
       duration: pkg.duration,
+      destination: pkg.destination ?? null,
       shortDescription: pkg.shortDescription,
       highlights: pkg.highlights,
       imageUrl: pkg.imageUrl,
@@ -893,105 +894,87 @@ class MemStorage implements IStorage {
 
 export class DatabaseStorage implements IStorage {
   async getUser(id: string): Promise<User | undefined> {
-    if (!db) return undefined;
     const [user] = await db.select().from(users).where(eq(users.id, id));
     return user || undefined;
   }
 
   async getUserByUsername(username: string): Promise<User | undefined> {
-    if (!db) return undefined;
     const [user] = await db.select().from(users).where(eq(users.username, username));
     return user || undefined;
   }
 
   async createUser(insertUser: InsertUser): Promise<User> {
-    if (!db) throw new Error("Database not available");
     const [user] = await db.insert(users).values(insertUser).returning();
     return user;
   }
 
   async getAllDestinations(): Promise<Destination[]> {
-    if (!db) return [];
     return await db.select().from(destinations);
   }
 
   async getDestination(id: string): Promise<Destination | undefined> {
-    if (!db) return undefined;
     const [destination] = await db.select().from(destinations).where(eq(destinations.id, id));
     return destination || undefined;
   }
 
   async createDestination(insertDestination: InsertDestination): Promise<Destination> {
-    if (!db) throw new Error("Database not available");
     const [destination] = await db.insert(destinations).values(insertDestination).returning();
     return destination;
   }
 
   async updateDestination(id: string, updates: Partial<InsertDestination>): Promise<Destination | undefined> {
-    if (!db) return undefined;
     const [destination] = await db.update(destinations).set(updates).where(eq(destinations.id, id)).returning();
     return destination || undefined;
   }
 
   async getAllBlogPosts(): Promise<BlogPost[]> {
-    if (!db) return [];
     return await db.select().from(blogPosts);
   }
 
   async getBlogPost(id: string): Promise<BlogPost | undefined> {
-    if (!db) return undefined;
     const [blogPost] = await db.select().from(blogPosts).where(eq(blogPosts.id, id));
     return blogPost || undefined;
   }
 
   async createBlogPost(insertBlogPost: InsertBlogPost): Promise<BlogPost> {
-    if (!db) throw new Error("Database not available");
     const [blogPost] = await db.insert(blogPosts).values(insertBlogPost).returning();
     return blogPost;
   }
 
   async updateBlogPost(id: string, updates: Partial<InsertBlogPost>): Promise<BlogPost | undefined> {
-    if (!db) return undefined;
     const [blogPost] = await db.update(blogPosts).set(updates).where(eq(blogPosts.id, id)).returning();
     return blogPost || undefined;
   }
 
   async getAllPackages(): Promise<Package[]> {
-    if (!db) return [];
     return await db.select().from(packages);
   }
 
   async getPackage(id: string): Promise<Package | undefined> {
-    if (!db) return undefined;
     const [pkg] = await db.select().from(packages).where(eq(packages.id, id));
     return pkg || undefined;
   }
 
   async createPackage(insertPackage: InsertPackage): Promise<Package> {
-    if (!db) throw new Error("Database not available");
     const [pkg] = await db.insert(packages).values(insertPackage).returning();
     return pkg;
   }
 
   async updatePackage(id: string, updates: Partial<InsertPackage>): Promise<Package | undefined> {
-    if (!db) return undefined;
     const [pkg] = await db.update(packages).set(updates).where(eq(packages.id, id)).returning();
     return pkg || undefined;
   }
 
   async getAllPanchangEvents(): Promise<PanchangEvent[]> {
-    if (!db) return [];
     return await db.select().from(panchangEvents);
   }
 
   async getPanchangEvent(id: string): Promise<PanchangEvent | undefined> {
-    if (!db) return undefined;
     const [event] = await db.select().from(panchangEvents).where(eq(panchangEvents.id, id));
     return event || undefined;
   }
 
   async getPanchangEventsByMonth(year: number, month: number): Promise<PanchangEvent[]> {
-    if (!db) return [];
     const allEvents = await db.select().from(panchangEvents);
     return allEvents.filter(event => {
       const eventDate = new Date(event.date);
@@ -1000,51 +983,43 @@ export class DatabaseStorage implements IStorage {
   }
 
   async createPanchangEvent(insertEvent: InsertPanchangEvent): Promise<PanchangEvent> {
-    if (!db) throw new Error("Database not available");
     const [event] = await db.insert(panchangEvents).values(insertEvent).returning();
     return event;
   }
 
   async updatePanchangEvent(id: string, updates: Partial<InsertPanchangEvent>): Promise<PanchangEvent | undefined> {
-    if (!db) return undefined;
     const [event] = await db.update(panchangEvents).set(updates).where(eq(panchangEvents.id, id)).returning();
     return event || undefined;
   }
 
   async deletePanchangEvent(id: string): Promise<boolean> {
-    if (!db) return false;
     const result = await db.delete(panchangEvents).where(eq(panchangEvents.id, id)).returning();
     return result.length > 0;
   }
 
   async getAllVideoTestimonials(): Promise<VideoTestimonial[]> {
-    if (!db) return [];
     return await db.select().from(videoTestimonials);
   }
 
   async getVideoTestimonial(id: string): Promise<VideoTestimonial | undefined> {
-    if (!db) return undefined;
     const [testimonial] = await db.select().from(videoTestimonials).where(eq(videoTestimonials.id, id));
     return testimonial || undefined;
   }
 
   async createVideoTestimonial(insertTestimonial: InsertVideoTestimonial): Promise<VideoTestimonial> {
-    if (!db) throw new Error("Database not available");
     const [testimonial] = await db.insert(videoTestimonials).values(insertTestimonial).returning();
     return testimonial;
   }
 
   async updateVideoTestimonial(id: string, updates: Partial<InsertVideoTestimonial>): Promise<VideoTestimonial | undefined> {
-    if (!db) return undefined;
     const [testimonial] = await db.update(videoTestimonials).set(updates).where(eq(videoTestimonials.id, id)).returning();
     return testimonial || undefined;
   }
 
   async deleteVideoTestimonial(id: string): Promise<boolean> {
-    if (!db) return false;
     const result = await db.delete(videoTestimonials).where(eq(videoTestimonials.id, id)).returning();
     return result.length > 0;
   }
 }
 
-export const storage: IStorage = isDatabaseAvailable ? new DatabaseStorage() : new MemStorage();
+export const storage: IStorage = new DatabaseStorage();
