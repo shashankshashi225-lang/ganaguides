@@ -27,7 +27,7 @@ export async function runMigrations(): Promise<boolean> {
 
     await db.execute(sql`
       CREATE TABLE IF NOT EXISTS users (
-        id VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(),
+        id VARCHAR PRIMARY KEY DEFAULT gen_random_uuid()::text,
         username TEXT NOT NULL UNIQUE,
         password TEXT NOT NULL
       )
@@ -36,7 +36,7 @@ export async function runMigrations(): Promise<boolean> {
 
     await db.execute(sql`
       CREATE TABLE IF NOT EXISTS destinations (
-        id VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(),
+        id VARCHAR PRIMARY KEY DEFAULT gen_random_uuid()::text,
         name TEXT NOT NULL,
         short_description TEXT NOT NULL,
         description TEXT NOT NULL,
@@ -53,7 +53,7 @@ export async function runMigrations(): Promise<boolean> {
 
     await db.execute(sql`
       CREATE TABLE IF NOT EXISTS blog_posts (
-        id VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(),
+        id VARCHAR PRIMARY KEY DEFAULT gen_random_uuid()::text,
         title TEXT NOT NULL,
         excerpt TEXT NOT NULL,
         content TEXT NOT NULL,
@@ -72,7 +72,7 @@ export async function runMigrations(): Promise<boolean> {
 
     await db.execute(sql`
       CREATE TABLE IF NOT EXISTS packages (
-        id VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(),
+        id VARCHAR PRIMARY KEY DEFAULT gen_random_uuid()::text,
         name TEXT NOT NULL,
         category TEXT NOT NULL,
         duration TEXT NOT NULL,
@@ -90,7 +90,7 @@ export async function runMigrations(): Promise<boolean> {
 
     await db.execute(sql`
       CREATE TABLE IF NOT EXISTS panchang_events (
-        id VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(),
+        id VARCHAR PRIMARY KEY DEFAULT gen_random_uuid()::text,
         date DATE NOT NULL,
         name TEXT NOT NULL,
         description TEXT NOT NULL,
@@ -104,7 +104,7 @@ export async function runMigrations(): Promise<boolean> {
 
     await db.execute(sql`
       CREATE TABLE IF NOT EXISTS video_testimonials (
-        id VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(),
+        id VARCHAR PRIMARY KEY DEFAULT gen_random_uuid()::text,
         platform TEXT NOT NULL,
         video_url TEXT NOT NULL,
         embed_code TEXT,
@@ -118,7 +118,7 @@ export async function runMigrations(): Promise<boolean> {
 
     await db.execute(sql`
       CREATE TABLE IF NOT EXISTS bookings (
-        id VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(),
+        id VARCHAR PRIMARY KEY DEFAULT gen_random_uuid()::text,
         name TEXT NOT NULL,
         email TEXT NOT NULL,
         phone TEXT NOT NULL,
