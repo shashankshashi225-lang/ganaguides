@@ -33,7 +33,7 @@ export default function Navigation({ onBookNowClick }: NavigationProps) {
               className="flex items-center hover-elevate active-elevate-2 rounded-lg transition-all group"
               data-testid="button-logo"
             >
-              <img src={logoImage} alt="Ganga Guides Logo" className="h-20 md:h-24 w-48 md:w-96" />
+              <img src={logoImage} alt="Ganga Guides Logo" className="h-auto w-auto max-h-20 md:max-h-24" />
             </button>
           </Link>
 
