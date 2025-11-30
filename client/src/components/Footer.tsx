@@ -3,7 +3,6 @@ import { FaWhatsapp, FaFacebook, FaLinkedin } from "react-icons/fa";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
-import logoImage from "@assets/Untitled design (1)_1764387987253.png";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -87,11 +86,9 @@ export default function Footer() {
                 {/* Header */}
                 <div className="bg-green-600 text-white p-4 flex items-center justify-between">
                   <div className="flex items-center gap-3 flex-1">
-                    <img
-                      src={logoImage}
-                      alt="Ganga Guides"
-                      className="h-10 w-auto object-contain"
-                    />
+                    <div className="h-10 w-10 rounded-full bg-white flex items-center justify-center">
+                      <span className="text-green-600 font-bold text-lg">GG</span>
+                    </div>
                     <div>
                       <h3 className="font-semibold text-sm">Ganga Guides</h3>
                       <p className="text-xs text-green-100">online</p>
@@ -144,11 +141,10 @@ export default function Footer() {
         <div className="border-t border-primary-foreground/20 pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <Link href="/">
             <div className="bg-white rounded-lg p-3 hover-elevate transition-all">
-              <img 
-                src={logoImage} 
-                alt="Ganga Guides" 
-                className="h-20 md:h-28 w-auto object-contain max-w-2xl"
-              />
+              <div className="flex flex-col">
+                <span className="text-2xl md:text-3xl font-bold text-primary font-display">Ganga Guides</span>
+                <span className="text-xs text-muted-foreground">Spiritual Essence, Guided by Heritage</span>
+              </div>
             </div>
           </Link>
           <p className="text-sm text-primary-foreground/80">

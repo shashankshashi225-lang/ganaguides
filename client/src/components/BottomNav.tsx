@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Home, Package, Map, BookOpen, Users, MessageCircle, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLocation } from "wouter";
-import logoImage from "@assets/Untitled design (1)_1764387987253.png";
 
 interface BottomNavProps {
   onWhatsAppClick?: () => void;
@@ -65,11 +64,9 @@ export default function BottomNav({ onWhatsAppClick }: BottomNavProps) {
           {/* Header */}
           <div className="bg-green-600 text-white p-4 flex items-center justify-between">
             <div className="flex items-center gap-3 flex-1">
-              <img
-                src={logoImage}
-                alt="Ganga Guides"
-                className="h-10 w-auto object-contain"
-              />
+              <div className="h-10 w-10 rounded-full bg-white flex items-center justify-center">
+                <span className="text-green-600 font-bold text-lg">GG</span>
+              </div>
               <div>
                 <h3 className="font-semibold text-sm">Ganga Guides</h3>
                 <p className="text-xs text-green-100">online</p>
