@@ -200,10 +200,10 @@ export default function Packages() {
                     id={pkg.id}
                     name={pkg.name}
                     duration={pkg.duration}
+                    shortDescription={pkg.shortDescription}
                     highlights={pkg.highlights}
                     imageUrl={pkg.imageUrl}
                     onBookNow={() => handleBookNow(pkg.name)}
-                    onWhatsApp={() => handleWhatsApp(pkg.name)}
                     data-testid={`card-package-${pkg.id}`}
                   />
                 ))}
@@ -224,10 +224,10 @@ export default function Packages() {
                     id={pkg.id}
                     name={pkg.name}
                     duration={pkg.duration}
+                    shortDescription={pkg.shortDescription}
                     highlights={pkg.highlights}
                     imageUrl={pkg.imageUrl}
                     onBookNow={() => handleBookNow(pkg.name)}
-                    onWhatsApp={() => handleWhatsApp(pkg.name)}
                     data-testid={`card-package-${pkg.id}`}
                   />
                 ))}
@@ -248,10 +248,10 @@ export default function Packages() {
                     id={pkg.id}
                     name={pkg.name}
                     duration={pkg.duration}
+                    shortDescription={pkg.shortDescription}
                     highlights={pkg.highlights}
                     imageUrl={pkg.imageUrl}
                     onBookNow={() => handleBookNow(pkg.name)}
-                    onWhatsApp={() => handleWhatsApp(pkg.name)}
                     data-testid={`card-package-${pkg.id}`}
                   />
                 ))}
@@ -277,8 +277,8 @@ export default function Packages() {
         />
       </section>
 
-      <Footer onBookNowClick={() => scrollToSection("contact")} />
-      <BottomNav onBookNowClick={() => scrollToSection("contact")} />
+      <Footer />
+      <BottomNav />
       <WhatsAppFloat />
     </div>
   );

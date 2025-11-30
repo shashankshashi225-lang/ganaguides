@@ -192,8 +192,8 @@ export default function Destinations() {
         </div>
       </section>
 
-      <Footer onBookNowClick={() => setLocation("/booking")} />
-      <BottomNav onBookNowClick={() => setLocation("/booking")} />
+      <Footer />
+      <BottomNav />
       <WhatsAppFloat />
     </div>
   );

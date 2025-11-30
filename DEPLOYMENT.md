@@ -1,22 +1,45 @@
 # GangaGuides - Vercel Deployment Guide
 
-This guide will help you deploy GangaGuides to Vercel step by step.
+This guide will help you deploy GangaGuides to Vercel with Neon database integration.
 
 ## Before You Start
 
 Your project is already configured for Vercel deployment. The following files are set up:
 - `vercel.json` - Vercel configuration
-- `api/index.js` - Serverless API function
+- `api/index.js` - Serverless API function (connects to Neon database)
+- `scripts/init-db.sql` - Database schema creation script
+- `scripts/seed-db.sql` - Initial data seeding script
 - `.gitignore` - Files to exclude from Git
 
-## Step 1: Download Your Project
+## Step 1: Set Up Your Neon Database
+
+### Create a Neon Account and Database:
+1. Go to https://neon.tech and sign up (free tier available)
+2. Create a new project (e.g., "gangaguides")
+3. Copy your connection string - it looks like:
+   ```
+   postgresql://user:password@ep-xxx.region.aws.neon.tech/neondb?sslmode=require
+   ```
+
+### Initialize the Database:
+1. In Neon Console, click on "SQL Editor"
+2. Open `scripts/init-db.sql` from your project
+3. Copy and paste the entire content into Neon's SQL Editor
+4. Click "Run" to create all tables
+5. Open `scripts/seed-db.sql` from your project
+6. Copy and paste the entire content into Neon's SQL Editor
+7. Click "Run" to seed initial data
+
+You should see output showing the count of records in each table.
+
+## Step 2: Download Your Project
 
 1. In Replit, click the three dots menu (⋮) in the Files panel
 2. Select "Download as zip"
 3. Save the ZIP file to your computer
 4. Extract the ZIP file to a folder
 
-## Step 2: Push to GitHub
+## Step 3: Push to GitHub
 
 ### If you don't have Git installed:
 1. Download and install Git from https://git-scm.com/downloads
@@ -51,16 +74,25 @@ git branch -M main
 git push -u origin main
 ```
 
-## Step 3: Deploy to Vercel
+## Step 4: Deploy to Vercel
 
 1. Go to https://vercel.com and sign up/sign in (use "Continue with GitHub")
 2. Click "Add New..." → "Project"
 3. Find and select your `gangaguides` repository
 4. Vercel will auto-detect the settings from `vercel.json`
+
+### Configure Environment Variables:
+Before clicking Deploy, expand "Environment Variables" and add:
+
+| Name | Value |
+|------|-------|
+| `DATABASE_URL` | Your Neon connection string |
+| `VITE_WHATSAPP_NUMBER` | Your WhatsApp number (e.g., 918468003094) |
+
 5. Click "Deploy"
 6. Wait 2-3 minutes for deployment to complete
 
-## Step 4: Connect Your Domain
+## Step 5: Connect Your Domain
 
 After deployment:
 1. Go to your project dashboard on Vercel
@@ -73,13 +105,72 @@ After deployment:
    - For www: Add a CNAME record pointing to `cname.vercel-dns.com`
 7. Wait for DNS propagation (can take up to 48 hours, usually faster)
 
+## Managing Content via Neon Database
+
+Since there's no admin panel, you can manage all content directly through Neon's SQL Editor:
+
+### Adding a New Destination:
+```sql
+INSERT INTO destinations (id, name, short_description, description, main_image, region, featured)
+VALUES (
+  'new-destination-id',
+  'Destination Name',
+  'Short description here',
+  'Full description here',
+  '/generated_images/image-name.png',
+  'Region Name',
+  true
+);
+```
+
+### Updating a Package:
+```sql
+UPDATE packages 
+SET price = 5000, featured = true 
+WHERE id = '1day-kashi';
+```
+
+### Adding a New Blog Post:
+```sql
+INSERT INTO blog_posts (id, title, excerpt, content, category, published_date, read_time, main_image, featured)
+VALUES (
+  'new-post-id',
+  'Post Title',
+  'Short excerpt',
+  'Full content here',
+  'Category',
+  'Nov 30, 2025',
+  '5 min read',
+  '/generated_images/image-name.png',
+  true
+);
+```
+
+### Deleting Content:
+```sql
+DELETE FROM destinations WHERE id = 'destination-id';
+DELETE FROM packages WHERE id = 'package-id';
+DELETE FROM blog_posts WHERE id = 'post-id';
+```
+
+## Image Paths
+
+When adding content, use these image path formats:
+- For images in `client/public/generated_images/`: `/generated_images/filename.png`
+- For images in `client/public/assets/`: `/assets/filename.png`
+
 ## Troubleshooting
 
 ### Images not showing?
-Make sure the `client/public/assets/generated_images/` folder is included in your Git repository.
+Make sure the `client/public/generated_images/` folder is included in your Git repository.
 
-### API not working?
-Check that the `api/index.js` file is present in your repository.
+### API returning "Database not configured"?
+1. Check that `DATABASE_URL` is set in Vercel Environment Variables
+2. Redeploy after adding the environment variable
+
+### API returning empty arrays?
+1. Make sure you ran the `scripts/seed-db.sql` in Neon
+2. Check that tables have data: `SELECT COUNT(*) FROM destinations;`
 
 ### Build failing?
 1. Go to Vercel dashboard → Your project → "Deployments"
@@ -104,18 +195,26 @@ After initial deployment, updates are automatic:
    ```
 3. Vercel automatically deploys the new version!
 
-## Environment Variables (Optional)
+## Database Schema Reference
 
-If you need to add environment variables later:
-1. Go to Vercel dashboard → Your project → "Settings" → "Environment Variables"
-2. Add your variables (e.g., `WHATSAPP_NUMBER`)
-3. Redeploy for changes to take effect
+### Tables:
+- `destinations` - Travel destinations (Varanasi, Ayodhya, etc.)
+- `packages` - Tour packages with categories (touristic, pooja, popular_event)
+- `blog_posts` - Blog articles
+- `panchang_events` - Hindu calendar events
+- `video_testimonials` - Instagram testimonial embeds
+
+### Categories for Packages:
+- `touristic` - Day tours and multi-day trips
+- `pooja` - Religious ceremonies and rituals
+- `popular_event` - Festival and event packages
 
 ## Need Help?
 
 - Vercel Documentation: https://vercel.com/docs
+- Neon Documentation: https://neon.tech/docs
 - GitHub Documentation: https://docs.github.com
 
 ---
 
-Your GangaGuides website is now ready for the world to see! 🙏
+Your GangaGuides website is now ready for the world to see!
