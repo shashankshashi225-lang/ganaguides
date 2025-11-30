@@ -913,14 +913,24 @@ export class DatabaseStorage implements IStorage {
 
   async getAllDestinations(): Promise<Destination[]> {
     if (!db) return mockDestinations;
-    const dbDestinations = await db.select().from(destinations);
-    return dbDestinations.length > 0 ? dbDestinations : mockDestinations;
+    try {
+      const dbDestinations = await db.select().from(destinations);
+      return dbDestinations.length > 0 ? dbDestinations : mockDestinations;
+    } catch (error) {
+      console.warn("Database error fetching destinations, using mock data:", error);
+      return mockDestinations;
+    }
   }
 
   async getDestination(id: string): Promise<Destination | undefined> {
     if (!db) return mockDestinations.find(d => d.id === id);
-    const [destination] = await db.select().from(destinations).where(eq(destinations.id, id));
-    return destination || mockDestinations.find(d => d.id === id);
+    try {
+      const [destination] = await db.select().from(destinations).where(eq(destinations.id, id));
+      return destination || mockDestinations.find(d => d.id === id);
+    } catch (error) {
+      console.warn("Database error fetching destination, using mock data:", error);
+      return mockDestinations.find(d => d.id === id);
+    }
   }
 
   async createDestination(insertDestination: InsertDestination): Promise<Destination> {
@@ -937,14 +947,24 @@ export class DatabaseStorage implements IStorage {
 
   async getAllBlogPosts(): Promise<BlogPost[]> {
     if (!db) return mockBlogPosts;
-    const dbPosts = await db.select().from(blogPosts);
-    return dbPosts.length > 0 ? dbPosts : mockBlogPosts;
+    try {
+      const dbPosts = await db.select().from(blogPosts);
+      return dbPosts.length > 0 ? dbPosts : mockBlogPosts;
+    } catch (error) {
+      console.warn("Database error fetching blog posts, using mock data:", error);
+      return mockBlogPosts;
+    }
   }
 
   async getBlogPost(id: string): Promise<BlogPost | undefined> {
     if (!db) return mockBlogPosts.find(p => p.id === id);
-    const [blogPost] = await db.select().from(blogPosts).where(eq(blogPosts.id, id));
-    return blogPost || mockBlogPosts.find(p => p.id === id);
+    try {
+      const [blogPost] = await db.select().from(blogPosts).where(eq(blogPosts.id, id));
+      return blogPost || mockBlogPosts.find(p => p.id === id);
+    } catch (error) {
+      console.warn("Database error fetching blog post, using mock data:", error);
+      return mockBlogPosts.find(p => p.id === id);
+    }
   }
 
   async createBlogPost(insertBlogPost: InsertBlogPost): Promise<BlogPost> {
@@ -961,14 +981,24 @@ export class DatabaseStorage implements IStorage {
 
   async getAllPackages(): Promise<Package[]> {
     if (!db) return mockPackages;
-    const dbPackages = await db.select().from(packages);
-    return dbPackages.length > 0 ? dbPackages : mockPackages;
+    try {
+      const dbPackages = await db.select().from(packages);
+      return dbPackages.length > 0 ? dbPackages : mockPackages;
+    } catch (error) {
+      console.warn("Database error fetching packages, using mock data:", error);
+      return mockPackages;
+    }
   }
 
   async getPackage(id: string): Promise<Package | undefined> {
     if (!db) return mockPackages.find(p => p.id === id);
-    const [pkg] = await db.select().from(packages).where(eq(packages.id, id));
-    return pkg || mockPackages.find(p => p.id === id);
+    try {
+      const [pkg] = await db.select().from(packages).where(eq(packages.id, id));
+      return pkg || mockPackages.find(p => p.id === id);
+    } catch (error) {
+      console.warn("Database error fetching package, using mock data:", error);
+      return mockPackages.find(p => p.id === id);
+    }
   }
 
   async createPackage(insertPackage: InsertPackage): Promise<Package> {
@@ -985,14 +1015,24 @@ export class DatabaseStorage implements IStorage {
 
   async getAllPanchangEvents(): Promise<PanchangEvent[]> {
     if (!db) return mockPanchangEvents;
-    const dbEvents = await db.select().from(panchangEvents);
-    return dbEvents.length > 0 ? dbEvents : mockPanchangEvents;
+    try {
+      const dbEvents = await db.select().from(panchangEvents);
+      return dbEvents.length > 0 ? dbEvents : mockPanchangEvents;
+    } catch (error) {
+      console.warn("Database error fetching panchang events, using mock data:", error);
+      return mockPanchangEvents;
+    }
   }
 
   async getPanchangEvent(id: string): Promise<PanchangEvent | undefined> {
     if (!db) return mockPanchangEvents.find(e => e.id === id);
-    const [event] = await db.select().from(panchangEvents).where(eq(panchangEvents.id, id));
-    return event || mockPanchangEvents.find(e => e.id === id);
+    try {
+      const [event] = await db.select().from(panchangEvents).where(eq(panchangEvents.id, id));
+      return event || mockPanchangEvents.find(e => e.id === id);
+    } catch (error) {
+      console.warn("Database error fetching panchang event, using mock data:", error);
+      return mockPanchangEvents.find(e => e.id === id);
+    }
   }
 
   async getPanchangEventsByMonth(year: number, month: number): Promise<PanchangEvent[]> {
@@ -1023,14 +1063,24 @@ export class DatabaseStorage implements IStorage {
 
   async getAllVideoTestimonials(): Promise<VideoTestimonial[]> {
     if (!db) return mockVideoTestimonials;
-    const dbTestimonials = await db.select().from(videoTestimonials);
-    return dbTestimonials.length > 0 ? dbTestimonials : mockVideoTestimonials;
+    try {
+      const dbTestimonials = await db.select().from(videoTestimonials);
+      return dbTestimonials.length > 0 ? dbTestimonials : mockVideoTestimonials;
+    } catch (error) {
+      console.warn("Database error fetching video testimonials, using mock data:", error);
+      return mockVideoTestimonials;
+    }
   }
 
   async getVideoTestimonial(id: string): Promise<VideoTestimonial | undefined> {
     if (!db) return mockVideoTestimonials.find(t => t.id === id);
-    const [testimonial] = await db.select().from(videoTestimonials).where(eq(videoTestimonials.id, id));
-    return testimonial || mockVideoTestimonials.find(t => t.id === id);
+    try {
+      const [testimonial] = await db.select().from(videoTestimonials).where(eq(videoTestimonials.id, id));
+      return testimonial || mockVideoTestimonials.find(t => t.id === id);
+    } catch (error) {
+      console.warn("Database error fetching video testimonial, using mock data:", error);
+      return mockVideoTestimonials.find(t => t.id === id);
+    }
   }
 
   async createVideoTestimonial(insertTestimonial: InsertVideoTestimonial): Promise<VideoTestimonial> {
