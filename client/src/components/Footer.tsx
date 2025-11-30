@@ -3,7 +3,7 @@ import { FaWhatsapp, FaFacebook, FaLinkedin } from "react-icons/fa";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
-import logoImage from "@assets/1_1764516983404.png";
+import logoImage from "@assets/1_1764517228343.png";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();

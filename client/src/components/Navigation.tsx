@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
-import logoImage from "@assets/1_1764516983404.png";
+import logoImage from "@assets/1_1764517228343.png";
 
 interface NavigationProps {
   onBookNowClick?: () => void;
