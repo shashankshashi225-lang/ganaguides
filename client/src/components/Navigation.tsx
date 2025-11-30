@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
+import logoImage from "@assets/1_1764516458398.png";
 
 interface NavigationProps {
   onBookNowClick?: () => void;
@@ -32,10 +33,7 @@ export default function Navigation({ onBookNowClick }: NavigationProps) {
               className="flex items-center hover-elevate active-elevate-2 rounded-lg transition-all group w-full px-2"
               data-testid="button-logo"
             >
-              <div className="flex flex-col">
-                <span className="text-2xl md:text-3xl font-bold text-primary font-display">Ganga Guides</span>
-                <span className="text-xs text-muted-foreground">Spiritual Essence, Guided by Heritage</span>
-              </div>
+              <img src={logoImage} alt="Ganga Guides Logo" className="h-12 md:h-14 w-auto" />
             </button>
           </Link>
 

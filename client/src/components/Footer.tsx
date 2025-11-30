@@ -3,6 +3,7 @@ import { FaWhatsapp, FaFacebook, FaLinkedin } from "react-icons/fa";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
+import logoImage from "@assets/1_1764516458398.png";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -140,12 +141,7 @@ export default function Footer() {
 
         <div className="border-t border-primary-foreground/20 pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <Link href="/">
-            <div className="bg-white rounded-lg p-3 hover-elevate transition-all">
-              <div className="flex flex-col">
-                <span className="text-2xl md:text-3xl font-bold text-primary font-display">Ganga Guides</span>
-                <span className="text-xs text-muted-foreground">Spiritual Essence, Guided by Heritage</span>
-              </div>
-            </div>
+            <img src={logoImage} alt="Ganga Guides Logo" className="h-16 w-auto hover-elevate transition-all rounded-lg" />
           </Link>
           <p className="text-sm text-primary-foreground/80">
             © {currentYear} Ganga Guides. All rights reserved.
