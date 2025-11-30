@@ -1,9 +1,8 @@
 import type { Express } from "express";
-import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertDestinationSchema, insertBlogPostSchema, insertPackageSchema, insertPanchangEventSchema, insertVideoTestimonialSchema, insertBookingSchema } from "@shared/schema";
 
-export async function registerRoutes(app: Express): Promise<Server> {
+export async function registerRoutes(app: Express): Promise<void> {
   // Destination routes
   app.get("/api/destinations", async (req, res) => {
     try {
@@ -401,8 +400,4 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.status(500).json({ message: error.message });
     }
   });
-
-  const httpServer = createServer(app);
-
-  return httpServer;
 }
