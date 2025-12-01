@@ -114,7 +114,16 @@ export const insertVideoTestimonialSchema = createInsertSchema(videoTestimonials
   id: true,
 });
 
-export const insertBookingSchema = createInsertSchema(bookings).omit({
+export const insertBookingSchema = createInsertSchema(bookings, {
+  name: z.string().min(1, "Name is required"),
+  email: z.string().email("Valid email is required"),
+  phone: z.string().min(1, "Phone is required"),
+  packageName: z.string().optional(),
+  preferredDate: z.string().optional(),
+  numberOfPeople: z.number().int().optional(),
+  message: z.string().optional(),
+  status: z.string().default("pending"),
+}).omit({
   id: true,
   createdAt: true,
 });

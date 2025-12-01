@@ -874,8 +874,13 @@ export class DatabaseStorage implements IStorage {
 
   async createBooking(insertBooking: InsertBooking): Promise<Booking> {
     if (!db) throw new Error("Database not available");
-    const [booking] = await db.insert(bookings).values(insertBooking).returning();
-    return booking;
+    try {
+      const [booking] = await db.insert(bookings).values(insertBooking).returning();
+      return booking;
+    } catch (error: any) {
+      console.error("Error creating booking:", error);
+      throw new Error(`Failed to create booking: ${error.message}`);
+    }
   }
 
   async updateBooking(id: string, updates: Partial<InsertBooking>): Promise<Booking | undefined> {
