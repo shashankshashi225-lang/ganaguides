@@ -63,12 +63,12 @@ export default function PackageCardFlip({
                 </h3>
               </div>
             </div>
-            <div className="flex-1 p-3 sm:p-6 flex flex-col justify-between bg-gradient-to-br from-card to-card/80 min-w-0">
-              <p className="text-muted-foreground leading-relaxed mb-3 sm:mb-6 text-xs sm:text-base line-clamp-3">
+            <div className="flex-1 p-4 sm:p-5 flex flex-col justify-end gap-2 bg-gradient-to-br from-card to-card/80 min-w-0">
+              <p className="text-muted-foreground leading-relaxed mb-2 text-xs sm:text-base line-clamp-3">
                 {shortDescription}
               </p>
               
-              <div className="flex flex-col gap-2 w-full">
+              <div className="flex flex-col gap-1.5 w-full">
                 <Button
                   className="w-full bg-primary text-primary-foreground font-semibold text-xs sm:text-base py-2 sm:py-2 h-auto"
                   onClick={onBookNow}
@@ -119,7 +119,7 @@ export default function PackageCardFlip({
               </ul>
             </div>
 
-            <div className="flex flex-col gap-2 mt-6 pt-6 border-t border-border min-w-0">
+            <div className="flex flex-col gap-1.5 mt-4 pt-4 border-t border-border min-w-0">
               <Button
                 className="w-full bg-[#FF6B35] hover:bg-[#FF5722] text-white font-semibold shadow-lg text-sm h-auto py-2"
                 onClick={onViewDetails}

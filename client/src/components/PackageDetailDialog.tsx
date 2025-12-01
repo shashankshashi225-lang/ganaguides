@@ -49,13 +49,13 @@ export default function PackageDetailDialog({
           </DialogDescription>
         </DialogHeader>
 
-        <div className="space-y-6">
+        <div className="space-y-4">
           <div>
-            <div className="flex items-center gap-2 mb-4">
+            <div className="flex items-center gap-2 mb-3">
               <MapPin className="w-5 h-5 text-primary" />
               <h3 className="font-display text-xl font-semibold">Tour Highlights</h3>
             </div>
-            <ul className="space-y-3">
+            <ul className="space-y-2">
               {pkg.highlights.map((highlight, index) => (
                 <li key={index} className="flex items-start gap-3">
                   <Star className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
@@ -65,9 +65,9 @@ export default function PackageDetailDialog({
             </ul>
           </div>
 
-          <div className="bg-accent/30 rounded-lg p-6 space-y-4">
-            <h3 className="font-display text-xl font-semibold mb-4">What's Included</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="bg-accent/30 rounded-lg p-4 space-y-3">
+            <h3 className="font-display text-xl font-semibold mb-3">What's Included</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="flex items-center gap-3">
                 <Users className="w-5 h-5 text-primary" />
                 <span className="text-sm">Expert Local Guide</span>
@@ -87,7 +87,7 @@ export default function PackageDetailDialog({
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-3 pt-4">
+          <div className="flex flex-col sm:flex-row gap-2 pt-3">
             <Button
               className="flex-1 bg-[#25D366] hover:bg-[#20BD5A] text-white border-none gap-2 text-base font-semibold shadow-lg"
               onClick={() => {

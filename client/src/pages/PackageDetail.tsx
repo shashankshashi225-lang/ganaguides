@@ -100,8 +100,8 @@ export default function PackageDetail() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 py-16">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+      <div className="max-w-7xl mx-auto px-4 py-12">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
           <Button
             variant="outline"
             onClick={() => setLocation("/#packages")}
@@ -110,7 +110,7 @@ export default function PackageDetail() {
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Packages
           </Button>
-          <div className="flex gap-2">
+          <div className="flex gap-1.5">
             <Button
               variant="outline"
               size="icon"
@@ -141,18 +141,18 @@ export default function PackageDetail() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2 space-y-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="lg:col-span-2 space-y-6">
             <section>
-              <h2 className="font-display text-3xl font-bold mb-4">About This Journey</h2>
+              <h2 className="font-display text-3xl font-bold mb-3">About This Journey</h2>
               <p className="text-foreground/90 leading-relaxed text-lg whitespace-pre-wrap" data-testid="text-package-description">
                 {pkg.detailedDescription}
               </p>
             </section>
 
             <section>
-              <h2 className="font-display text-3xl font-bold mb-6">Tour Highlights</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <h2 className="font-display text-3xl font-bold mb-4">Tour Highlights</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {pkg.highlights.map((highlight, index) => (
                   <div key={index} className="flex items-start gap-3 p-4 bg-accent/30 rounded-lg">
                     <Star className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
@@ -165,10 +165,10 @@ export default function PackageDetail() {
 
           <div className="lg:col-span-1">
             <Card className="sticky top-24 border-2 border-primary/20 shadow-xl">
-              <CardContent className="p-6 space-y-6">
+              <CardContent className="p-5 space-y-4">
                 <div>
-                  <h3 className="font-display text-2xl font-bold mb-4">Booking Information</h3>
-                  <div className="space-y-4">
+                  <h3 className="font-display text-2xl font-bold mb-3">Booking Information</h3>
+                  <div className="space-y-3">
                     <div className="flex items-center gap-3 p-3 bg-accent/30 rounded-lg">
                       <Clock className="w-5 h-5 text-primary" />
                       <div>
@@ -179,9 +179,9 @@ export default function PackageDetail() {
                   </div>
                 </div>
 
-                <div className="space-y-3">
+                <div className="space-y-2">
                   <Button
-                    className="w-full h-12 bg-[#25D366] hover:bg-[#20BD5A] text-white border-none text-base font-semibold gap-2"
+                    className="w-full h-11 bg-[#25D366] hover:bg-[#20BD5A] text-white border-none text-base font-semibold gap-2"
                     onClick={handleWhatsApp}
                     data-testid="button-whatsapp-enquire"
                   >
@@ -190,7 +190,7 @@ export default function PackageDetail() {
                   </Button>
                   <Button
                     variant="outline"
-                    className="w-full h-12 text-base font-semibold gap-2"
+                    className="w-full h-11 text-base font-semibold gap-2"
                     onClick={handleWhatsApp}
                     data-testid="button-call"
                   >
@@ -199,7 +199,7 @@ export default function PackageDetail() {
                   </Button>
                 </div>
 
-                <div className="pt-4 border-t border-border">
+                <div className="pt-3 border-t border-border">
                   <p className="text-sm text-muted-foreground text-center">
                     100% Customizable • Safe & Secure • 500+ Happy Travelers
                   </p>
