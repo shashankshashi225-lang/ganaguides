@@ -447,7 +447,7 @@ export default function EnhancedContactForm({ onSubmit, onWhatsAppClick }: Enhan
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                Thank You!
+                Thank You for Filling the Form!
               </motion.h2>
               <motion.p
                 className="text-center text-muted-foreground mb-4"
@@ -455,7 +455,7 @@ export default function EnhancedContactForm({ onSubmit, onWhatsAppClick }: Enhan
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
               >
-                Your booking inquiry has been received. We'll get back to you shortly with personalized travel recommendations for your spiritual journey.
+                Your inquiry has been successfully saved. Our team will contact you soon with personalized recommendations for your spiritual journey.
               </motion.p>
               <motion.div
                 className="flex gap-2"
