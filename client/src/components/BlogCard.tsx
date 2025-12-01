@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
+import LazyImage from "@/components/LazyImage";
 
 interface BlogCardProps {
   title: string;
@@ -28,10 +29,11 @@ export default function BlogCard({
       data-testid={`card-blog-${title.toLowerCase().replace(/\s+/g, '-')}`}
     >
       <div className="relative aspect-[3/2] overflow-hidden">
-        <img
+        <LazyImage
           src={imageUrl}
           alt={title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          skeletonClassName="w-full h-full bg-muted animate-pulse absolute inset-0"
         />
         <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground">
           {category}

@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Clock, MapPin, Sparkles } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
+import LazyImage from "@/components/LazyImage";
 
 interface PackageCardFlipProps {
   id: number | string;
@@ -45,10 +46,11 @@ export default function PackageCardFlip({
         <Card className="absolute inset-0 backface-hidden overflow-hidden border-2 border-card-border shadow-lg hover:shadow-2xl transition-shadow">
           <div className="relative h-full flex flex-col">
             <div className="relative h-56 overflow-hidden">
-              <img
+              <LazyImage
                 src={imageUrl}
                 alt={name}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                skeletonClassName="w-full h-full bg-muted animate-pulse absolute inset-0"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
               <Badge className="absolute top-4 right-4 bg-primary text-primary-foreground shadow-lg">

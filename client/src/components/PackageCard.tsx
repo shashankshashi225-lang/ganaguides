@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Clock, MapPin } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
+import LazyImage from "@/components/LazyImage";
 
 interface PackageCardProps {
   id: number;
@@ -27,10 +28,11 @@ export default function PackageCard({
   return (
     <Card className="overflow-hidden hover-elevate transition-all" data-testid={`card-package-${name.toLowerCase().replace(/\s+/g, '-')}`}>
       <div className="relative aspect-video overflow-hidden group">
-        <img
+        <LazyImage
           src={imageUrl}
           alt={name}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          skeletonClassName="w-full h-full bg-muted animate-pulse absolute inset-0"
         />
         <Badge className="absolute top-4 right-4 bg-primary text-primary-foreground">
           <Clock className="w-3 h-3 mr-1" />

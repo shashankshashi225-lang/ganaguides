@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Info, BookOpen } from "lucide-react";
+import LazyImage from "@/components/LazyImage";
 
 interface DestinationGuideCardProps {
   name: string;
@@ -23,10 +24,11 @@ export default function DestinationGuideCard({
       data-testid={`card-destination-${name.toLowerCase()}`}
     >
       <div className="relative h-56 overflow-hidden">
-        <img
+        <LazyImage
           src={imageUrl}
           alt={name}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          skeletonClassName="w-full h-full bg-muted animate-pulse absolute inset-0"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
         <Badge className="absolute top-4 left-4 bg-primary/90 backdrop-blur-sm text-primary-foreground shadow-lg">
