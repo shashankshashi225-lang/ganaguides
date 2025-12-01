@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useMutation } from "@tanstack/react-query";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -13,7 +14,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { FaWhatsapp } from "react-icons/fa";
-import { Send, User, Mail, Phone, Calendar, Users, MessageSquare, Package } from "lucide-react";
+import { Send, User, Mail, Phone, Calendar, Users, MessageSquare, Package, CheckCircle } from "lucide-react";
 
 interface EnhancedContactFormProps {
   onSubmit?: (data: FormData) => void;
@@ -40,11 +41,46 @@ export default function EnhancedContactForm({ onSubmit, onWhatsAppClick }: Enhan
     numTravelers: "1",
     specialRequests: "",
   });
+  const [showSuccess, setShowSuccess] = useState(false);
+
+  const mutation = useMutation({
+    mutationFn: async (data: FormData) => {
+      const bookingData = {
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        packageName: data.package,
+        preferredDate: data.travelDate,
+        numberOfPeople: parseInt(data.numTravelers),
+        message: data.specialRequests,
+        status: "pending",
+      };
+      const response = await fetch("/api/bookings", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(bookingData),
+      });
+      if (!response.ok) throw new Error("Failed to submit booking");
+      return response.json();
+    },
+    onSuccess: () => {
+      setShowSuccess(true);
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        package: "",
+        travelDate: "",
+        numTravelers: "1",
+        specialRequests: "",
+      });
+      setTimeout(() => setShowSuccess(false), 5000);
+    },
+  });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    onSubmit?.(formData);
+    mutation.mutate(formData);
   };
 
   const handleChange = (field: keyof FormData, value: string) => {
@@ -350,13 +386,14 @@ export default function EnhancedContactForm({ onSubmit, onWhatsAppClick }: Enhan
             >
               <Button
                 type="submit"
-                className="w-full h-14 bg-primary text-primary-foreground text-lg font-semibold shadow-lg hover:shadow-xl transition-all gap-2"
+                disabled={mutation.isPending}
+                className="w-full h-14 bg-primary text-primary-foreground text-lg font-semibold shadow-lg hover:shadow-xl transition-all gap-2 disabled:opacity-50"
                 data-testid="button-submit"
               >
-                <motion.div animate={{ rotate: [0, 20, -20, 0] }} transition={{ duration: 0.6, repeat: Infinity, repeatDelay: 2 }}>
+                <motion.div animate={{ rotate: mutation.isPending ? [0, 360] : [0, 20, -20, 0] }} transition={{ duration: mutation.isPending ? 1 : 0.6, repeat: Infinity, repeatDelay: mutation.isPending ? 0 : 2 }}>
                   <Send className="w-5 h-5" />
                 </motion.div>
-                Submit Inquiry
+                {mutation.isPending ? "Submitting..." : "Submit Inquiry"}
               </Button>
             </motion.div>
             <motion.div
@@ -379,6 +416,64 @@ export default function EnhancedContactForm({ onSubmit, onWhatsAppClick }: Enhan
           </motion.div>
         </motion.form>
       </CardContent>
+
+      {/* Success Modal */}
+      <AnimatePresence>
+        {showSuccess && (
+          <motion.div
+            className="fixed inset-0 flex items-center justify-center z-50 bg-black/40 backdrop-blur-sm"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setShowSuccess(false)}
+          >
+            <motion.div
+              className="bg-white dark:bg-slate-900 rounded-2xl p-8 shadow-2xl max-w-md w-full mx-4"
+              initial={{ scale: 0.5, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.5, opacity: 0, y: 20 }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            >
+              <motion.div
+                className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center"
+                animate={{ scale: [1, 1.1, 1], rotate: [0, 5, -5, 0] }}
+                transition={{ duration: 0.6, repeat: 1 }}
+              >
+                <CheckCircle className="w-8 h-8 text-white" />
+              </motion.div>
+              <motion.h2
+                className="text-2xl font-bold text-center text-foreground mb-2"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+              >
+                Thank You!
+              </motion.h2>
+              <motion.p
+                className="text-center text-muted-foreground mb-4"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+              >
+                Your booking inquiry has been received. We'll get back to you shortly with personalized travel recommendations for your spiritual journey.
+              </motion.p>
+              <motion.div
+                className="flex gap-2"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+              >
+                <Button
+                  className="flex-1 bg-primary text-primary-foreground"
+                  onClick={() => setShowSuccess(false)}
+                >
+                  Continue
+                </Button>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </Card>
     </motion.div>
   );
