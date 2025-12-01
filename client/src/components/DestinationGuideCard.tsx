@@ -40,8 +40,8 @@ export default function DestinationGuideCard({
         </h3>
       </div>
       
-      <CardContent className="p-6 bg-gradient-to-br from-card to-accent/20 flex-1 flex flex-col justify-between">
-        <p className="text-muted-foreground leading-relaxed mb-6">
+      <CardContent className="p-5 bg-gradient-to-br from-card to-accent/20 flex flex-col gap-3">
+        <p className="text-muted-foreground leading-relaxed text-sm">
           {shortDescription}
         </p>
 

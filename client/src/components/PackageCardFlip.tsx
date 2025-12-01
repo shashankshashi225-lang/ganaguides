@@ -32,19 +32,19 @@ export default function PackageCardFlip({
 
   return (
     <div
-      className="group perspective-1000 h-[480px]"
+      className="group perspective-1000"
       onMouseEnter={() => setIsFlipped(true)}
       onMouseLeave={() => setIsFlipped(false)}
       data-testid={`card-package-${name.toLowerCase().replace(/\s+/g, '-')}`}
     >
       <div
-        className={`relative w-full h-full transition-all duration-700 transform-style-3d ${
+        className={`relative w-full transition-all duration-700 transform-style-3d ${
           isFlipped ? 'rotate-y-180' : ''
         }`}
       >
         {/* Front of card */}
-        <Card className="absolute inset-0 backface-hidden overflow-hidden border-2 border-card-border shadow-lg hover:shadow-2xl transition-shadow">
-          <div className="relative h-full flex flex-col">
+        <Card className="backface-hidden overflow-hidden border-2 border-card-border shadow-lg hover:shadow-2xl transition-shadow">
+          <div className="relative flex flex-col">
             <div className="relative h-56 overflow-hidden">
               <LazyImage
                 src={imageUrl}
@@ -63,8 +63,8 @@ export default function PackageCardFlip({
                 </h3>
               </div>
             </div>
-            <div className="flex-1 p-4 sm:p-5 flex flex-col justify-end gap-2 bg-gradient-to-br from-card to-card/80 min-w-0">
-              <p className="text-muted-foreground leading-relaxed mb-2 text-xs sm:text-base line-clamp-3">
+            <div className="p-4 sm:p-5 flex flex-col gap-2 bg-gradient-to-br from-card to-card/80 min-w-0">
+              <p className="text-muted-foreground leading-relaxed mb-1 text-xs sm:text-base line-clamp-3">
                 {shortDescription}
               </p>
               
@@ -94,22 +94,22 @@ export default function PackageCardFlip({
         </Card>
 
         {/* Back of card */}
-        <Card className="absolute inset-0 backface-hidden rotate-y-180 overflow-hidden border-2 border-primary/50 shadow-2xl bg-gradient-to-br from-primary/5 to-secondary/10">
-          <div className="h-full flex flex-col p-6">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="font-display text-2xl font-bold text-primary">{name}</h3>
-              <Badge variant="secondary" className="shadow-md">
+        <Card className="backface-hidden rotate-y-180 overflow-hidden border-2 border-primary/50 shadow-2xl bg-gradient-to-br from-primary/5 to-secondary/10">
+          <div className="flex flex-col p-5">
+            <div className="flex items-center justify-between mb-3">
+              <h3 className="font-display text-xl font-bold text-primary">{name}</h3>
+              <Badge variant="secondary" className="shadow-md text-xs">
                 <Clock className="w-3 h-3 mr-1" />
                 {duration}
               </Badge>
             </div>
             
-            <div className="flex-1 overflow-y-auto space-y-3">
-              <div className="flex items-start gap-2 text-sm text-muted-foreground mb-4">
+            <div className="space-y-2 mb-3">
+              <div className="flex items-start gap-2 text-sm text-muted-foreground">
                 <MapPin className="w-4 h-4 mt-0.5 text-primary flex-shrink-0" />
                 <span className="font-semibold text-foreground">Tour Highlights:</span>
               </div>
-              <ul className="space-y-3">
+              <ul className="space-y-2">
                 {highlights.map((highlight, index) => (
                   <li key={index} className="flex items-start gap-3 group/item">
                     <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0 group-hover/item:scale-150 transition-transform" />

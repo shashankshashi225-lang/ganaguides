@@ -39,14 +39,14 @@ export default function BlogCard({
           {category}
         </Badge>
       </div>
-      <CardContent className="p-6">
-        <h3 className="font-display text-xl font-semibold mb-3 line-clamp-2 group-hover:text-primary transition-colors" data-testid="text-blog-title">
+      <CardContent className="p-5">
+        <h3 className="font-display text-lg font-semibold mb-2 line-clamp-2 group-hover:text-primary transition-colors" data-testid="text-blog-title">
           {title}
         </h3>
-        <p className="text-muted-foreground text-sm mb-4 line-clamp-3 leading-relaxed">
+        <p className="text-muted-foreground text-sm mb-3 line-clamp-2 leading-relaxed">
           {excerpt}
         </p>
-        <div className="flex items-center gap-4 text-xs text-muted-foreground mb-4">
+        <div className="flex items-center gap-3 text-xs text-muted-foreground mb-3">
           <div className="flex items-center gap-1">
             <Calendar className="w-3 h-3" />
             <span>{publishedDate}</span>
