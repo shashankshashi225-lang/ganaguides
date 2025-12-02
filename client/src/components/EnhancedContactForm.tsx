@@ -42,6 +42,8 @@ export default function EnhancedContactForm({ onSubmit, onWhatsAppClick }: Enhan
     specialRequests: "",
   });
   const [showSuccess, setShowSuccess] = useState(false);
+  const [showError, setShowError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const mutation = useMutation({
     mutationFn: async (data: FormData) => {
@@ -55,15 +57,19 @@ export default function EnhancedContactForm({ onSubmit, onWhatsAppClick }: Enhan
         message: data.specialRequests,
         status: "pending",
       };
+      console.log("Submitting booking:", bookingData);
       const response = await fetch("/api/bookings", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(bookingData),
       });
-      if (!response.ok) throw new Error("Failed to submit booking");
-      return response.json();
+      const responseData = await response.json();
+      console.log("Response:", response.status, responseData);
+      if (!response.ok) throw new Error(responseData.message || "Failed to submit booking");
+      return responseData;
     },
     onSuccess: () => {
+      console.log("Booking submitted successfully!");
       setShowSuccess(true);
       setFormData({
         name: "",
@@ -74,7 +80,13 @@ export default function EnhancedContactForm({ onSubmit, onWhatsAppClick }: Enhan
         numTravelers: "1",
         specialRequests: "",
       });
-      setTimeout(() => setShowSuccess(false), 5000);
+      setTimeout(() => setShowSuccess(false), 6000);
+    },
+    onError: (error) => {
+      console.error("Booking error:", error);
+      setErrorMessage(error instanceof Error ? error.message : "Failed to submit form");
+      setShowError(true);
+      setTimeout(() => setShowError(false), 5000);
     },
   });
 
@@ -417,6 +429,43 @@ export default function EnhancedContactForm({ onSubmit, onWhatsAppClick }: Enhan
         </motion.form>
       </CardContent>
 
+      {/* Error Modal */}
+      <AnimatePresence>
+        {showError && (
+          <motion.div
+            className="fixed inset-0 flex items-center justify-center z-50 bg-black/40 backdrop-blur-sm"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setShowError(false)}
+          >
+            <motion.div
+              className="bg-white dark:bg-slate-900 rounded-2xl p-8 shadow-2xl max-w-md w-full mx-4"
+              initial={{ scale: 0.5, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.5, opacity: 0, y: 20 }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            >
+              <div className="w-16 h-16 mx-auto mb-4 bg-red-500/20 rounded-full flex items-center justify-center">
+                <CheckCircle className="w-8 h-8 text-red-500" />
+              </div>
+              <h2 className="text-2xl font-bold text-center text-foreground mb-2">
+                Oops! Something went wrong
+              </h2>
+              <p className="text-center text-muted-foreground mb-4">
+                {errorMessage}
+              </p>
+              <Button
+                className="w-full bg-primary text-primary-foreground font-semibold"
+                onClick={() => setShowError(false)}
+              >
+                Try Again
+              </Button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Success Modal */}
       <AnimatePresence>
         {showSuccess && (
@@ -450,21 +499,28 @@ export default function EnhancedContactForm({ onSubmit, onWhatsAppClick }: Enhan
                 Thank You for Filling the Form!
               </motion.h2>
               <motion.p
-                className="text-center text-muted-foreground mb-4"
+                className="text-center text-muted-foreground mb-4 leading-relaxed"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
               >
-                Your inquiry has been successfully saved. Our team will contact you soon with personalized recommendations for your spiritual journey.
+                Thank you for submitting your form! We'll contact you shortly or you can reach out to us on WhatsApp for immediate assistance.
               </motion.p>
               <motion.div
-                className="flex gap-2"
+                className="flex flex-col gap-2"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
               >
                 <Button
-                  className="flex-1 bg-primary text-primary-foreground"
+                  className="w-full bg-[#25D366] hover:bg-[#20BD5A] text-white border-none font-semibold gap-2"
+                  onClick={onWhatsAppClick}
+                >
+                  <FaWhatsapp className="w-4 h-4" />
+                  Chat on WhatsApp
+                </Button>
+                <Button
+                  className="w-full bg-primary text-primary-foreground font-semibold"
                   onClick={() => setShowSuccess(false)}
                 >
                   Continue
