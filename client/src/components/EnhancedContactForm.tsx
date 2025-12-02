@@ -514,7 +514,13 @@ export default function EnhancedContactForm({ onSubmit, onWhatsAppClick }: Enhan
               >
                 <Button
                   className="w-full bg-[#25D366] hover:bg-[#20BD5A] text-white border-none font-semibold gap-2"
-                  onClick={onWhatsAppClick}
+                  onClick={() => {
+                    const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || "918468003094";
+                    const message = `Hi! I've submitted an inquiry. Here are my details:\n\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nPackage: ${formData.package || 'Not specified'}\nTravel Date: ${formData.travelDate || 'Not specified'}\nNumber of People: ${formData.numTravelers}\n\nSpecial Requests: ${formData.specialRequests || 'None'}\n\nPlease confirm receipt and let me know about availability!`;
+                    const encodedMessage = encodeURIComponent(message);
+                    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+                    window.open(whatsappUrl, "_blank");
+                  }}
                 >
                   <FaWhatsapp className="w-4 h-4" />
                   Chat on WhatsApp
