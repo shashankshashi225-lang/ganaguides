@@ -40,7 +40,7 @@ export default function HeroSlider({ slides, onExploreClick, onWhatsAppClick }: 
   };
 
   return (
-    <div className="relative w-full h-screen overflow-hidden" data-testid="hero-slider">
+    <div className="relative w-full h-screen overflow-hidden pt-20 md:pt-24" data-testid="hero-slider">
       {slides.map((slide, index) => (
         <div
           key={slide.id}
@@ -56,10 +56,10 @@ export default function HeroSlider({ slides, onExploreClick, onWhatsAppClick }: 
           
           <div className="relative h-full flex items-center justify-center px-4">
             <div className="text-center max-w-4xl">
-              <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-lg" data-testid="hero-heading">
+              <h1 className="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-5 leading-tight drop-shadow-lg" data-testid="hero-heading">
                 {slide.heading}
               </h1>
-              <p className="font-body text-lg md:text-xl lg:text-2xl text-white/95 mb-8 max-w-3xl mx-auto drop-shadow-md" data-testid="hero-subheading">
+              <p className="font-body text-base md:text-lg lg:text-xl text-white/95 mb-8 max-w-3xl mx-auto drop-shadow-md" data-testid="hero-subheading">
                 {slide.subheading}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
