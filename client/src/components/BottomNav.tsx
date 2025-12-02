@@ -80,9 +80,8 @@ export default function BottomNav({ onWhatsAppClick }: BottomNavProps) {
       {/* Click-away Overlay */}
       {isChatOpen && (
         <div
-          className={`fixed inset-0 z-40 transition-opacity duration-300 ${
-            isClosing ? 'opacity-0' : 'opacity-0'
-          }`}
+          className="fixed inset-0 z-40"
+          style={{ pointerEvents: 'auto' }}
           onClick={handleCloseChat}
           data-testid="whatsapp-overlay"
         />
