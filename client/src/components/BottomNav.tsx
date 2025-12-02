@@ -35,6 +35,14 @@ export default function BottomNav({ onWhatsAppClick }: BottomNavProps) {
     { label: "About", icon: Users, href: "/about" },
   ];
 
+  const handleCloseChat = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setIsChatOpen(false);
+      setIsClosing(false);
+    }, 300);
+  };
+
   return (
     <nav 
       className="fixed bottom-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-lg border-t border-card-border shadow-2xl"
@@ -69,6 +77,17 @@ export default function BottomNav({ onWhatsAppClick }: BottomNavProps) {
         </div>
       </div>
 
+      {/* Click-away Overlay */}
+      {isChatOpen && (
+        <div
+          className={`fixed inset-0 z-40 transition-opacity duration-300 ${
+            isClosing ? 'opacity-0' : 'opacity-0'
+          }`}
+          onClick={handleCloseChat}
+          data-testid="whatsapp-overlay"
+        />
+      )}
+
       {/* Chat Popup */}
       {isChatOpen && (
         <div
@@ -78,6 +97,7 @@ export default function BottomNav({ onWhatsAppClick }: BottomNavProps) {
               : 'animate-in fade-in slide-in-from-bottom-4 duration-300'
           }`}
           data-testid="whatsapp-chat-popup"
+          onClick={(e) => e.stopPropagation()}
         >
           {/* Header */}
           <div className="bg-green-600 text-white p-4 flex items-center justify-between">
@@ -91,7 +111,7 @@ export default function BottomNav({ onWhatsAppClick }: BottomNavProps) {
               </div>
             </div>
             <button
-              onClick={() => setIsChatOpen(false)}
+              onClick={handleCloseChat}
               className="hover:bg-green-700 p-1 rounded transition-all"
               aria-label="Close chat"
               data-testid="button-close-chat"
