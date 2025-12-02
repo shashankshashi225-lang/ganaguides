@@ -103,11 +103,13 @@ export default function Home() {
     },
   ];
 
-  const packages = [
+  const packages: Package[] = [
     {
-      id: 1,
+      id: "fallback-1",
       name: "1-Day Kashi Darshan",
+      category: "touristic",
       duration: "1 Day",
+      destination: "Varanasi",
       shortDescription: "Experience the essence of Varanasi in a single day with our expertly curated tour through sacred ghats and ancient temples.",
       highlights: [
         "Sunrise boat ride on the Ganges",
@@ -116,11 +118,17 @@ export default function Home() {
         "Witness evening Ganga Aarti ceremony",
       ],
       imageUrl: package1,
+      detailedDescription: "Immerse yourself in the spiritual essence of Varanasi with this comprehensive one-day journey through the ancient city of Kashi.",
+      price: 2500,
+      featured: true,
+      isVisible: true,
     },
     {
-      id: 2,
+      id: "fallback-2",
       name: "2-Day Kashi + Sarnath",
+      category: "touristic",
       duration: "2 Days",
+      destination: "Varanasi",
       shortDescription: "Combine the spiritual energy of Varanasi with the peaceful Buddhist heritage of Sarnath on this immersive journey.",
       highlights: [
         "Complete Varanasi tour with boat ride",
@@ -129,11 +137,17 @@ export default function Home() {
         "Morning meditation session by the Ganges",
       ],
       imageUrl: package2,
+      detailedDescription: "Embark on a profound two-day spiritual expedition that connects the ancient traditions of Hinduism and Buddhism.",
+      price: 6500,
+      featured: true,
+      isVisible: true,
     },
     {
-      id: 3,
+      id: "fallback-3",
       name: "3-Day Ayodhya + Kashi Spiritual Trail",
+      category: "touristic",
       duration: "3 Days",
+      destination: "Ayodhya",
       shortDescription: "A comprehensive spiritual journey connecting the sacred cities of Ayodhya and Varanasi with expert local guidance.",
       highlights: [
         "Ram Janmabhoomi and major Ayodhya temples",
@@ -142,6 +156,10 @@ export default function Home() {
         "Sacred rituals participation opportunity",
       ],
       imageUrl: package3,
+      detailedDescription: "Undertake a transformative three-day pilgrimage that weaves together two of India's most sacred cities.",
+      price: 12500,
+      featured: true,
+      isVisible: true,
     },
   ];
 
@@ -519,7 +537,6 @@ export default function Home() {
           <FadeInSection>
             <EnhancedContactForm
               onSubmit={(data) => console.log("Form submitted:", data)}
-              onWhatsAppClick={handleWhatsApp}
             />
           </FadeInSection>
         </div>

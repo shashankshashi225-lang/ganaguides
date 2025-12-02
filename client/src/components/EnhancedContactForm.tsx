@@ -31,7 +31,7 @@ interface FormData {
   specialRequests: string;
 }
 
-export default function EnhancedContactForm({ onSubmit, onWhatsAppClick }: EnhancedContactFormProps) {
+export default function EnhancedContactForm({ onSubmit }: EnhancedContactFormProps) {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -103,6 +103,39 @@ export default function EnhancedContactForm({ onSubmit, onWhatsAppClick }: Enhan
 
   const handleChange = (field: keyof FormData, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
+  };
+
+  const handleWhatsAppClick = () => {
+    const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || "918468003094";
+    let messageParts: string[] = [];
+    
+    messageParts.push("Hi! I'm interested in booking a GangaGuides tour.");
+    
+    if (formData.name) {
+      messageParts.push(`My name is ${formData.name}.`);
+    }
+    if (formData.package) {
+      messageParts.push(`I'm interested in the ${formData.package} package.`);
+    }
+    if (formData.travelDate) {
+      messageParts.push(`Preferred travel date: ${formData.travelDate}.`);
+    }
+    if (formData.numTravelers && formData.numTravelers !== "1") {
+      messageParts.push(`Number of travelers: ${formData.numTravelers}.`);
+    }
+    if (formData.phone) {
+      messageParts.push(`You can reach me at ${formData.phone}.`);
+    }
+    if (formData.specialRequests) {
+      messageParts.push(`Additional info: ${formData.specialRequests}`);
+    }
+    
+    messageParts.push("Can you share more details?");
+    
+    const message = messageParts.join(" ");
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+    window.open(whatsappUrl, "_blank");
   };
 
   const containerVariants = {
@@ -421,7 +454,7 @@ export default function EnhancedContactForm({ onSubmit, onWhatsAppClick }: Enhan
             >
               <Button
                 type="button"
-                onClick={onWhatsAppClick}
+                onClick={handleWhatsAppClick}
                 className="w-full h-14 bg-[#25D366] hover:bg-[#20BD5A] text-white border-none text-lg font-semibold shadow-lg hover:shadow-xl transition-all gap-2"
                 data-testid="button-whatsapp-direct"
               >

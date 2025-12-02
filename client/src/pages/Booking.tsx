@@ -95,7 +95,6 @@ export default function Booking() {
           <FadeInSection delay={0.2}>
             <EnhancedContactForm
               onSubmit={handleFormSubmit}
-              onWhatsAppClick={handleWhatsApp}
             />
           </FadeInSection>
         </div>
