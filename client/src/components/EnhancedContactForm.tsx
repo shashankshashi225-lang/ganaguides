@@ -63,6 +63,12 @@ export default function EnhancedContactForm({ onSubmit, onWhatsAppClick }: Enhan
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(bookingData),
       });
+      
+      const contentType = response.headers.get("content-type");
+      if (!contentType || !contentType.includes("application/json")) {
+        throw new Error("Server error. Please try again later.");
+      }
+      
       const responseData = await response.json();
       console.log("Response:", response.status, responseData);
       if (!response.ok) throw new Error(responseData.message || "Failed to submit booking");

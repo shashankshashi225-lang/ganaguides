@@ -32,13 +32,14 @@ export default function PackageCardFlip({
 
   return (
     <div
-      className="h-full"
+      className="min-h-[420px] sm:min-h-[450px] md:min-h-[480px] h-full"
+      style={{ perspective: "1000px" }}
       onMouseEnter={() => setIsFlipped(true)}
       onMouseLeave={() => setIsFlipped(false)}
       data-testid={`card-package-${name.toLowerCase().replace(/\s+/g, '-')}`}
     >
       <div
-        className="relative w-full h-full transition-transform duration-500 preserve-3d"
+        className="relative w-full h-full min-h-[420px] sm:min-h-[450px] md:min-h-[480px] transition-transform duration-500"
         style={{
           transformStyle: "preserve-3d",
           transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
