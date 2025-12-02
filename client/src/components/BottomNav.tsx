@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Home, Package, Map, BookOpen, Users, MessageCircle, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLocation } from "wouter";
@@ -8,8 +8,20 @@ interface BottomNavProps {
 }
 
 export default function BottomNav({ onWhatsAppClick }: BottomNavProps) {
-  const [, setLocation] = useLocation();
+  const [location, setLocation] = useLocation();
   const [isChatOpen, setIsChatOpen] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
+
+  // Auto-close chat popup when user navigates to a different page
+  useEffect(() => {
+    if (isChatOpen) {
+      setIsClosing(true);
+      setTimeout(() => {
+        setIsChatOpen(false);
+        setIsClosing(false);
+      }, 300);
+    }
+  }, [location]);
   const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || "918468003094";
   const message = "Hi! I'm interested in booking a GangaGuides tour. Can you share available packages and pricing?";
   const encodedMessage = encodeURIComponent(message);
@@ -60,7 +72,11 @@ export default function BottomNav({ onWhatsAppClick }: BottomNavProps) {
       {/* Chat Popup */}
       {isChatOpen && (
         <div
-          className="fixed bottom-20 right-4 z-50 w-80 rounded-lg shadow-2xl overflow-hidden bg-white animate-in fade-in slide-in-from-bottom-4 duration-300 md:bottom-24 md:right-6"
+          className={`fixed bottom-20 right-4 z-50 w-80 rounded-lg shadow-2xl overflow-hidden bg-white md:bottom-24 md:right-6 transition-all duration-300 ${
+            isClosing 
+              ? 'animate-out fade-out slide-out-to-bottom-4 duration-300' 
+              : 'animate-in fade-in slide-in-from-bottom-4 duration-300'
+          }`}
           data-testid="whatsapp-chat-popup"
         >
           {/* Header */}
