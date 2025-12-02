@@ -32,8 +32,6 @@ import package3 from "@assets/generated_images/Ayodhya_Ram_Mandir_temple_baae3de
 
 import varanasi from "@assets/generated_images/Boat_perspective_Ganges_view_e308dae7.png";
 import ayodhya from "@assets/generated_images/Ayodhya_Ram_Mandir_temple_baae3de1.png";
-import sarnath from "@assets/generated_images/Sarnath_Buddhist_stupa_sunset_888b3275.png";
-import prayagraj from "@assets/generated_images/Prayagraj_Triveni_Sangam_confluence_c12597e6.png";
 
 import guide1 from "@assets/generated_images/Local_tour_guide_portrait_a60f1ce8.png";
 import guide2 from "@assets/generated_images/Female_guide_portrait_professional_c50981da.png";
@@ -118,46 +116,46 @@ export default function Home() {
         "Witness evening Ganga Aarti ceremony",
       ],
       imageUrl: package1,
-      detailedDescription: "Immerse yourself in the spiritual essence of Varanasi with this comprehensive one-day journey through the ancient city of Kashi.",
+      detailedDescription: "Immerse yourself in the spiritual essence of Varanasi with this comprehensive one-day journey through the ancient city of Kashi. Experience the magic of sunrise on the Ganges, visit the most sacred temples, explore the winding lanes of the old city, and witness the mesmerizing evening aarti ceremony.\n\nYour day begins before dawn with a boat ride as the sun rises over the Ganges, painting the ghats in golden hues. After breakfast, explore the famous Kashi Vishwanath Temple and other sacred sites. Walk through centuries-old lanes filled with silk shops, sweet vendors, and hidden temples.\n\nThe evening brings you to Dashashwamedh Ghat for the spectacular Ganga Aarti—a synchronized ritual of fire, prayer, and devotion that has been performed for generations.\n\nIncludes: Boat ride, temple visits, lunch, guide services, and all local transportation.",
       price: 2500,
       featured: true,
       isVisible: true,
     },
     {
       id: "fallback-2",
-      name: "2-Day Kashi + Sarnath",
+      name: "2-Day Complete Ayodhya Experience",
       category: "touristic",
       duration: "2 Days",
-      destination: "Varanasi",
-      shortDescription: "Combine the spiritual energy of Varanasi with the peaceful Buddhist heritage of Sarnath on this immersive journey.",
+      destination: "Ayodhya",
+      shortDescription: "A comprehensive spiritual journey through the birthplace of Lord Rama with expert local guidance and VIP temple access.",
       highlights: [
-        "Complete Varanasi tour with boat ride",
-        "Explore Sarnath where Buddha gave first sermon",
-        "Visit Dhamek Stupa and museums",
-        "Morning meditation session by the Ganges",
+        "Ram Janmabhoomi Temple darshan",
+        "Hanuman Garhi and Kanak Bhawan visits",
+        "Saryu River aarti and holy dip",
+        "All major temple visits with expert guide",
       ],
       imageUrl: package2,
-      detailedDescription: "Embark on a profound two-day spiritual expedition that connects the ancient traditions of Hinduism and Buddhism.",
-      price: 6500,
+      detailedDescription: "Undertake a transformative pilgrimage to Ayodhya, the sacred birthplace of Lord Rama. This two-day package covers all the major spiritual sites with comfortable accommodation and expert guidance.\n\nDay 1: Arrive and visit the magnificent Ram Janmabhoomi Temple, the architectural marvel that has captured hearts worldwide. Explore Hanuman Garhi with its fortress-like structure offering panoramic city views. Evening Saryu Aarti at Ram Ki Paidi.\n\nDay 2: Early morning holy dip in the Saryu River, followed by visits to Kanak Bhawan, Dashrath Bhavan, and other sacred sites. Conclude with a peaceful boat ride on the Saryu.\n\nOur local guides share stories from the Ramayana, bringing the ancient epic to life as you walk the same paths described in sacred texts.\n\nIncludes: 3-star accommodation, all meals, temple darshan, guide services, and local transportation.",
+      price: 7500,
       featured: true,
       isVisible: true,
     },
     {
       id: "fallback-3",
-      name: "3-Day Ayodhya + Kashi Spiritual Trail",
+      name: "3-Day Ujjain Spiritual Retreat",
       category: "touristic",
       duration: "3 Days",
-      destination: "Ayodhya",
-      shortDescription: "A comprehensive spiritual journey connecting the sacred cities of Ayodhya and Varanasi with expert local guidance.",
+      destination: "Ujjain",
+      shortDescription: "Experience the sacred Mahakaleshwar Jyotirlinga, legendary Bhasma Aarti, and all major temples of the holy city of Ujjain.",
       highlights: [
-        "Ram Janmabhoomi and major Ayodhya temples",
-        "Hanuman Garhi and Kanak Bhawan",
-        "Complete Varanasi heritage experience",
-        "Sacred rituals participation opportunity",
+        "Exclusive Bhasma Aarti experience",
+        "Mahakaleshwar Temple darshan",
+        "Shipra River ghat rituals",
+        "All 7 sacred temples visit",
       ],
       imageUrl: package3,
-      detailedDescription: "Undertake a transformative three-day pilgrimage that weaves together two of India's most sacred cities.",
-      price: 12500,
+      detailedDescription: "Discover the ancient spiritual heritage of Ujjain, one of the seven Moksha-giving cities of India. This comprehensive three-day package includes the rare Bhasma Aarti experience and visits to all major sacred sites.\n\nDay 1: Arrive and check in. Evening visit to Ram Ghat for Shipra Aarti. Explore local markets and temples.\n\nDay 2: Wake up at 3 AM for the legendary Bhasma Aarti at Mahakaleshwar Temple (pre-booked pass included). This unique ritual, performed with sacred ash, is found nowhere else in India. Later, visit Kal Bhairav Temple, Harsiddhi Temple, and other sacred sites.\n\nDay 3: Morning visit to Gadkalika Temple and Bade Ganeshji Temple. Explore the ancient Jantar Mantar observatory. Afternoon at leisure before departure.\n\nIncludes: Premium accommodation, Bhasma Aarti pass, all meals, complete temple tour, guide services, and transfers.",
+      price: 12000,
       featured: true,
       isVisible: true,
     },
@@ -175,14 +173,9 @@ export default function Home() {
       imageUrl: ayodhya,
     },
     {
-      name: "Sarnath",
-      shortDescription: "Visit the site where Buddha gave his first sermon, enriched with history and tranquility.",
-      imageUrl: sarnath,
-    },
-    {
-      name: "Prayagraj",
-      shortDescription: "Experience the sacred confluence of three holy rivers at Triveni Sangam.",
-      imageUrl: prayagraj,
+      name: "Ujjain",
+      shortDescription: "Experience the sacred Mahakaleshwar Jyotirlinga and the legendary Bhasma Aarti ritual.",
+      imageUrl: package3,
     },
   ];
 
