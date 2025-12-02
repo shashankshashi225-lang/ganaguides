@@ -81,7 +81,7 @@ export default function Footer() {
             {/* Chat Popup */}
             {isChatOpen && (
               <div
-                className="absolute bottom-24 right-0 z-50 w-80 rounded-lg shadow-2xl overflow-hidden bg-white animate-in fade-in slide-in-from-bottom-4 duration-300"
+                className="fixed bottom-40 right-4 z-[100] w-80 rounded-lg shadow-2xl overflow-hidden bg-white animate-in fade-in slide-in-from-bottom-4 duration-300 md:bottom-28 md:right-6"
                 data-testid="whatsapp-chat-popup-footer"
               >
                 {/* Header */}
