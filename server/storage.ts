@@ -23,6 +23,7 @@ import {
 } from "@shared/schema";
 import { db } from "./db";
 import { eq, and } from "drizzle-orm";
+import { MemoryStorage } from "./memoryStorage";
 
 export interface IStorage {
   getUser(id: string): Promise<User | undefined>;
@@ -324,4 +325,4 @@ export class DatabaseStorage implements IStorage {
   }
 }
 
-export const storage: IStorage = new DatabaseStorage();
+export const storage: IStorage = db ? new DatabaseStorage() : new MemoryStorage();
