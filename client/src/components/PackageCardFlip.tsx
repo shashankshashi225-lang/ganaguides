@@ -49,8 +49,8 @@ export default function PackageCardFlip({
           style={{ backfaceVisibility: "hidden" }}
           className="absolute w-full h-full"
         >
-          <Card className="overflow-hidden border-2 border-card-border shadow-lg hover:shadow-2xl transition-shadow h-full flex flex-col">
-            <div className="relative flex flex-col h-full">
+          <Card className="overflow-hidden border-2 border-card-border shadow-lg hover:shadow-2xl transition-shadow flex flex-col">
+            <div className="relative flex flex-col">
               <div className="relative h-56 overflow-hidden flex-shrink-0">
                 <LazyImage
                   src={imageUrl}
@@ -105,8 +105,8 @@ export default function PackageCardFlip({
           style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
           className="absolute w-full h-full"
         >
-          <Card className="overflow-hidden border-2 border-primary/50 shadow-2xl bg-gradient-to-br from-primary/5 to-secondary/10 h-full flex flex-col">
-            <div className="flex flex-col p-5 h-full">
+          <Card className="overflow-hidden border-2 border-primary/50 shadow-2xl bg-gradient-to-br from-primary/5 to-secondary/10 flex flex-col">
+            <div className="flex flex-col p-5">
               <div className="flex items-center justify-between mb-3 flex-shrink-0">
                 <h3 className="font-display text-xl font-bold text-primary">{name}</h3>
                 <Badge variant="secondary" className="shadow-md text-xs">
