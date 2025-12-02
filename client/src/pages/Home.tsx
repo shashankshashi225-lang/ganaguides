@@ -5,6 +5,7 @@ import type { Destination, BlogPost, Package } from "@shared/schema";
 import { Button } from "@/components/ui/button";
 import HeroSlider from "@/components/HeroSlider";
 import FadeInSection from "@/components/FadeInSection";
+import FeaturedPackagesCarousel from "@/components/FeaturedPackagesCarousel";
 import PackageCardFlip from "@/components/PackageCardFlip";
 import DestinationGuideCard from "@/components/DestinationGuideCard";
 import VideoTestimonials from "@/components/VideoTestimonials";
@@ -319,11 +320,11 @@ export default function Home() {
         />
       </section>
 
-      <section id="packages" className="py-16 md:py-24 px-4 bg-background">
+      <section id="packages" className="py-8 md:py-12 px-4 bg-background">
         <div className="max-w-7xl mx-auto">
           <FadeInSection>
-            <div className="text-center mb-12">
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+            <div className="text-center mb-8">
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-2">
                 Featured Packages
               </h2>
               <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
@@ -332,27 +333,16 @@ export default function Home() {
             </div>
           </FadeInSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
-            {(apiPackages || packages).slice(0, 3).map((pkg) => {
-              const pkgId = 'id' in pkg && typeof pkg.id === 'string' ? pkg.id : ('id' in pkg ? pkg.id : 1);
-              return (
-                <PackageCardFlip
-                  key={pkgId}
-                  id={pkgId}
-                  name={pkg.name}
-                  duration={pkg.duration}
-                  shortDescription={pkg.shortDescription}
-                  highlights={pkg.highlights}
-                  imageUrl={pkg.imageUrl}
-                  onViewDetails={() => setLocation(`/package/${pkgId}`)}
-                  onEnquireNow={() => handleWhatsApp(pkg.name)}
-                  onBookNow={() => handleBookNow(pkg.name)}
-                />
-              );
-            })}
-          </div>
+          <FadeInSection delay={0.2}>
+            <FeaturedPackagesCarousel
+              packages={apiPackages && apiPackages.length > 0 ? apiPackages : packages}
+              onViewDetails={(pkgId) => setLocation(`/package/${pkgId}`)}
+              onEnquireNow={handleWhatsApp}
+              onBookNow={handleBookNow}
+            />
+          </FadeInSection>
 
-          <div className="text-center">
+          <div className="text-center mt-3">
             <Button
               size="lg"
               onClick={() => setLocation("/packages")}
@@ -365,13 +355,15 @@ export default function Home() {
         </div>
       </section>
 
-      <PanchangCalendar onWhatsAppClick={() => handleWhatsApp()} />
+      <div className="-mt-6">
+        <PanchangCalendar onWhatsAppClick={() => handleWhatsApp()} />
+      </div>
 
-      <section id="destinations" className="py-16 md:py-24 px-4 bg-accent/30">
+      <section id="destinations" className="py-6 md:py-8 px-4 bg-accent/30">
         <div className="max-w-7xl mx-auto">
           <FadeInSection>
-            <div className="text-center mb-12">
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+            <div className="text-center mb-5">
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-2">
                 Sacred Destinations
               </h2>
               <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
@@ -379,7 +371,7 @@ export default function Home() {
               </p>
             </div>
           </FadeInSection>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
             {(apiDestinations || destinations).slice(0, 2).map((destination, index) => {
               const imageUrl = 'mainImage' in destination ? destination.mainImage : destination.imageUrl;
               const destId = 'id' in destination && typeof destination.id === 'string' 
@@ -410,20 +402,20 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className="py-16 md:py-24 px-4 bg-background">
+      <section id="about" className="py-6 md:py-8 px-4 bg-background">
         <div className="max-w-7xl mx-auto">
           <FadeInSection>
-            <div className="text-center mb-12">
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+            <div className="text-center mb-5">
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-2">
                 About GangaGuides
               </h2>
-              <p className="text-muted-foreground text-lg max-w-3xl mx-auto mb-8">
+              <p className="text-muted-foreground text-lg max-w-3xl mx-auto mb-4">
                 Local insight, authentic experiences, and a passion for sharing the soul of Kashi
               </p>
             </div>
           </FadeInSection>
           
-          <div className="max-w-4xl mx-auto mb-8">
+          <div className="max-w-4xl mx-auto mb-5">
             <p className="text-center text-lg leading-relaxed text-foreground/90">
               GangaGuides was born to connect travelers with the living heritage of Varanasi and nearby sacred cities. 
               Our guides are locals who have walked these streets, participated in rituals, and understand the stories 
@@ -444,11 +436,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="testimonials" className="py-16 md:py-24 px-4 bg-accent/30">
+      <section id="testimonials" className="py-6 md:py-8 px-4 bg-accent/30">
         <div className="max-w-7xl mx-auto">
           <FadeInSection>
-            <div className="text-center mb-12">
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+            <div className="text-center mb-5">
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-2">
                 Stories from Our Travelers
               </h2>
               <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
@@ -459,8 +451,8 @@ export default function Home() {
           
           {/* Video Testimonials Section */}
           <FadeInSection delay={0.2}>
-            <div className="mb-16">
-              <h3 className="font-display text-2xl md:text-3xl font-bold text-center mb-8">
+            <div className="mb-6">
+              <h3 className="font-display text-2xl md:text-3xl font-bold text-center mb-4">
                 Watch Their Experiences
               </h3>
               <VideoTestimonials testimonials={videoTestimonials} />
@@ -470,7 +462,7 @@ export default function Home() {
           {/* Text Reviews Section */}
           <FadeInSection delay={0.4}>
             <div>
-              <h3 className="font-display text-2xl md:text-3xl font-bold text-center mb-8">
+              <h3 className="font-display text-2xl md:text-3xl font-bold text-center mb-4">
                 What They're Saying
               </h3>
               <TextReviews reviews={textReviews} />
@@ -479,11 +471,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="blog" className="py-16 md:py-24 px-4 bg-background">
+      <section id="blog" className="py-6 md:py-8 px-4 bg-background">
         <div className="max-w-7xl mx-auto">
           <FadeInSection>
-            <div className="text-center mb-12">
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+            <div className="text-center mb-5">
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-2">
                 Latest Stories & Travel Tips
               </h2>
               <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
@@ -491,7 +483,7 @@ export default function Home() {
               </p>
             </div>
           </FadeInSection>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
             {(apiBlogPosts || blogPosts).slice(0, 3).map((post, index) => {
               const imageUrl = 'mainImage' in post ? post.mainImage : post.imageUrl;
               const postId = 'id' in post && typeof post.id === 'string' ? post.id : String(index + 1);
@@ -522,7 +514,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contact" className="py-16 md:py-24 px-4 bg-accent/30">
+      <section id="contact" className="py-6 md:py-8 px-4 bg-accent/30">
         <div className="max-w-7xl mx-auto">
           <FadeInSection>
             <EnhancedContactForm
