@@ -161,7 +161,7 @@ export default function FeaturedPackagesCarousel({
                           animation: cardGlow 3s ease-in-out infinite;
                         }
                       `}</style>
-                      <Card className="overflow-hidden border-2 border-card-border shadow-2xl flex flex-col bg-background hover:shadow-3xl transition-shadow h-full carousel-glow">
+                      <Card className="overflow-hidden border-2 border-card-border shadow-2xl flex flex-col bg-background hover:shadow-3xl transition-shadow carousel-glow">
                         <div className="relative h-56 overflow-hidden flex-shrink-0">
                           <LazyImage
                             src={pkg.imageUrl}
@@ -230,7 +230,7 @@ export default function FeaturedPackagesCarousel({
                         height: "100%",
                       }}
                     >
-                      <Card className="overflow-hidden border-2 border-primary/50 shadow-2xl bg-gradient-to-br from-primary/5 to-secondary/10 flex flex-col p-5 cursor-pointer h-full carousel-glow">
+                      <Card className="overflow-hidden border-2 border-primary/50 shadow-2xl bg-gradient-to-br from-primary/5 to-secondary/10 flex flex-col p-5 cursor-pointer carousel-glow">
                         <div className="flex items-start justify-between mb-3 flex-shrink-0 gap-2">
                           <h3 className="font-display text-lg font-bold text-primary line-clamp-2">
                             {pkg.name}
