@@ -11,7 +11,9 @@ export default function BottomNav({ onWhatsAppClick }: BottomNavProps) {
   const [, setLocation] = useLocation();
   const [isChatOpen, setIsChatOpen] = useState(false);
   const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || "918468003094";
-  const whatsappLink = `https://wa.me/${whatsappNumber}`;
+  const message = "Hi! I'm interested in booking a GangaGuides tour. Can you share available packages and pricing?";
+  const encodedMessage = encodeURIComponent(message);
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
 
   const navItems = [
     { label: "Home", icon: Home, href: "/" },
