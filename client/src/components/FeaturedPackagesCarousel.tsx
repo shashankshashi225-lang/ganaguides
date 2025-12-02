@@ -83,6 +83,15 @@ export default function FeaturedPackagesCarousel({
     }));
   };
 
+  const handleWhatsAppEnquire = (packageName: string) => {
+    const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || "918468003094";
+    const message = `Hi! I'm interested in the ${packageName} package. Can you share details, availability, and pricing?`;
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+    window.open(whatsappLink, "_blank");
+    onEnquireNow?.(packageName);
+  };
+
   return (
     <div className="w-full">
       <div className="max-w-7xl mx-auto">
@@ -203,7 +212,7 @@ export default function FeaturedPackagesCarousel({
                               className="w-full border-[#25D366] text-[#25D366] hover:bg-[#25D366]/10 font-semibold gap-2 text-sm"
                               onClick={(e) => {
                                 e.stopPropagation();
-                                onEnquireNow?.(pkg.name);
+                                handleWhatsAppEnquire(pkg.name);
                               }}
                               data-testid="button-featured-whatsapp"
                             >
@@ -286,7 +295,7 @@ export default function FeaturedPackagesCarousel({
                             className="w-full border-[#25D366] text-[#25D366] hover:bg-[#25D366]/10 font-semibold gap-2 text-sm"
                             onClick={(e) => {
                               e.stopPropagation();
-                              onEnquireNow?.(pkg.name);
+                              handleWhatsAppEnquire(pkg.name);
                             }}
                             data-testid="button-featured-back-whatsapp"
                           >
