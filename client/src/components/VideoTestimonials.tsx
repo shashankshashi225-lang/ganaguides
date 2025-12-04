@@ -51,6 +51,26 @@ export default function VideoTestimonials({ testimonials: propTestimonials }: Vi
     }
   };
 
+  const isYouTubeUrl = (url: string) => /youtube\.com|youtu\.be/.test(url);
+
+  const toYouTubeEmbed = (url: string) => {
+    try {
+      const u = new URL(url);
+      if (u.hostname.includes("youtu.be")) {
+        const id = u.pathname.replace(/^\//, "");
+        return `https://www.youtube-nocookie.com/embed/${id}`;
+      }
+      if (u.hostname.includes("youtube.com")) {
+        if (u.pathname.startsWith("/embed/")) return url;
+        const id = u.searchParams.get("v");
+        if (id) return `https://www.youtube-nocookie.com/embed/${id}`;
+      }
+      return url;
+    } catch {
+      return url;
+    }
+  };
+
   const renderApiTestimonial = (testimonial: VideoTestimonial, index: number) => {
     const id = testimonial.id;
     const isLoaded = loadedVideos.includes(id);
@@ -85,7 +105,7 @@ export default function VideoTestimonials({ testimonials: propTestimonials }: Vi
             </div>
           ) : (
             <iframe
-              src={testimonial.videoUrl}
+              src={isYouTubeUrl(testimonial.videoUrl) ? toYouTubeEmbed(testimonial.videoUrl) : testimonial.videoUrl}
               className="w-full h-full"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen

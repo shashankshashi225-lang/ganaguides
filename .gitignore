@@ -19,6 +19,7 @@ replit.nix
 .upm/
 .cache/
 .config/
+.local/
 
 # Logs
 *.log
